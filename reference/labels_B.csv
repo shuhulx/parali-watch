@@ -1,0 +1,361 @@
+point_id,label,note
+P000,1,dark brown-charcoal field after; pale before
+P001,0,no dark char under square after; stubble/ploughed/crop
+P002,0,no dark char under square after; stubble/ploughed/crop
+P003,0,no dark char under square after; stubble/ploughed/crop
+P004,0,no dark char under square after; stubble/ploughed/crop
+P005,1,dark charcoal at square after; green/lavender before
+P006,0,no dark char under square after; stubble/ploughed/crop
+P007,0,no dark char under square after; stubble/ploughed/crop
+P008,1,dark grey-purple field after; lavender before
+P009,0,no dark char under square after; stubble/ploughed/crop
+P010,9,settlement
+P011,9,settlement
+P012,0,no dark char under square after; stubble/ploughed/crop
+P013,0,no dark char under square after; stubble/ploughed/crop
+P014,9,hazy dark grey uniform
+P015,0,no dark char under square after; stubble/ploughed/crop
+P016,0,no dark char under square after; stubble/ploughed/crop
+P017,0,no dark char under square after; stubble/ploughed/crop
+P018,0,no dark char under square after; stubble/ploughed/crop
+P019,0,no dark char under square after; stubble/ploughed/crop
+P020,0,no dark char under square after; stubble/ploughed/crop
+P021,0,no dark char under square after; stubble/ploughed/crop
+P022,0,no dark char under square after; stubble/ploughed/crop
+P023,1,dark mauve-grey after; lavender before
+P024,0,no dark char under square after; stubble/ploughed/crop
+P025,0,no dark char under square after; stubble/ploughed/crop
+P026,0,no dark char under square after; stubble/ploughed/crop
+P027,1,dark patch at square after
+P028,0,no dark char under square after; stubble/ploughed/crop
+P029,1,dark strip at square after
+P030,0,no dark char under square after; stubble/ploughed/crop
+P031,0,no dark char under square after; stubble/ploughed/crop
+P032,1,dark purple-grey field after; lavender before
+P033,0,no dark char under square after; stubble/ploughed/crop
+P034,0,no dark char under square after; stubble/ploughed/crop
+P035,0,no dark char under square after; stubble/ploughed/crop
+P036,1,dark mauve after; lavender before
+P037,0,no dark char under square after; stubble/ploughed/crop
+P038,0,no dark char under square after; stubble/ploughed/crop
+P039,1,dark charcoal patch at square after
+P040,0,no dark char under square after; stubble/ploughed/crop
+P041,0,no dark char under square after; stubble/ploughed/crop
+P042,9,pre haze
+P043,9,settlement
+P044,0,no dark char under square after; stubble/ploughed/crop
+P045,0,no dark char under square after; stubble/ploughed/crop
+P046,0,no dark char under square after; stubble/ploughed/crop
+P047,9,settlement edge
+P048,0,no dark char under square after; stubble/ploughed/crop
+P049,0,no dark char under square after; stubble/ploughed/crop
+P050,0,no dark char under square after; stubble/ploughed/crop
+P051,0,no dark char under square after; stubble/ploughed/crop
+P052,0,no dark char under square after; stubble/ploughed/crop
+P053,0,no dark char under square after; stubble/ploughed/crop
+P054,0,no dark char under square after; stubble/ploughed/crop
+P055,9,truncated uniform grey chip
+P056,0,no dark char under square after; stubble/ploughed/crop
+P057,1,dark mauve after; lavender before
+P058,0,no dark char under square after; stubble/ploughed/crop
+P059,0,no dark char under square after; stubble/ploughed/crop
+P060,0,no dark char under square after; stubble/ploughed/crop
+P061,0,no dark char under square after; stubble/ploughed/crop
+P062,0,no dark char under square after; stubble/ploughed/crop
+P063,0,no dark char under square after; stubble/ploughed/crop
+P064,0,no dark char under square after; stubble/ploughed/crop
+P065,1,dark charcoal after; lavender before
+P066,0,no dark char under square after; stubble/ploughed/crop
+P067,0,no dark char under square after; stubble/ploughed/crop
+P068,0,no dark char under square after; stubble/ploughed/crop
+P069,0,no dark char under square after; stubble/ploughed/crop
+P070,0,no dark char under square after; stubble/ploughed/crop
+P071,0,no dark char under square after; stubble/ploughed/crop
+P072,0,no dark char under square after; stubble/ploughed/crop
+P073,9,settlement
+P074,0,no dark char under square after; stubble/ploughed/crop
+P075,0,no dark char under square after; stubble/ploughed/crop
+P076,0,no dark char under square after; stubble/ploughed/crop
+P077,1,small dark patch at square after
+P078,1,dark mauve field after; lavender before
+P079,0,no dark char under square after; stubble/ploughed/crop
+P080,0,no dark char under square after; stubble/ploughed/crop
+P081,0,no dark char under square after; stubble/ploughed/crop
+P082,0,no dark char under square after; stubble/ploughed/crop
+P083,0,no dark char under square after; stubble/ploughed/crop
+P084,0,no dark char under square after; stubble/ploughed/crop
+P085,0,no dark char under square after; stubble/ploughed/crop
+P086,0,no dark char under square after; stubble/ploughed/crop
+P087,0,no dark char under square after; stubble/ploughed/crop
+P088,0,no dark char under square after; stubble/ploughed/crop
+P089,1,dark charcoal after; lavender before
+P090,1,large charcoal field after
+P091,0,no dark char under square after; stubble/ploughed/crop
+P092,0,no dark char under square after; stubble/ploughed/crop
+P093,1,dark charcoal patch at square after
+P094,0,no dark char under square after; stubble/ploughed/crop
+P095,0,no dark char under square after; stubble/ploughed/crop
+P096,0,no dark char under square after; stubble/ploughed/crop
+P097,1,whole field dark brown after; square on faint track
+P098,0,no dark char under square after; stubble/ploughed/crop
+P099,0,no dark char under square after; stubble/ploughed/crop
+P100,0,no dark char under square after; stubble/ploughed/crop
+P101,0,no dark char under square after; stubble/ploughed/crop
+P102,1,dark charcoal patch after; lavender before
+P103,0,no dark char under square after; stubble/ploughed/crop
+P104,1,dark mauve patch after; pale before
+P105,0,no dark char under square after; stubble/ploughed/crop
+P106,0,no dark char under square after; stubble/ploughed/crop
+P107,9,pre haze
+P108,0,no dark char under square after; stubble/ploughed/crop
+P109,0,no dark char under square after; stubble/ploughed/crop
+P110,0,no dark char under square after; stubble/ploughed/crop
+P111,0,no dark char under square after; stubble/ploughed/crop
+P112,0,no dark char under square after; stubble/ploughed/crop
+P113,0,no dark char under square after; stubble/ploughed/crop
+P114,0,no dark char under square after; stubble/ploughed/crop
+P115,9,truncated chip; square on diagonal edge
+P116,0,no dark char under square after; stubble/ploughed/crop
+P117,0,no dark char under square after; stubble/ploughed/crop
+P118,0,no dark char under square after; stubble/ploughed/crop
+P119,0,no dark char under square after; stubble/ploughed/crop
+P120,0,no dark char under square after; stubble/ploughed/crop
+P121,0,no dark char under square after; stubble/ploughed/crop
+P122,1,dark patch at square after
+P123,0,no dark char under square after; stubble/ploughed/crop
+P124,0,no dark char under square after; stubble/ploughed/crop
+P125,1,dark patch over square after
+P126,0,no dark char under square after; stubble/ploughed/crop
+P127,9,mottled settlement
+P128,0,no dark char under square after; stubble/ploughed/crop
+P129,9,dark patch adjacent; square straddles edge
+P130,9,dark strip adjacent; square straddles edge
+P131,0,no dark char under square after; stubble/ploughed/crop
+P132,1,dark brown-charcoal field after; pale before
+P133,0,no dark char under square after; stubble/ploughed/crop
+P134,0,no dark char under square after; stubble/ploughed/crop
+P135,0,no dark char under square after; stubble/ploughed/crop
+P136,0,no dark char under square after; stubble/ploughed/crop
+P137,0,no dark char under square after; stubble/ploughed/crop
+P138,9,pre haze
+P139,0,no dark char under square after; stubble/ploughed/crop
+P140,0,no dark char under square after; stubble/ploughed/crop
+P141,0,no dark char under square after; stubble/ploughed/crop
+P142,0,no dark char under square after; stubble/ploughed/crop
+P143,9,pre haze
+P144,0,no dark char under square after; stubble/ploughed/crop
+P145,0,no dark char under square after; stubble/ploughed/crop
+P146,0,no dark char under square after; stubble/ploughed/crop
+P147,0,no dark char under square after; stubble/ploughed/crop
+P148,0,no dark char under square after; stubble/ploughed/crop
+P149,0,no dark char under square after; stubble/ploughed/crop
+P150,1,dark brown-charcoal field after; pale before
+P151,0,no dark char under square after; stubble/ploughed/crop
+P152,0,no dark char under square after; stubble/ploughed/crop
+P153,0,no dark char under square after; stubble/ploughed/crop
+P154,0,no dark char under square after; stubble/ploughed/crop
+P155,0,no dark char under square after; stubble/ploughed/crop
+P156,0,no dark char under square after; stubble/ploughed/crop
+P157,0,no dark char under square after; stubble/ploughed/crop
+P158,0,no dark char under square after; stubble/ploughed/crop
+P159,0,no dark char under square after; stubble/ploughed/crop
+P160,0,no dark char under square after; stubble/ploughed/crop
+P161,0,no dark char under square after; stubble/ploughed/crop
+P162,1,lavender stubble before; dark mauve-charcoal field after
+P163,0,no dark char under square after; stubble/ploughed/crop
+P164,0,no dark char under square after; stubble/ploughed/crop
+P165,0,no dark char under square after; stubble/ploughed/crop
+P166,0,no dark char under square after; stubble/ploughed/crop
+P167,0,no dark char under square after; stubble/ploughed/crop
+P168,0,no dark char under square after; stubble/ploughed/crop
+P169,0,no dark char under square after; stubble/ploughed/crop
+P170,1,dark charcoal SWIR patch at square after
+P171,0,no dark char under square after; stubble/ploughed/crop
+P172,0,no dark char under square after; stubble/ploughed/crop
+P173,0,no dark char under square after; stubble/ploughed/crop
+P174,0,no dark char under square after; stubble/ploughed/crop
+P175,0,no dark char under square after; stubble/ploughed/crop
+P176,0,no dark char under square after; stubble/ploughed/crop
+P177,0,no dark char under square after; stubble/ploughed/crop
+P178,9,settlement mix
+P179,9,pre smoke haze
+P180,1,lavender stubble before; dark charcoal SWIR and dark brown true after
+P181,9,settlement edge
+P182,0,no dark char under square after; stubble/ploughed/crop
+P183,0,tiny dark spot only; not clearly field char
+P184,0,no dark char under square after; stubble/ploughed/crop unchanged
+P185,0,no dark char under square after; stubble/ploughed/crop unchanged
+P186,1,black vertical char at square after; green before
+P187,0,no dark char under square after; stubble/ploughed/crop unchanged
+P188,0,no dark char under square after; stubble/ploughed/crop unchanged
+P189,9,white haze before
+P190,9,yellow haze before; unclear
+P191,0,no dark char under square after; stubble/ploughed/crop unchanged
+P192,0,no dark char under square after; stubble/ploughed/crop unchanged
+P193,0,no dark char under square after; stubble/ploughed/crop unchanged
+P194,0,no dark char under square after; stubble/ploughed/crop unchanged
+P195,0,no dark char under square after; stubble/ploughed/crop unchanged
+P196,0,no dark char under square after; stubble/ploughed/crop unchanged
+P197,0,dark maroon ploughed-like at edge
+P198,9,dark patch adjacent below square; edge
+P199,0,no dark char under square after; stubble/ploughed/crop unchanged
+P200,0,no dark char under square after; stubble/ploughed/crop unchanged
+P201,0,no dark char under square after; stubble/ploughed/crop unchanged
+P202,0,no dark char under square after; stubble/ploughed/crop unchanged
+P203,1,dark mauve-gray patch at square after; lavender before (moderate)
+P204,0,no dark char under square after; stubble/ploughed/crop unchanged
+P205,1,dark brown/purple patch at square after; pale before
+P206,0,no dark char under square after; stubble/ploughed/crop unchanged
+P207,0,no dark char under square after; stubble/ploughed/crop unchanged
+P208,0,no dark char under square after; stubble/ploughed/crop unchanged
+P209,0,no dark char under square after; stubble/ploughed/crop unchanged
+P210,0,no dark char under square after; stubble/ploughed/crop unchanged
+P211,0,no dark char under square after; stubble/ploughed/crop unchanged
+P212,0,no dark char under square after; stubble/ploughed/crop unchanged
+P213,0,dark patch below square edge; ploughed magenta
+P214,0,dark patch present before as well
+P215,0,no dark char under square after; stubble/ploughed/crop unchanged
+P216,0,char already present before; persists
+P217,0,no dark char under square after; stubble/ploughed/crop unchanged
+P218,1,black char band at square after; green before
+P219,1,dark char patch at square after; lavender before
+P220,0,no dark char under square after; stubble/ploughed/crop unchanged
+P221,0,dark patch before beside square gone after
+P222,0,no dark char under square after; stubble/ploughed/crop unchanged
+P223,0,no dark char under square after; stubble/ploughed/crop unchanged
+P224,9,char blob adjacent above square; straddles edge
+P225,0,no dark char under square after; stubble/ploughed/crop unchanged
+P226,0,no dark char under square after; stubble/ploughed/crop unchanged
+P227,9,gray hazy/uniform both dates
+P228,9,white no-data/haze before
+P229,0,no dark char under square after; stubble/ploughed/crop unchanged
+P230,0,no dark char under square after; stubble/ploughed/crop unchanged
+P231,0,no dark char under square after; stubble/ploughed/crop unchanged
+P232,0,no dark char under square after; stubble/ploughed/crop unchanged
+P233,0,no dark char under square after; stubble/ploughed/crop unchanged
+P234,0,green crop
+P235,0,no dark char under square after; stubble/ploughed/crop unchanged
+P236,0,no dark char under square after; stubble/ploughed/crop unchanged
+P237,0,no dark char under square after; stubble/ploughed/crop unchanged
+P238,0,no dark char under square after; stubble/ploughed/crop unchanged
+P239,0,no dark char under square after; stubble/ploughed/crop unchanged
+P240,0,no dark char under square after; stubble/ploughed/crop unchanged
+P241,0,no dark char under square after; stubble/ploughed/crop unchanged
+P242,1,black char at square after; lavender before (narrow chip)
+P243,0,no dark char under square after; stubble/ploughed/crop unchanged
+P244,0,no dark char under square after; stubble/ploughed/crop unchanged
+P245,1,black char at square after; light before
+P246,0,no dark char under square after; stubble/ploughed/crop unchanged
+P247,0,no dark char under square after; stubble/ploughed/crop unchanged
+P248,0,no dark char under square after; stubble/ploughed/crop unchanged
+P249,0,no dark char under square after; stubble/ploughed/crop unchanged
+P250,1,black char at square after; lavender before
+P251,0,no dark char under square after; stubble/ploughed/crop unchanged
+P252,0,dark patch left of square; square lavender
+P253,1,dark mauve patch at square after; lavender before
+P254,0,green crop
+P255,0,no dark char under square after; stubble/ploughed/crop unchanged
+P256,0,dark patch adjacent below square; square on lavender
+P257,0,no dark char under square after; stubble/ploughed/crop unchanged
+P258,0,no dark char under square after; stubble/ploughed/crop unchanged
+P259,9,square straddles dark strip edge
+P260,0,no dark char under square after; stubble/ploughed/crop unchanged
+P261,0,no dark char under square after; stubble/ploughed/crop unchanged
+P262,0,no dark char under square after; stubble/ploughed/crop unchanged
+P263,9,settlement/mixed pixels
+P264,0,whole chip darkened evenly; no distinct char
+P265,0,no dark char under square after; stubble/ploughed/crop unchanged
+P266,0,whole chip darkened evenly; no distinct char
+P267,0,no dark char under square after; stubble/ploughed/crop unchanged
+P268,0,no dark char under square after; stubble/ploughed/crop unchanged
+P269,0,no dark char under square after; stubble/ploughed/crop unchanged
+P270,0,no dark char under square after; stubble/ploughed/crop unchanged
+P271,0,no dark char under square after; stubble/ploughed/crop unchanged
+P272,9,village circular texture
+P273,0,no dark char under square after; stubble/ploughed/crop unchanged
+P274,0,no dark char under square after; stubble/ploughed/crop unchanged
+P275,0,no dark char under square after; stubble/ploughed/crop unchanged
+P276,1,large black char at square after; pale before
+P277,0,dark maroon ploughed soil after
+P278,0,no dark char under square after; stubble/ploughed/crop unchanged
+P279,0,no dark char under square after; stubble/ploughed/crop unchanged
+P280,0,no dark char under square after; stubble/ploughed/crop unchanged
+P281,9,bright haze at center before
+P282,0,dark mauve ploughed-like; no black char
+P283,0,no dark char under square after; stubble/ploughed/crop unchanged
+P284,0,no dark char under square after; stubble/ploughed/crop unchanged
+P285,0,no dark char under square after; stubble/ploughed/crop unchanged
+P286,0,dark maroon ploughed soil after
+P287,0,no dark char under square after; stubble/ploughed/crop unchanged
+P288,0,no dark char under square after; stubble/ploughed/crop unchanged
+P289,9,square beside canal edge
+P290,0,no dark char under square after; stubble/ploughed/crop unchanged
+P291,9,truncated narrow chip; square at chip edge
+P292,9,haze before; settlement-like after
+P293,0,no dark char under square after; stubble/ploughed/crop unchanged
+P294,0,no dark char under square after; stubble/ploughed/crop unchanged
+P295,1,field turned dark gray-purple after; lavender before
+P296,0,no dark char under square after; stubble/ploughed/crop unchanged
+P297,0,no dark char under square after; stubble/ploughed/crop unchanged
+P298,0,no dark char under square after; stubble/ploughed/crop unchanged
+P299,0,no dark char under square after; stubble/ploughed/crop unchanged
+P300,0,no dark char under square after; stubble/ploughed/crop unchanged
+P301,0,no dark char under square after; stubble/ploughed/crop unchanged
+P302,0,no dark char under square after; stubble/ploughed/crop unchanged
+P303,9,settlement-like texture
+P304,1,very dark purple patch at square after; pale before
+P305,0,no dark char under square after; stubble/ploughed/crop unchanged
+P306,0,no dark char under square after; stubble/ploughed/crop unchanged
+P307,0,no dark char under square after; stubble/ploughed/crop unchanged
+P308,0,no dark char under square after; stubble/ploughed/crop unchanged
+P309,0,no dark char under square after; stubble/ploughed/crop unchanged
+P310,0,dark magenta ploughed-like; no black char
+P311,0,no dark char under square after; stubble/ploughed/crop unchanged
+P312,0,no dark char under square after; stubble/ploughed/crop unchanged
+P313,0,no dark char under square after; stubble/ploughed/crop unchanged
+P314,0,no dark char under square after; stubble/ploughed/crop unchanged
+P315,0,no dark char under square after; stubble/ploughed/crop unchanged
+P316,0,no dark char under square after; stubble/ploughed/crop unchanged
+P317,0,small dark spot at edge; beige after
+P318,0,no dark char under square after; stubble/ploughed/crop unchanged
+P319,0,no dark char under square after; stubble/ploughed/crop unchanged
+P320,9,washed-out haze before
+P321,0,no dark char under square after; stubble/ploughed/crop unchanged
+P322,0,no dark char under square after; stubble/ploughed/crop unchanged
+P323,1,black char at square after; lavender before
+P324,0,green crop fields
+P325,0,no dark char under square after; stubble/ploughed/crop unchanged
+P326,0,no dark char under square after; stubble/ploughed/crop unchanged
+P327,0,no dark char under square after; stubble/ploughed/crop unchanged
+P328,0,no dark char under square after; stubble/ploughed/crop unchanged
+P329,0,no dark char under square after; stubble/ploughed/crop unchanged
+P330,1,small dark patch at square after; magenta before (low confidence)
+P331,9,white haze before
+P332,0,no dark char under square after; stubble/ploughed/crop unchanged
+P333,9,square on field edge/line; truncated chip
+P334,0,no dark char under square after; stubble/ploughed/crop unchanged
+P335,9,haze after; mixed pattern
+P336,0,green crop
+P337,0,no dark char under square after; stubble/ploughed/crop unchanged
+P338,1,whole field dark charcoal after; pale stubble before
+P339,0,no dark char under square after; stubble/ploughed/crop unchanged
+P340,0,no dark char under square after; stubble/ploughed/crop unchanged
+P341,0,no dark char under square after; stubble/ploughed/crop unchanged
+P342,0,no dark char under square after; stubble/ploughed/crop unchanged
+P343,0,no dark char under square after; stubble/ploughed/crop unchanged
+P344,0,no dark char under square after; stubble/ploughed/crop unchanged
+P345,0,truncated chip; field dark brown ploughed-like
+P346,9,settlement texture
+P347,1,dark gray patch at square after; lavender stubble before
+P348,1,field darkened to charcoal-purple after; pale before
+P349,9,haze on both dates
+P350,0,no dark char under square after; stubble/ploughed/crop unchanged
+P351,0,no dark char under square after; stubble/ploughed/crop unchanged
+P352,0,dark band is diagonal feature not under square
+P353,0,green crop
+P354,0,no dark char under square after; stubble/ploughed/crop unchanged
+P355,0,char already present before (burnt earlier)
+P356,1,small black char right of square after; lavender/green before
+P357,1,large black char triangle at square after; pale stubble before
+P358,1,dark gray-brown patch at square after; pale lavender before
+P359,0,green crop

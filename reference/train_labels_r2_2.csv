@@ -1,0 +1,81 @@
+point_id,label,note
+T480,0,dark patch beside box in PRE already
+T481,0,stubble/haze no char
+T482,1,dark patch at box in POST SWIR; low confidence
+T483,0,tilled magenta
+T484,0,stubble; dark elsewhere
+T485,0,lavender stubble
+T486,0,mauve tilled not black
+T487,0,tilled
+T488,0,tilled magenta
+T489,0,burn nearby not under box
+T490,0,dark already in PRE
+T491,0,crop/stubble
+T492,0,dark mauve both dates
+T493,0,stubble
+T494,0,dark below box both dates
+T495,0,tilled mauve
+T496,0,dark patch elsewhere
+T497,0,no char
+T498,9,truncated chip
+T499,1,dark char at box POST absent PRE
+T500,0,tilled mauve
+T501,0,crop
+T502,0,no char under box
+T503,1,black square under box POST
+T504,0,stubble/tilled
+T505,9,ambiguous dark mauve; speckle
+T506,0,dark spot elsewhere
+T507,0,tilled
+T508,0,crop/stubble
+T509,0,tilled
+T510,0,green crop
+T511,0,dark both dates
+T512,0,dark both dates
+T513,0,no char
+T514,9,dark patch at box edge
+T515,9,truncated chip
+T516,0,green crop
+T517,0,tilled
+T518,1,dark char under box POST
+T519,0,no char
+T520,1,dark char at box POST absent PRE
+T521,9,haze POST
+T522,0,no char
+T523,0,stubble/tilled
+T524,1,dark square at box POST
+T525,0,already dark in PRE
+T526,9,haze; 15 day gap
+T527,0,crop
+T528,0,tilled
+T529,0,no true-colour char
+T530,9,village texture
+T531,0,tilled mauve
+T532,1,dark at box POST; late Nov
+T533,1,dark at box POST
+T534,1,dark at box POST
+T535,1,dark mauve-black at box POST
+T536,0,stubble
+T537,0,dark patch not under box
+T538,0,stubble
+T539,0,box on light field
+T540,0,tilled mauve
+T541,1,small dark at box POST; moderate confidence
+T542,0,haze/stubble
+T543,0,already dark in PRE
+T544,0,no char
+T545,1,dark band at box POST
+T546,0,tilled
+T547,1,black patch at box POST
+T548,0,tilled; speckle
+T549,9,box at chip edge
+T550,0,tilled
+T551,0,dark both dates
+T552,1,dark at box POST
+T553,0,tilled
+T554,0,no char
+T555,0,dark elsewhere both dates
+T556,0,crop
+T557,0,dark mauve ambiguous tilled
+T558,0,crop
+T559,0,no char

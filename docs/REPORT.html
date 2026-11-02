@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>ParaliWatch report</title>
+<style>
+@page{size:A4;margin:14mm}
+*{box-sizing:border-box}
+body{font:10pt/1.38 Georgia,"Times New Roman",serif;color:#111;margin:0}
+h1{font-size:17pt;margin:0 0 2pt}
+h2{font-size:11.5pt;margin:10pt 0 3pt;border-bottom:.5pt solid #888;padding-bottom:1pt;break-after:avoid}
+p{margin:3pt 0}ul{margin:3pt 0;padding-left:15pt}li{margin:1.5pt 0}
+.sub{color:#444;font-size:9pt;margin-bottom:4pt}
+table{border-collapse:collapse;width:100%;margin:4pt 0;font-size:9pt;break-inside:avoid}
+th,td{border:.5pt solid #999;padding:2pt 4pt;text-align:left}th{background:#eee}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+figure{margin:5pt 0;break-inside:avoid;text-align:center}
+figure img{max-width:100%;max-height:78mm}
+figcaption{font-size:8.5pt;color:#444}
+code,pre{font:8.8pt/1.3 Menlo,Consolas,monospace}
+pre{background:#f3f3f3;padding:4pt 6pt;margin:3pt 0}
+</style></head><body>
+
+<h1>ParaliWatch: weekly paddy-residue burn now-cast</h1>
+<div class="sub">Role 01 Data &amp; Model Infrastructure Engineer assignment · reference 123456 (n = 3456) ·
+<b>R1</b> Punjab Ludhiana–Patiala · <b>S4</b> MODIS · <b>D5</b> Burn scars · <b>T4</b> Multi-sensor fusion</div>
+
+<h2>1 Use-case</h2>
+<p>A weekly now-cast tells the district nodal officer / PPCB field coordinator for the Nabha–Amloh–Fatehgarh Sahib–Patiala belt which village clusters burnt paddy residue (parali) this week, how much, and how sure we are. Every Monday of the Oct–Nov season the officer picks about 8 clusters for the flying squad and for awareness and CRM-machinery visits. The product is a ranked, named list with newly burnt hectares, the change versus last week, and an evidence flag: MODIS-confirmed, Sentinel-2-only, or MODIS-only (Sentinel-2 blind). AOI: 76.10–76.45 E, 30.36–30.69 N (about 1,190 km², Sentinel-2 tile 43RFP). Season: 2024-09-20 to 2024-11-30, the latest season fully present in the Planetary Computer MODIS archive.</p>
+
+<h2>2 What I built</h2>
+<ul>
+<li><b>Decision:</b> Monday dispatch list of named clusters on a static dashboard.</li>
+<li><b>Insight:</b> H3 × ISO-week feature store (burnt ha, confirmed ha, change vs last week, blind-spot score).</li>
+<li><b>Model (v3):</b> teacher → student fusion. A logistic-regression <i>teacher</i> learns from MODIS active-fire weak labels on Sentinel-2 spectra; a gradient-boosted <i>student</i> is trained on 862 photo-interpreted labels (incl. an active-learning round) and takes MODIS as features.</li>
+<li><b>ARD (v2):</b> 20 m stack of 6 bands (B8A, B11, B12, B02, B03, B04), cloud/shadow mask plus a haze mask; 1 km MODIS fire stack with an observed flag.</li>
+<li><b>Ingestion:</b> STAC discovery of 27 Sentinel-2 L2A scenes, 20 MOD14A1/MYD14A1 files, 3 MCD64A1 files.</li>
+</ul>
+<ul>
+<li><b>STAC lineage catalogue.</b> Every scene and derived file is a STAC item with <code>derived_from</code> links and a parameter hash. A refresh builds only what is missing or changed. Bumping the ARD version rebuilt all 27 scenes automatically.</li>
+<li><b>Single grid.</b> A 20 m UTM 43N lattice whose extent is a multiple of 50 cells, so MODIS is an exact 50× coarsening.</li>
+<li><b>Streaming fold</b> in date order; a new scene adds one step.</li>
+<li><b>H3 / GeoParquet / DuckDB store</b> (res 8, exact roll-up to res 7, atomic week swaps); <b>static dashboard</b> in <code>site/index.html</code>; <b>scheduled refresh</b> via <code>.github/workflows/refresh.yml</code>.</li>
+<li><b>Haze mask.</b> Sen2Cor SCL does not flag smog. A Haze-Optimised Transform, HOT = B02 − 0.5·B04 &gt; 0.06, marks pixels invalid: 1–2% of pixels in clear scenes, 30–46% in the smog scenes of Nov 9 and 12. It removed a fake week-47 “burn spike” (6,424 ha → 1,095 ha).</li>
+<li><b>Label desk.</b> <code>paraliwatch label-page reference/testB</code> writes a self-contained labelling page (same chips, keys 1/0/9, CSV export in the pipeline's format) so a human can replace any AI interpreter.</li>
+</ul>
+
+<h2>3 Results</h2>
+<p>The v3 map shows 9,722 ha burnt over the season; 9.2% are MODIS-confirmed (median MODIS re-dating 1 day). v1 mapped 18,133 ha; the haze mask removed the week-47 spike, and the student rejects much of the tillage that v1 counted. Weekly hectares (MODIS column: fire cell-days):</p>
+<table>
+<tr><th>Week</th><th>W39</th><th>W40</th><th>W41</th><th>W42</th><th>W43</th><th>W44</th><th>W45</th><th>W46</th><th>W47</th><th>W48</th></tr>
+<tr><td>Confirmed ha</td><td class=n>0</td><td class=n>0</td><td class=n>3</td><td class=n>17</td><td class=n>107</td><td class=n>564</td><td class=n>25</td><td class=n>52</td><td class=n>104</td><td class=n>18</td></tr>
+<tr><td>S2-only ha</td><td class=n>84</td><td class=n>115</td><td class=n>928</td><td class=n>1395</td><td class=n>1536</td><td class=n>1374</td><td class=n>634</td><td class=n>130</td><td class=n>1268</td><td class=n>1368</td></tr>
+<tr><td>MCD64A1 ha</td><td class=n>0</td><td class=n>43</td><td class=n>1223</td><td class=n>451</td><td class=n>237</td><td class=n>386</td><td class=n>43</td><td class=n>21</td><td class=n>0</td><td class=n>0</td></tr>
+<tr><td>MODIS fire cell-days</td><td class=n>0</td><td class=n>0</td><td class=n>2</td><td class=n>5</td><td class=n>19</td><td class=n>57</td><td class=n>25</td><td class=n>5</td><td class=n>13</td><td class=n>2</td></tr>
+</table>
+<p>Week 47 holds burns from the Nov 9–17 smog gap first seen on the Nov 19 scene; MODIS re-dates the confirmed ones. <b>Late-season caveat:</b> W47–W48 Sentinel-2-only area (about 1,300 ha/week) coincides with the weakest holdout-B interval (late November, F1 0.08) and is likely partly tilled or emerging-wheat commission; treat it as an upper bound.</p>
+<figure><img src="figures/season.png" alt="Season burn map"><figcaption>Fig. 1 Season burn map and weekly series.</figcaption></figure>
+<figure><img src="figures/dashboard_w45.png" alt="Dashboard week 45"><figcaption>Fig. 2 Dashboard, week 45: ranked clusters, evidence flags, blind-spot card.</figcaption></figure>
+
+<h2>4 Evaluation</h2>
+<p><b>Design.</b> Design-based assessment (Olofsson et al. 2014), stratified on the map: mapped burn / teacher-only burn / other change / stable. <b>Holdout B</b> is the headline: 552 points on three new intervals (2024-10-13→10-23, 10-30→11-07, 11-19→11-29), 60/40/60/24 per interval (other change over-allocated, since missed burns there dominate the recall interval), in 1 km cells disjoint from all training and earlier test points. It was drawn from the v2 maps and sealed before any further model development, then scored once on the final model. Interpreters A and B labelled blind from chips (Cohen’s κ 0.551); a blind adjudicator C resolved 155 of 158 disputed or unclear points. The earlier 360-point <b>test set 1</b> was scored four times during development and is now reported only as a development set. Values are stratum-weighted estimate [95% bootstrap CI].</p>
+<table>
+<tr><th>Map</th><th colspan=3>Holdout B, adjudicated (549 points, 67 burns)</th><th>Unanimous A=B (394 pts, 24 burns)</th><th>Test set 1 (dev)</th></tr>
+<tr><th></th><th>Precision</th><th>Recall</th><th>F1</th><th>F1</th><th>F1</th></tr>
+<tr><td><b>v3 student</b></td><td class=n>0.272 [0.169, 0.403]</td><td class=n>0.146 [0.082, 0.299]</td><td class=n><b>0.190</b> [0.117, 0.306]</td><td class=n><b>0.378</b> [0.234, 0.506]</td><td class=n>0.339</td></tr>
+<tr><td>teacher</td><td class=n>0.109</td><td class=n>0.068</td><td class=n>0.084 [0.040, 0.151]</td><td class=n>0.116</td><td class=n>0.126</td></tr>
+<tr><td>v1</td><td class=n>0.340</td><td class=n>0.120</td><td class=n>0.178 [0.021, 0.425]</td><td class=n>0.015</td><td class=n>0.084</td></tr>
+<tr><td>MODIS active fire</td><td class=n>0.005</td><td class=n>0.006</td><td class=n>0.005</td><td class=n>–</td><td class=n>–</td></tr>
+<tr><td>Sentinel-2 dNBR</td><td class=n>0.006</td><td class=n>0.016</td><td class=n>0.008</td><td class=n>–</td><td class=n>–</td></tr>
+<tr><td>MCD64A1</td><td class=n>0</td><td class=n>0</td><td class=n>0.0</td><td class=n>–</td><td class=n>–</td></tr>
+</table>
+<p>Student overall accuracy is 0.980; MCD64A1, which maps nothing, scores 0.984. Accuracy reflects the unburnt majority and is not informative.</p>
+<figure><img src="figures/accuracy.png" alt="Accuracy, holdout B and test set 1"><figcaption>Fig. 3 F1 with 95% intervals; left holdout B (sealed, scored once), right test set 1 (development).</figcaption></figure>
+<p><b>Error analysis.</b> κ was 0.55 against 0.87 on test set 1: in late November A read dull grey-green tilled patches as emerging wheat, B as char. Adjudicator C called burns on 28% of disputed points vs 6% of unanimous ones, so the headline depends on the adjudicator: resolving all disputes as A gives 0.374, as B 0.215; the defensible bracket is 0.19–0.38. By interval (adjudicated): early 0.32, peak 0.18, late November 0.08. Omission dominates (1.38% of area vs 0.63% commission), concentrated in the “other change” stratum. The fall from 0.34 (test set 1) to 0.19 is the expected price of development-set reuse plus a harder late interval; holdout B’s interval is also much tighter (width 0.19 vs 0.46–0.48), which was its purpose.</p>
+<p><b>Training changes in v3.</b> Active learning (round 3): 240 transitions nearest the student threshold (one per 1 km cell) plus 80 mapped-burn audits, 262 usable labels. They are not a probability sample, so they train in every CV fold but are never scored. Student nested spatial-CV on the 600 scored labels (3 km blocks, teacher refit per fold): AUC 0.899, F1 0.573 → 0.592 with active learning, threshold 0.25. This CV F1 is mildly optimistic (the AL batch and threshold both use the labels it is scored on, and design weights only approximate inclusion probabilities); holdout B is the unbiased number. A Codex verification found no holdout-B leakage, and <code>reference/testB/scoring_receipt.json</code> records the model that first scored it, so a re-score is flagged. Pseudo-labels are now excluded at 1 km-cell level from gold and sealed cells. <i>Self-training</i> (510 pseudo-labels) scored 0.581 &lt; 0.592 and was rejected by the gate that adopted it in v2. Also rejected: field-object voting (<code>objects.py</code>, erased scars), the v1 char-albedo gate, and a 0.5 probability threshold (mapped about 80% of the AOI).</p>
+<p><b>Limit of the reference.</b> All interpreters were AI vision models (Claude Sonnet sub-agents A, B; Claude Opus adjudicator C) reading 20 m chips: a transparent stand-in, not field truth. Chips and label files are in <code>reference/</code>; the label desk lets a human relabel and <code>paraliwatch evaluate</code> recomputes everything.</p>
+<p><b>Bottom line.</b> F1 0.9 is not supported. On a clean holdout the student is 0.19 (adjudicated) to 0.38 (unanimous), about 2× the teacher and far above the MODIS products and dNBR; v1 is comparable on adjudicated holdout B but with a much wider interval and collapses on the unanimous subset (0.015). The binding constraint is reference and training label quality.</p>
+
+<h2>5 Configuration question: MODIS as the primary sensor</h2>
+<p><b>Strong:</b> temporal. Four overpasses a day, thermal fire detection, a daily fire mask. <b>Weak:</b> spatial. 1 km fire pixels and 500 m burned area against fields of about 0.5–2 ha. MCD64A1 mapped 0.0 F1 here. Overpasses (about 10:30, 13:30 and night) miss late-afternoon burning, and Terra and Aqua are at end of life (VIIRS is the successor).</p>
+<p><b>Response:</b> keep MODIS as the primary sensor for supervision and timing, and fuse Sentinel-2 (20 m) for field scale, in three roles:</p>
+<ul>
+<li><b>Teacher.</b> MODIS fires weakly label Sentinel-2 transitions (MCD64A1 idea at 20 m). The teacher ranks well but its boundary is biased by tillage.</li>
+<li><b>Features and clock.</b> Once the labels are photo-interpreted rather than MODIS-derived, MODIS can enter the student as features (own/near fire counts, high-confidence count, max FRP, visibility). MODIS also dates confirmed burns: Sentinel-2 says which field, MODIS says when.</li>
+<li><b>Gap-filler.</b> Blind-spot score = MODIS fire cell-days × (1 − Sentinel-2 clear fraction), its own dispatch card for smog weeks.</li>
+</ul>
+
+<h2>6 Fitness for use</h2>
+<p><b>Verdict: triage aid only.</b> Use it to direct verification visits; not as enforcement evidence. Holdout-B precision of 0.272 [0.169, 0.403] with recall of 0.146 and AI-made reference labels (κ 0.55) cannot support action against an individual farmer. What it takes:</p>
+<ul>
+<li>Human-labelled training and reference sets via the label desk, replacing the AI interpreters (this is the binding constraint).</li>
+<li>Field boundaries, so detections aggregate to fields; the stable strata of the test set could also be enlarged.</li>
+<li>VIIRS 375 m active fire and Sentinel-1 SAR for smog weeks; a late-season tillage/emerging-wheat check, where F1 is 0.08.</li>
+<li>Validation against PRSC / CAQM fire reports; scheduled refresh with monitoring.</li>
+</ul>
+
+<h2>7 Reproduce</h2>
+<pre>git clone &lt;repo-url&gt; parali-watch &amp;&amp; cd parali-watch
+make run      # ingest, ARD, fusion, features, evaluation, dashboard (cold ~20 min)
+make serve    # open http://localhost:8000</pre>
+<p>Requires <code>uv</code> and network access to Planetary Computer. Model, labels and limits: <code>docs/MODEL_CARD.md</code>; design: <code>docs/ARCHITECTURE.md</code>; AI usage: <code>docs/AI_LOG.md</code>.</p>
+</body></html>

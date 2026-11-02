@@ -1,0 +1,69 @@
+# ParaliWatch run configuration — one file describes one season over one AOI.
+# Re-running the pipeline with this file is idempotent; extending `season.end`
+# (or running mid-season) only processes scenes the catalogue has not seen.
+
+reference_number: 123456          # -> R1 S4 D5 T4 (see `paraliwatch codes`)
+
+aoi:
+  name: "Nabha–Amloh–Fatehgarh Sahib–Patiala (Ludhiana–Patiala belt)"
+  bbox: [76.10, 30.36, 76.45, 30.69]   # lon/lat, fully inside S2 tile 43RFP
+  crs: "EPSG:32643"                    # UTM 43N, native grid of the S2 tile
+  resolution: 20                       # metres; S2 SWIR bands are native 20 m
+  modis_factor: 50                     # MODIS grid = analysis grid coarsened 50x (1 km)
+
+season:
+  start: "2024-09-20"               # pre-harvest baseline
+  end: "2024-11-30"
+
+sources:
+  stac_url: "https://planetarycomputer.microsoft.com/api/stac/v1"
+  s2_collection: "sentinel-2-l2a"
+  s2_mgrs_tile: "43RFP"
+  s2_max_scene_cloud: 90            # scene-level pre-filter only; pixels are masked by SCL
+  fire_collection: "modis-14A1-061" # MOD14A1 (Terra) + MYD14A1 (Aqua), daily fire mask, 1 km
+  burned_area_collection: "modis-64A1-061"  # MCD64A1 monthly burned area, 500 m (baseline)
+
+fusion:
+  change_min_dnbr: 0.10             # candidate if NBR drops this much ...
+  change_min_dswir: 0.06            # ... or SWIR-1 darkens this much (stubble -> char barely moves NBR)
+  field_voting: false              # object voting (objects.py) tried and rejected, see MODEL_CARD
+  fields_scene: "2024-10-25"        # clear, mid-harvest scene where field boundaries contrast most
+  field_min_frac: 0.5               # a field is burnt if >= half its candidate pixels are
+  train_round2: [30, 50, 80, 90, 70]  # round-2 labels per bin, haze-free scene pairs only
+  train_round3_active: [240, 80]    # active learning: most-uncertain (1 per km cell) + audit of mapped burns
+  self_training: 500               # pseudo-labels per class, weight 0.1; adopted only if spatial-CV F1 improves
+  train_per_bin: 80                 # photo-interpreted transitions per teacher-score bin (5 bins)
+  fire_min_class: 7                 # MOD14 FireMask: 7 low, 8 nominal, 9 high confidence
+  negative_buffer_cells: 2          # weak negatives: no fire within +/-2 MODIS cells
+  negative_pad_days: 2              # ... and within +/-2 days of the S2 interval
+  max_false_alarm: 0.05             # threshold = 95th pct of P on MODIS-quiet changes (Neyman-Pearson)
+  max_gap_days: 20                  # transitions spanning longer gaps are reported low-confidence
+
+features:
+  h3_resolution: 8                  # ~0.74 km2 hexes, roughly a village's fields
+  rollup_resolution: 7              # ~5.2 km2, used for the dispatch list
+
+paths:
+  data: "data"
+  site: "site"
+
+evaluation:
+  # (pre, post] pairs of fully clear scenes. The first sits at peak burning before
+  # the smog; the second spans the 9–17 Nov smog gap, where S2 is expected to struggle.
+  intervals:
+    - ["2024-10-25", "2024-11-04"]
+    - ["2024-11-07", "2024-11-19"]
+  n_per_stratum: [70, 50, 40, 20]   # mapped burn / teacher-only burn (near miss) / other change / stable
+  # Holdout B: drawn once from the v2 maps, then sealed BEFORE any further model development.
+  # New intervals (early / peak / late season), disjoint 1 km cells from every earlier sample;
+  # "other change" is over-allocated because missed burns there dominate the recall CI.
+  holdout_b:
+    dir: "reference/testB"
+    intervals:
+      - ["2024-10-13", "2024-10-23"]
+      - ["2024-10-30", "2024-11-07"]
+      - ["2024-11-19", "2024-11-29"]
+    n_per_stratum: [60, 40, 60, 24]
+
+asset:
+  default_week: null                # null -> the season's peak week

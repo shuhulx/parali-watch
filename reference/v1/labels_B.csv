@@ -1,0 +1,301 @@
+point_id,label,note
+P000,0,no dark char change (crop/straw/tillage or unchanged)
+P001,0,no dark char change (crop/straw/tillage or unchanged)
+P002,0,no dark char change (crop/straw/tillage or unchanged)
+P003,0,no dark char change (crop/straw/tillage or unchanged)
+P004,0,no dark char change (crop/straw/tillage or unchanged)
+P005,0,no dark char change (crop/straw/tillage or unchanged)
+P006,0,no dark char change (crop/straw/tillage or unchanged)
+P007,9,truncated chip
+P008,0,no dark char change (crop/straw/tillage or unchanged)
+P009,0,no dark char change (crop/straw/tillage or unchanged)
+P010,0,no dark char change (crop/straw/tillage or unchanged)
+P011,0,no dark char change (crop/straw/tillage or unchanged)
+P012,1,PRE lavender → POST dark purple-brown
+P013,0,no dark char change (crop/straw/tillage or unchanged)
+P014,0,no dark char change (crop/straw/tillage or unchanged)
+P015,0,no dark char change (crop/straw/tillage or unchanged)
+P016,0,no dark char change (crop/straw/tillage or unchanged)
+P017,0,no dark char change (crop/straw/tillage or unchanged)
+P018,0,no dark char change (crop/straw/tillage or unchanged)
+P019,0,no dark char change (crop/straw/tillage or unchanged)
+P020,0,no dark char change (crop/straw/tillage or unchanged)
+P021,0,no dark char change (crop/straw/tillage or unchanged)
+P022,0,no dark char change (crop/straw/tillage or unchanged)
+P023,0,no dark char change (crop/straw/tillage or unchanged)
+P024,0,no dark char change (crop/straw/tillage or unchanged)
+P025,0,no dark char change (crop/straw/tillage or unchanged)
+P026,0,no dark char change (crop/straw/tillage or unchanged)
+P027,0,no dark char change (crop/straw/tillage or unchanged)
+P028,0,no dark char change (crop/straw/tillage or unchanged)
+P029,0,no dark char change (crop/straw/tillage or unchanged)
+P030,0,no dark char change (crop/straw/tillage or unchanged)
+P031,1,PRE lavender-grey → POST dark mauve-grey
+P032,0,no dark char change (crop/straw/tillage or unchanged)
+P033,0,no dark char change (crop/straw/tillage or unchanged)
+P034,9,PRE lavender → POST dark green-grey patch at box edge, mixed
+P035,0,no dark char change (crop/straw/tillage or unchanged)
+P036,1,PRE lavender → POST large charcoal
+P037,0,no dark char change (crop/straw/tillage or unchanged)
+P038,0,no dark char change (crop/straw/tillage or unchanged)
+P039,0,no dark char change (crop/straw/tillage or unchanged)
+P040,0,no dark char change (crop/straw/tillage or unchanged)
+P041,0,no dark char change (crop/straw/tillage or unchanged)
+P042,1,PRE lavender → POST dark burgundy-mauve
+P043,0,no dark char change (crop/straw/tillage or unchanged)
+P044,9,PRE green/mauve → POST dark burgundy at box edge, mixed
+P045,0,no dark char change (crop/straw/tillage or unchanged)
+P046,0,no dark char change (crop/straw/tillage or unchanged)
+P047,0,no dark char change (crop/straw/tillage or unchanged)
+P048,0,no dark char change (crop/straw/tillage or unchanged)
+P049,0,no dark char change (crop/straw/tillage or unchanged)
+P050,0,no dark char change (crop/straw/tillage or unchanged)
+P051,0,no dark char change (crop/straw/tillage or unchanged)
+P052,0,no dark char change (crop/straw/tillage or unchanged)
+P053,0,no dark char change (crop/straw/tillage or unchanged)
+P054,0,no dark char change (crop/straw/tillage or unchanged)
+P055,0,no dark char change (crop/straw/tillage or unchanged)
+P056,0,no dark char change (crop/straw/tillage or unchanged)
+P057,0,no dark char change (crop/straw/tillage or unchanged)
+P058,0,no dark char change (crop/straw/tillage or unchanged)
+P059,0,no dark char change (crop/straw/tillage or unchanged)
+P060,0,no dark char change (crop/straw/tillage or unchanged)
+P061,0,no dark char change (crop/straw/tillage or unchanged)
+P062,1,PRE pale lavender → POST dark grey strip
+P063,0,no dark char change (crop/straw/tillage or unchanged)
+P064,0,no dark char change (crop/straw/tillage or unchanged)
+P065,0,no dark char change (crop/straw/tillage or unchanged)
+P066,0,no dark char change (crop/straw/tillage or unchanged)
+P067,0,no dark char change (crop/straw/tillage or unchanged)
+P068,0,no dark char change (crop/straw/tillage or unchanged)
+P069,0,no dark char change (crop/straw/tillage or unchanged)
+P070,0,no dark char change (crop/straw/tillage or unchanged)
+P071,0,no dark char change (crop/straw/tillage or unchanged)
+P072,0,no dark char change (crop/straw/tillage or unchanged)
+P073,0,no dark char change (crop/straw/tillage or unchanged)
+P074,0,no dark char change (crop/straw/tillage or unchanged)
+P075,0,no dark char change (crop/straw/tillage or unchanged)
+P076,0,no dark char change (crop/straw/tillage or unchanged)
+P077,9,PRE lavender → POST char adjacent right of box, mixed edge
+P078,0,no dark char change (crop/straw/tillage or unchanged)
+P079,0,no dark char change (crop/straw/tillage or unchanged)
+P080,0,no dark char change (crop/straw/tillage or unchanged)
+P081,0,no dark char change (crop/straw/tillage or unchanged)
+P082,0,no dark char change (crop/straw/tillage or unchanged)
+P083,0,no dark char change (crop/straw/tillage or unchanged)
+P084,0,no dark char change (crop/straw/tillage or unchanged)
+P085,0,no dark char change (crop/straw/tillage or unchanged)
+P086,0,no dark char change (crop/straw/tillage or unchanged)
+P087,0,no dark char change (crop/straw/tillage or unchanged)
+P088,0,no dark char change (crop/straw/tillage or unchanged)
+P089,0,no dark char change (crop/straw/tillage or unchanged)
+P090,1,PRE green/lavender → POST dark grey patch
+P091,0,no dark char change (crop/straw/tillage or unchanged)
+P092,0,no dark char change (crop/straw/tillage or unchanged)
+P093,1,PRE lavender-white → POST dark mauve-brown
+P094,0,no dark char change (crop/straw/tillage or unchanged)
+P095,0,no dark char change (crop/straw/tillage or unchanged)
+P096,0,no dark char change (crop/straw/tillage or unchanged)
+P097,0,no dark char change (crop/straw/tillage or unchanged)
+P098,0,no dark char change (crop/straw/tillage or unchanged)
+P099,0,no dark char change (crop/straw/tillage or unchanged)
+P100,0,no dark char change (crop/straw/tillage or unchanged)
+P101,0,no dark char change (crop/straw/tillage or unchanged)
+P102,0,no dark char change (crop/straw/tillage or unchanged)
+P103,0,no dark char change (crop/straw/tillage or unchanged)
+P104,0,no dark char change (crop/straw/tillage or unchanged)
+P105,0,no dark char change (crop/straw/tillage or unchanged)
+P106,0,no dark char change (crop/straw/tillage or unchanged)
+P107,0,no dark char change (crop/straw/tillage or unchanged)
+P108,0,no dark char change (crop/straw/tillage or unchanged)
+P109,1,PRE lavender-grey → POST dark brown-mauve
+P110,0,no dark char change (crop/straw/tillage or unchanged)
+P111,0,no dark char change (crop/straw/tillage or unchanged)
+P112,0,no dark char change (crop/straw/tillage or unchanged)
+P113,1,PRE pale lavender → POST dark purple-brown patch
+P114,0,no dark char change (crop/straw/tillage or unchanged)
+P115,0,no dark char change (crop/straw/tillage or unchanged)
+P116,0,no dark char change (crop/straw/tillage or unchanged)
+P117,0,no dark char change (crop/straw/tillage or unchanged)
+P118,0,no dark char change (crop/straw/tillage or unchanged)
+P119,0,no dark char change (crop/straw/tillage or unchanged)
+P120,0,no dark char change (crop/straw/tillage or unchanged)
+P121,0,no dark char change (crop/straw/tillage or unchanged)
+P122,0,no dark char change (crop/straw/tillage or unchanged)
+P123,0,no dark char change (crop/straw/tillage or unchanged)
+P124,0,no dark char change (crop/straw/tillage or unchanged)
+P125,0,no dark char change (crop/straw/tillage or unchanged)
+P126,0,no dark char change (crop/straw/tillage or unchanged)
+P127,0,no dark char change (crop/straw/tillage or unchanged)
+P128,0,no dark char change (crop/straw/tillage or unchanged)
+P129,0,no dark char change (crop/straw/tillage or unchanged)
+P130,0,no dark char change (crop/straw/tillage or unchanged)
+P131,0,no dark char change (crop/straw/tillage or unchanged)
+P132,1,PRE green → POST dark grey-mauve
+P133,0,no dark char change (crop/straw/tillage or unchanged)
+P134,0,no dark char change (crop/straw/tillage or unchanged)
+P135,0,no dark char change (crop/straw/tillage or unchanged)
+P136,0,no dark char change (crop/straw/tillage or unchanged)
+P137,1,PRE lavender-green → POST dark charcoal patch
+P138,0,no dark char change (crop/straw/tillage or unchanged)
+P139,0,no dark char change (crop/straw/tillage or unchanged)
+P140,0,no dark char change (crop/straw/tillage or unchanged)
+P141,1,PRE pink-lavender → POST dark grey-purple char
+P142,0,no dark char change (crop/straw/tillage or unchanged)
+P143,0,no dark char change (crop/straw/tillage or unchanged)
+P144,0,no dark char change (crop/straw/tillage or unchanged)
+P145,0,no dark char change (crop/straw/tillage or unchanged)
+P146,0,no dark char change (crop/straw/tillage or unchanged)
+P147,0,no dark char change (crop/straw/tillage or unchanged)
+P148,0,no dark char change (crop/straw/tillage or unchanged)
+P149,0,no dark char change (crop/straw/tillage or unchanged)
+P150,0,"PRE bright green → lavender/mauve"
+P151,0,"PRE mauve → mauve"
+P152,0,"PRE lavender → green/grey"
+P153,0,"PRE lavender → mauve tilled"
+P154,0,"PRE grey-green → grey-green"
+P155,0,"PRE dark-grey mix → dark-grey mix (already dark PRE)"
+P156,0,"PRE lavender → lavender"
+P157,0,"PRE green → lavender straw"
+P158,0,"PRE lavender → mauve tilled"
+P159,0,"PRE lavender/grey → mauve-grey"
+P160,0,"PRE mauve-grey → mauve-grey"
+P161,0,"PRE lavender → grey; dark patch adjacent not in box"
+P162,0,"PRE green → mauve tilled"
+P163,0,"PRE green-grey → lavender-grey"
+P164,0,"PRE mauve → mauve"
+P165,0,"PRE lavender/green → lavender"
+P166,0,"PRE lavender → lavender-white"
+P167,0,"PRE lavender-grey → mauve-grey"
+P168,0,"PRE lavender → mauve tilled"
+P169,0,"PRE green → lavender"
+P170,0,"PRE mauve/grey → mauve/grey"
+P171,0,"PRE mauve → mauve"
+P172,0,"PRE green → grey/mauve"
+P173,0,"PRE lavender → mauve tilled"
+P174,0,"PRE lavender-grey → mauve"
+P175,0,"PRE green/lavender → lavender"
+P176,0,"PRE green → lavender/mauve"
+P177,0,"PRE grey → green"
+P178,0,"PRE lavender/mauve → lavender; dark patch at box edge only"
+P179,0,"PRE green → mauve"
+P180,0,"PRE lavender → mauve tilled"
+P181,0,"PRE speckled grey → speckled grey"
+P182,0,"PRE grey-green → mauve-grey"
+P183,0,"PRE green → lavender"
+P184,0,"PRE grey → mauve"
+P185,0,"PRE green/grey → green/grey"
+P186,0,"PRE grey-lavender → lavender"
+P187,0,"PRE green-grey → mauve-grey; dark patch adjacent left"
+P188,0,"PRE lavender → lavender"
+P189,0,"PRE lavender → mauve tilled"
+P190,0,"PRE lavender-grey → mauve"
+P191,0,"PRE lavender → mauve"
+P192,0,"PRE green → grey-lavender"
+P193,0,"PRE lavender/mauve → grey-lavender"
+P194,0,"PRE mauve → mauve"
+P195,0,"PRE grey-green → grey-green"
+P196,0,"PRE green-mauve → mauve-grey (no clear char)"
+P197,0,"PRE grey-green → grey"
+P198,0,"PRE dark grey-green → dark mauve-grey (already dark PRE)"
+P199,0,"PRE green → mauve"
+P200,1,"PRE green → dark mauve-charcoal rectangle at box"
+P201,0,"PRE grey-green → lavender; dark block just below box"
+P202,0,"PRE lavender → lavender"
+P203,0,"PRE lavender → mauve"
+P204,0,"PRE lavender/grey → purple; dark patch below box"
+P205,1,"PRE lavender/green → dark charcoal-green patch at box"
+P206,0,"PRE green → green"
+P207,0,"PRE grey-mauve → grey-mauve"
+P208,0,"PRE grey → mauve-grey"
+P209,0,"PRE lavender → grey-mauve"
+P210,0,"PRE lavender → mauve"
+P211,0,"PRE mauve → mauve"
+P212,1,"PRE lavender → dark mauve-grey (low confidence)"
+P213,0,"PRE lavender/green → lavender/green"
+P214,0,"PRE mauve → mauve"
+P215,0,"PRE green → mauve"
+P216,0,"PRE grey → grey"
+P217,0,"PRE lavender-green → mauve"
+P218,0,"PRE mauve-green → mauve-green; dark spot in both"
+P219,0,"PRE grey → grey"
+P220,0,"PRE lavender/mauve → lavender"
+P221,0,"PRE green-grey → green-grey"
+P222,0,"PRE grey → mauve"
+P223,0,"PRE green → grey-mauve"
+P224,0,"PRE dark green → dark green (already dark)"
+P225,1,"PRE grey-lavender → dark grey patch at box (moderate confidence)"
+P226,0,"PRE lavender → lavender"
+P227,0,"PRE green-lavender → lavender"
+P228,0,"PRE mauve → mauve"
+P229,0,"PRE green/lavender → lavender/mauve"
+P230,0,"PRE dark grey → dark grey (already dark)"
+P231,0,"PRE lavender → mauve"
+P232,0,"PRE lavender-grey → mauve/lavender"
+P233,0,"PRE mauve → mauve"
+P234,0,"PRE green/lavender → lavender-white"
+P235,0,"PRE speckled grey → speckled grey"
+P236,0,"PRE lavender → mauve"
+P237,0,"PRE green → green"
+P238,0,"PRE mauve → mauve"
+P239,0,"PRE lavender → mauve"
+P240,0,"PRE mauve-grey → grey-lavender"
+P241,0,"PRE grey-lavender → grey-mauve"
+P242,0,"PRE grey → mauve"
+P243,0,"PRE green → mauve"
+P244,0,"PRE mauve → mauve"
+P245,0,"PRE grey-green → grey"
+P246,0,"PRE green → lavender-mauve"
+P247,0,"PRE lavender → mauve"
+P248,1,"PRE green → dark charcoal-mauve at box"
+P249,0,"PRE dark mauve → dark grey (already dark PRE)"
+P250,0,"PRE dark grey-green → violet-lavender"
+P251,0,"PRE lavender-grey → mauve"
+P252,0,"PRE green → lavender"
+P253,0,"PRE grey → mauve"
+P254,0,"PRE grey mix → grey mix"
+P255,0,"PRE dark-green mix → grey-mauve (no clear char)"
+P256,0,"PRE mauve → mauve"
+P257,0,"PRE grey-pink → grey-green"
+P258,0,"PRE lavender → mauve"
+P259,0,"PRE lavender/mauve → mauve"
+P260,0,"PRE grey-green → grey-green"
+P261,0,"PRE pale green → lavender"
+P262,0,"PRE dark patch → dark patch (already dark)"
+P263,0,"PRE lavender → mauve"
+P264,0,"PRE green → lavender-grey"
+P265,0,"PRE mauve → mauve"
+P266,0,"PRE green → lavender"
+P267,0,"PRE lavender → mauve"
+P268,0,"PRE mauve-grey → green"
+P269,0,"PRE green → grey"
+P270,0,"PRE grey-green → grey"
+P271,9,"PRE truncated chip, box at edge"
+P272,0,"PRE lavender/mauve → mauve"
+P273,0,"PRE lavender → lavender/mauve"
+P274,0,"PRE grey-mauve → mauve"
+P275,0,"PRE lavender → mauve"
+P276,0,"PRE lavender → mauve"
+P277,1,"PRE lavender-white → dark grey-green patch at box"
+P278,0,"PRE lavender-grey → mauve"
+P279,0,"PRE grey → mauve"
+P280,1,"PRE green/lavender → dark mauve-grey at box (low confidence)"
+P281,0,"PRE green with dark patch adjacent → mauve-dark"
+P282,0,"PRE mauve → mauve"
+P283,1,"PRE green → small dark mauve patch at box"
+P284,0,"PRE lavender/mauve → mauve"
+P285,0,"PRE green → lavender mix"
+P286,0,"PRE lavender/green → grey-lavender"
+P287,0,"PRE grey-green → lavender; dark strip adjacent"
+P288,0,"PRE green-grey → lavender/green"
+P289,0,"PRE lavender → mauve"
+P290,0,"PRE green/lavender → mauve tilled"
+P291,1,"PRE grey-green → dark charcoal at box"
+P292,1,"PRE mauve-green → dark maroon-charcoal patch"
+P293,0,"PRE lavender → pale lavender"
+P294,0,"PRE green → lavender"
+P295,0,"PRE green → green/mauve"
+P296,0,"PRE lavender → lavender"
+P297,0,"PRE green → mauve/grey"
+P298,1,"PRE green/lavender → dark grey-mauve rectangle at box"
+P299,0,"PRE lavender → mauve"

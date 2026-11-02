@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burn Label Desk</title>
+<style>
+:root{--bg:#f6f5f2;--fg:#1d1d1b;--mut:#6b6a66;--card:#fff;--line:#e3e1dc;--burn:#c62828;--no:#2e7d32;--skip:#8d6e63;--acc:#0b6bcb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ecebe7;--mut:#9b9a95;--card:#1f1f1d;--line:#33322f;--acc:#5aa2f0}}
+:root[data-theme="dark"]{--bg:#141413;--fg:#ecebe7;--mut:#9b9a95;--card:#1f1f1d;--line:#33322f;--acc:#5aa2f0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+header{position:sticky;top:0;z-index:2;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:16px;margin:0;font-weight:650}.mut{color:var(--mut);font-size:13px}
+.bar{flex:1;min-width:120px;height:6px;background:var(--line);border-radius:3px;overflow:hidden}.bar i{display:block;height:100%;background:var(--acc);width:0}
+button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--acc)}
+main{max-width:1180px;margin:0 auto;padding:16px}
+.pt{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.id{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.grid figure{margin:0}.ch{position:relative}.ch img{width:100%;image-rendering:pixelated;border-radius:6px;display:block}
+.ch b{position:absolute;border:2px solid #0ff;box-sizing:border-box;pointer-events:none}
+.grid figcaption{font-size:12px;color:var(--mut);margin-top:3px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.acts button{padding:10px 16px;font-weight:600}
+.b1{border-color:var(--burn);color:var(--burn)}.b0{border-color:var(--no);color:var(--no)}.b9{border-color:var(--skip);color:var(--skip)}
+.on.b1{background:var(--burn);color:#fff}.on.b0{background:var(--no);color:#fff}.on.b9{background:var(--skip);color:#fff}
+input[type=text]{flex:1;min-width:160px;font:inherit;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
+details{margin-top:14px}.key{font-size:13px;color:var(--mut)}kbd{border:1px solid var(--line);border-radius:4px;padding:0 5px;font-size:12px}
+@media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Burn Label Desk · {{ set_name }}</h1>
+  <span class="mut" id="count"></span>
+  <div class="bar"><i id="prog"></i></div>
+  <input id="who" type="text" placeholder="interpreter (e.g. H)" style="max-width:150px;flex:0">
+  <button id="exp">Export CSV</button>
+</header>
+<main>
+  <div class="pt">
+    <div class="top"><span class="id" id="pid"></span><span class="mut" id="pos"></span></div>
+    <div class="grid" id="imgs"></div>
+    <div class="acts">
+      <button class="b1" data-v="1">1 · burnt</button>
+      <button class="b0" data-v="0">0 · not burnt</button>
+      <button class="b9" data-v="9">9 · can't tell</button>
+      <input id="note" type="text" placeholder="note (optional)">
+    </div>
+    <div class="acts" style="margin-top:10px">
+      <button id="prev">← prev</button><button id="next">next →</button><button id="todo">next unlabelled</button>
+    </div>
+  </div>
+  <details open><summary class="key">How to judge</summary><p class="key">
+  Judge the pixel at the centre of the cyan 3×3 box ({{ km }} km chips, 20 m pixels).
+  <b>1</b>: burnt between PRE and POST — fresh black/charcoal field patch in true colour, dark brown/charcoal in SWIR, absent in PRE.
+  <b>0</b>: not burnt in this interval — crop (green), stubble (beige / lavender), tilled soil (brown / magenta, never black), or already dark in PRE.
+  <b>9</b>: impossible — haze or no-data on a date, or the box sits on a road, canal, village or field edge.
+  Keys: <kbd>1</kbd> <kbd>0</kbd> <kbd>9</kbd> label and advance · <kbd>←</kbd> <kbd>→</kbd> move · <kbd>n</kbd> note. Labels autosave in this browser.</p></details>
+</main>
+<script>
+const P = {{ points }};
+const KEY = "labeldesk:{{ set_name }}";
+let L = {}, i = 0;
+try { L = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(L)); } catch (e) {} };
+const $ = id => document.getElementById(id);
+function show() {
+  const p = P[i], l = L[p.id] || {};
+  $("pid").textContent = p.id;
+  $("pos").textContent = `${i + 1} / ${P.length}`;
+  $("imgs").innerHTML = p.imgs.map(m => `<figure><div class="ch"><img src="${m.src}" alt="${m.t}"><b style="left:${m.box[0]}%;top:${m.box[1]}%;width:${m.box[2]}%;height:${m.box[3]}%"></b></div><figcaption>${m.t}</figcaption></figure>`).join("");
+  document.querySelectorAll("[data-v]").forEach(b => b.classList.toggle("on", String(l.v) === b.dataset.v));
+  $("note").value = l.n || "";
+  const n = Object.values(L).filter(x => x.v !== undefined).length;
+  $("count").textContent = `${n} labelled`;
+  $("prog").style.width = (100 * n / P.length) + "%";
+}
+function set(v) { const id = P[i].id; L[id] = { ...(L[id] || {}), v: +v }; save(); if (i < P.length - 1) i++; show(); }
+document.querySelectorAll("[data-v]").forEach(b => b.onclick = () => set(b.dataset.v));
+$("note").oninput = e => { const id = P[i].id; L[id] = { ...(L[id] || {}), n: e.target.value.replace(/,/g, ";") }; save(); };
+$("prev").onclick = () => { i = Math.max(0, i - 1); show(); };
+$("next").onclick = () => { i = Math.min(P.length - 1, i + 1); show(); };
+$("todo").onclick = () => { const k = P.findIndex(p => !L[p.id] || L[p.id].v === undefined); if (k >= 0) { i = k; show(); } };
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT") { if (e.key === "Enter" || e.key === "Escape") e.target.blur(); return; }
+  if ("019".includes(e.key) && e.key.length === 1) set(e.key);
+  else if (e.key === "ArrowLeft") $("prev").click();
+  else if (e.key === "ArrowRight") $("next").click();
+  else if (e.key === "n") { e.preventDefault(); $("note").focus(); }
+});
+$("exp").onclick = () => {
+  const who = ($("who").value || "H").replace(/[^A-Za-z0-9_]/g, "");
+  const rows = ["point_id,label,note", ...P.map(p => { const l = L[p.id] || {}; return `${p.id},${l.v ?? 9},${l.n || ""}`; })];
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([rows.join("\n") + "\n"], { type: "text/csv" }));
+  a.download = `labels_${who}.csv`; a.click();
+};
+show();
+</script>
+</body>
+</html>

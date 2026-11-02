@@ -1,0 +1,185 @@
+point_id,label,note
+B000,9,pre haze
+B001,0,no dark char under square after; stubble or ploughed or already burnt before
+B002,0,no dark char under square after; stubble or ploughed or already burnt before
+B003,0,no dark char under square after; stubble or ploughed or already burnt before
+B004,0,no dark char under square after; stubble or ploughed or already burnt before
+B005,0,no dark char under square after; stubble or ploughed or already burnt before
+B006,0,no dark char under square after; stubble or ploughed or already burnt before
+B007,0,no dark char under square after; stubble or ploughed or already burnt before
+B008,0,no dark char under square after; stubble or ploughed or already burnt before
+B009,0,no dark char under square after; stubble or ploughed or already burnt before
+B010,9,pre haze
+B011,0,no dark char under square after; stubble or ploughed or already burnt before
+B012,0,no dark char under square after; stubble or ploughed or already burnt before
+B013,0,no dark char under square after; stubble or ploughed or already burnt before
+B014,0,no dark char under square after; stubble or ploughed or already burnt before
+B015,0,no dark char under square after; stubble or ploughed or already burnt before
+B016,0,no dark char under square after; stubble or ploughed or already burnt before
+B017,0,no dark char under square after; stubble or ploughed or already burnt before
+B018,0,no dark char under square after; stubble or ploughed or already burnt before
+B019,0,no dark char under square after; stubble or ploughed or already burnt before
+B020,0,no dark char under square after; stubble or ploughed or already burnt before
+B021,0,no dark char under square after; stubble or ploughed or already burnt before
+B022,9,pre haze
+B023,0,no dark char under square after; stubble or ploughed or already burnt before
+B024,0,no dark char under square after; stubble or ploughed or already burnt before
+B025,0,no dark char under square after; stubble or ploughed or already burnt before
+B026,0,no dark char under square after; stubble or ploughed or already burnt before
+B027,9,square on edge of dark patch; post haze
+B028,0,no dark char under square after; stubble or ploughed or already burnt before
+B029,9,square on edge of dark rectangle
+B030,0,no dark char under square after; stubble or ploughed or already burnt before
+B031,0,no dark char under square after; stubble or ploughed or already burnt before
+B032,0,no dark char under square after; stubble or ploughed or already burnt before
+B033,0,no dark char under square after; stubble or ploughed or already burnt before
+B034,9,post haze white wash
+B035,0,no dark char under square after; stubble or ploughed or already burnt before
+B036,0,no dark char under square after; stubble or ploughed or already burnt before
+B037,9,truncated chip
+B038,9,dark patch adjacent to square at field edge
+B039,1,pale before; dark SWIR patch under square after
+B040,9,post haze white wash
+B041,0,no dark char under square after; stubble or ploughed or already burnt before
+B042,0,no dark char under square after; stubble or ploughed or already burnt before
+B043,0,no dark char under square after; stubble or ploughed or already burnt before
+B044,9,post haze white wash
+B045,9,pre haze
+B046,9,post haze white wash
+B047,0,no dark char under square after; stubble or ploughed or already burnt before
+B048,9,pre haze
+B049,9,dark SWIR diagonal but true colour not charred; ambiguous
+B050,1,vegetated before; black SWIR patch under square after
+B051,0,no dark char under square after; stubble or ploughed or already burnt before
+B052,0,no dark char under square after; stubble or ploughed or already burnt before
+B053,0,no dark char under square after; stubble or ploughed or already burnt before
+B054,0,no dark char under square after; stubble or ploughed or already burnt before
+B055,0,no dark char under square after; stubble or ploughed or already burnt before
+B056,0,no dark char under square after; stubble or ploughed or already burnt before
+B057,0,no dark char under square after; stubble or ploughed or already burnt before
+B058,0,no dark char under square after; stubble or ploughed or already burnt before
+B059,9,pre haze
+B060,0,no dark char under square after; stubble or ploughed or already burnt before
+B061,0,no dark char under square after; stubble or ploughed or already burnt before
+B062,1,pale before; dark grey patch in both renderings after
+B063,0,no dark char under square after; stubble or ploughed or already burnt before
+B064,0,no dark char under square after; stubble or ploughed or already burnt before
+B065,9,pre haze
+B066,0,no dark char under square after; stubble or ploughed or already burnt before
+B067,0,no dark char under square after; stubble or ploughed or already burnt before
+B068,0,no dark char under square after; stubble or ploughed or already burnt before
+B069,9,square between dark strips at field edge
+B070,0,no dark char under square after; stubble or ploughed or already burnt before
+B071,0,no dark char under square after; stubble or ploughed or already burnt before
+B072,0,no dark char under square after; stubble or ploughed or already burnt before
+B073,0,no dark char under square after; stubble or ploughed or already burnt before
+B074,0,no dark char under square after; stubble or ploughed or already burnt before
+B075,0,no dark char under square after; stubble or ploughed or already burnt before
+B076,0,no dark char under square after; stubble or ploughed or already burnt before
+B077,0,no dark char under square after; stubble or ploughed or already burnt before
+B078,9,post haze; dark SWIR ambiguous
+B079,9,post haze; dark SWIR ambiguous
+B080,1,magenta before; dark SWIR and darker olive patch after
+B081,0,no dark char under square after; stubble or ploughed or already burnt before
+B082,0,no dark char under square after; stubble or ploughed or already burnt before
+B083,0,no dark char under square after; stubble or ploughed or already burnt before
+B084,9,uniform featureless no-data/haze
+B085,0,no dark char under square after; stubble or ploughed or already burnt before
+B086,0,no dark char under square after; stubble or ploughed or already burnt before
+B087,0,no dark char under square after; stubble or ploughed or already burnt before
+B088,0,no dark char under square after; stubble or ploughed or already burnt before
+B089,0,no dark char under square after; stubble or ploughed or already burnt before
+B090,0,no dark char under square after; stubble or ploughed or already burnt before
+B091,0,no dark char under square after; stubble or ploughed or already burnt before
+B092,0,no dark char under square after; stubble or ploughed or already burnt before
+B093,1,green crop before; dark charcoal SWIR blob after
+B094,0,no dark char under square after; stubble or ploughed or already burnt before
+B095,0,no dark char under square after; stubble or ploughed or already burnt before
+B096,9,pre haze
+B097,0,no dark char under square after; stubble or ploughed or already burnt before
+B098,0,no dark char under square after; stubble or ploughed or already burnt before
+B099,0,no dark char under square after; stubble or ploughed or already burnt before
+B100,0,no dark char under square after; stubble or ploughed or already burnt before
+B101,0,no dark char under square after; stubble or ploughed or already burnt before
+B102,0,no dark char under square after; stubble or ploughed or already burnt before
+B103,0,no dark char under square after; stubble or ploughed or already burnt before
+B104,9,truncated chip
+B105,0,no dark char under square after; stubble or ploughed or already burnt before
+B106,0,no dark char under square after; stubble or ploughed or already burnt before
+B107,0,no dark char under square after; stubble or ploughed or already burnt before
+B108,0,no dark char under square after; stubble or ploughed or already burnt before
+B109,0,no dark char under square after; stubble or ploughed or already burnt before
+B110,9,pre haze
+B111,9,pre haze
+B112,0,no dark char under square after; stubble or ploughed or already burnt before
+B113,0,no dark char under square after; stubble or ploughed or already burnt before
+B114,0,no dark char under square after; stubble or ploughed or already burnt before
+B115,1,pale field before; dark SWIR and dark brown patch after
+B116,0,no dark char under square after; stubble or ploughed or already burnt before
+B117,0,no dark char under square after; stubble or ploughed or already burnt before
+B118,0,no dark char under square after; stubble or ploughed or already burnt before
+B119,0,no dark char under square after; stubble or ploughed or already burnt before
+B120,0,no dark char under square after; stubble or ploughed or already burnt before
+B121,0,no dark char under square after; stubble or ploughed or already burnt before
+B122,0,no dark char under square after; stubble or ploughed or already burnt before
+B123,0,no dark char under square after; stubble or ploughed or already burnt before
+B124,0,no dark char under square after; stubble or ploughed or already burnt before
+B125,9,truncated chip
+B126,0,no dark char under square after; stubble or ploughed or already burnt before
+B127,0,no dark char under square after; stubble or ploughed or already burnt before
+B128,0,no dark char under square after; stubble or ploughed or already burnt before
+B129,0,no dark char under square after; stubble or ploughed or already burnt before
+B130,0,no dark char under square after; stubble or ploughed or already burnt before
+B131,9,small dark SWIR spot straddles field edge
+B132,0,no dark char under square after; stubble or ploughed or already burnt before
+B133,0,no dark char under square after; stubble or ploughed or already burnt before
+B134,0,no dark char under square after; stubble or ploughed or already burnt before
+B135,0,no dark char under square after; stubble or ploughed or already burnt before
+B136,0,no dark char under square after; stubble or ploughed or already burnt before
+B137,0,no dark char under square after; stubble or ploughed or already burnt before
+B138,9,pre haze
+B139,1,bright stubble before; dark slate SWIR after; field brown
+B140,0,no dark char under square after; stubble or ploughed or already burnt before
+B141,0,no dark char under square after; stubble or ploughed or already burnt before
+B142,0,no dark char under square after; stubble or ploughed or already burnt before
+B143,9,post haze
+B144,0,no dark char under square after; stubble or ploughed or already burnt before
+B145,0,no dark char under square after; stubble or ploughed or already burnt before
+B146,0,no dark char under square after; stubble or ploughed or already burnt before
+B147,0,no dark char under square after; stubble or ploughed or already burnt before
+B148,0,no dark char under square after; stubble or ploughed or already burnt before
+B149,0,no dark char under square after; stubble or ploughed or already burnt before
+B150,0,no dark char under square after; stubble or ploughed or already burnt before
+B151,0,no dark char under square after; stubble or ploughed or already burnt before
+B152,0,no dark char under square after; stubble or ploughed or already burnt before
+B153,0,no dark char under square after; stubble or ploughed or already burnt before
+B154,0,no dark char under square after; stubble or ploughed or already burnt before
+B155,0,no dark char under square after; stubble or ploughed or already burnt before
+B156,0,no dark char under square after; stubble or ploughed or already burnt before
+B157,0,no dark char under square after; stubble or ploughed or already burnt before
+B158,0,no dark char under square after; stubble or ploughed or already burnt before
+B159,0,no dark char under square after; stubble or ploughed or already burnt before
+B160,0,no dark char under square after; stubble or ploughed or already burnt before
+B161,0,no dark char under square after; stubble or ploughed or already burnt before
+B162,0,no dark char under square after; stubble or ploughed or already burnt before
+B163,0,no dark char under square after; stubble or ploughed or already burnt before
+B164,0,no dark char under square after; stubble or ploughed or already burnt before
+B165,0,no dark char under square after; stubble or ploughed or already burnt before
+B166,9,pre haze; post dark ambiguous
+B167,0,no dark char under square after; stubble or ploughed or already burnt before
+B168,9,post haze tan wash
+B169,0,no dark char under square after; stubble or ploughed or already burnt before
+B170,0,no dark char under square after; stubble or ploughed or already burnt before
+B171,0,no dark char under square after; stubble or ploughed or already burnt before
+B172,0,no dark char under square after; stubble or ploughed or already burnt before
+B173,1,pale stubble before; dark charcoal SWIR patch under square after
+B174,0,no dark char under square after; stubble or ploughed or already burnt before
+B175,0,no dark char under square after; stubble or ploughed or already burnt before
+B176,9,post haze over crop/stubble edge
+B177,0,no dark char under square after; stubble or ploughed or already burnt before
+B178,9,post haze; dark SWIR ambiguous
+B179,0,no dark char under square after; stubble or ploughed or already burnt before
+B180,9,post haze tan wash
+B181,0,no dark char under square after; stubble or ploughed or already burnt before
+B182,9,post haze tan wash
+B183,0,no dark char under square after; stubble or ploughed or already burnt before

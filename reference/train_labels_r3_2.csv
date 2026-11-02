@@ -1,0 +1,81 @@
+point_id,label,note
+T760,0,no change
+T761,1,dark patch post at box
+T762,0,no clear char
+T763,9,dark at edge of box
+T764,9,dark patch adjacent; edge
+T765,0,stubble unchanged
+T766,0,canal/unchanged
+T767,0,unchanged
+T768,0,no char under box
+T769,0,tillage
+T770,0,dark already in PRE
+T771,1,dark strip post
+T772,0,box on pale field
+T773,1,dark post under box
+T774,1,dark post SWIR
+T775,1,dark square post
+T776,0,unchanged
+T777,0,unchanged
+T778,9,dark strip adjacent edge
+T779,9,faint ambiguous
+T780,9,haze/nodata
+T781,0,dark adjacent not under box
+T782,9,edge
+T783,9,faint edge
+T784,9,thin dark edge
+T785,0,crop to tillage
+T786,0,unchanged
+T787,0,unchanged
+T788,1,small dark post
+T789,1,dark post
+T790,0,dark offset
+T791,0,unchanged
+T792,0,unchanged
+T793,1,dark post
+T794,9,edge
+T795,0,green crop
+T796,9,haze
+T797,1,dark post
+T798,9,edge
+T799,1,dark post
+T800,9,haze
+T801,1,dark post SWIR
+T802,9,field edge
+T803,1,dark post
+T804,1,dark post
+T805,9,PRE haze
+T806,0,dark already in PRE
+T807,9,PRE haze
+T808,0,unchanged
+T809,1,dark post
+T810,0,dark in PRE
+T811,0,unchanged
+T812,0,unchanged
+T813,9,haze
+T814,9,edge
+T815,1,dark post
+T816,9,edge
+T817,9,edge
+T818,0,unchanged
+T819,9,edge
+T820,0,unchanged
+T821,0,unchanged
+T822,0,unchanged
+T823,9,edge
+T824,9,thin edge
+T825,0,unchanged
+T826,9,haze
+T827,0,dark already in PRE
+T828,0,unchanged
+T829,9,edge
+T830,1,dark post
+T831,1,dark post
+T832,1,dark post
+T833,9,haze
+T834,0,unchanged
+T835,0,unchanged
+T836,0,unchanged
+T837,1,dark post
+T838,1,dark post
+T839,0,unchanged

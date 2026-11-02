@@ -1,0 +1,81 @@
+point_id,label,note
+T840,0,haze;no dark
+T841,1,small dark patch post
+T842,1,dark patch post SWIR
+T843,9,pre white haze
+T844,0,no char
+T845,1,dark patch post at edge
+T846,9,dark straddles box
+T847,0,dark below box
+T848,1,dark post under box
+T849,0,unchanged
+T850,0,unchanged
+T851,1,black patch post
+T852,1,grey-dark patch post
+T853,0,unchanged
+T854,0,unchanged
+T855,9,post haze
+T856,0,dark beside box
+T857,1,dark post
+T858,0,no char
+T859,9,village
+T860,0,green crop
+T861,1,dark patch post
+T862,0,stubble
+T863,0,dark already pre
+T864,9,pre haze
+T865,0,dark already pre
+T866,0,dark already pre
+T867,1,dark bar post
+T868,0,no char
+T869,1,weak dark post
+T870,1,dark post
+T871,0,no char
+T872,0,weak
+T873,0,crop
+T874,1,weak dark post
+T875,1,dark post
+T876,1,dark post
+T877,0,weak
+T878,1,dark post
+T879,0,crop
+T880,0,no char
+T881,9,edge straddle
+T882,1,dark post
+T883,1,dark post
+T884,1,dark post
+T885,0,dark spots off box
+T886,0,no char
+T887,0,no char
+T888,0,no char
+T889,0,no char
+T890,1,dark post
+T891,0,no char
+T892,1,dark post
+T893,0,no char
+T894,0,no char
+T895,0,no char
+T896,1,dark post
+T897,0,dark beside box
+T898,0,no char
+T899,0,dark beside box
+T900,1,dark post
+T901,0,dark already pre
+T902,9,dark partly pre
+T903,0,no char
+T904,0,no char
+T905,1,dark post
+T906,0,no char
+T907,0,no char
+T908,1,dark post
+T909,1,dark post
+T910,0,dark already pre
+T911,0,no char
+T912,1,dark post
+T913,1,dark post
+T914,0,no char
+T915,9,pre haze
+T916,0,no char
+T917,0,no char
+T918,9,pre white
+T919,0,dark off box

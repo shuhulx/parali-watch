@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+*.egg-info
+.venv
+.pytest_cache/
+.ruff_cache/
+
+# Pipeline outputs are reproducible from config + code (`make run`)
+data/
+*.part
+*.part.tif
+
+# OS
+.DS_Store
+
+# Local agent tooling
+.omc/
+
+# Label desk pages embed every chip (~10 MB); rebuild with `paraliwatch label-page <dir>`
+reference/**/label.html

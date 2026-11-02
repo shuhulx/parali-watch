@@ -1,0 +1,201 @@
+point_id,label,note
+T200,1,dark rectangle at box in POST true and SWIR; pale in PRE
+T201,9,smog or haze on PRE date
+T202,9,smog or haze on PRE date
+T203,0,crop or stubble or tillage; no new dark char at box
+T204,0,crop or stubble or tillage; no new dark char at box
+T205,9,smog on POST date
+T206,1,small dark grey patch at box in POST both bands; tan in PRE
+T207,0,crop or stubble or tillage; no new dark char at box
+T208,9,smog on POST date
+T209,9,haze on POST
+T210,9,smog on POST date
+T211,0,crop or stubble or tillage; no new dark char at box
+T212,0,crop or stubble or tillage; no new dark char at box
+T213,1,dark char square at box POST; pale stubble PRE
+T214,0,crop or stubble or tillage; no new dark char at box
+T215,0,crop or stubble or tillage; no new dark char at box
+T216,9,smog or haze on PRE date
+T217,1,dark patch at box POST SWIR; tan PRE
+T218,9,smog or haze on PRE date
+T219,0,crop or stubble or tillage; no new dark char at box
+T220,9,smog or haze on PRE date
+T221,9,smog or haze on PRE date
+T222,9,smog or haze on PRE date
+T223,0,crop or stubble or tillage; no new dark char at box
+T224,0,crop or stubble or tillage; no new dark char at box
+T225,0,crop or stubble or tillage; no new dark char at box
+T226,0,crop or stubble or tillage; no new dark char at box
+T227,0,crop or stubble or tillage; no new dark char at box
+T228,9,smog or haze on PRE date
+T229,0,crop or stubble or tillage; no new dark char at box
+T230,0,crop or stubble or tillage; no new dark char at box
+T231,9,smog or haze on PRE date
+T232,0,crop or stubble or tillage; no new dark char at box
+T233,0,crop or stubble or tillage; no new dark char at box
+T234,9,smog or haze on PRE date
+T235,0,crop or stubble or tillage; no new dark char at box
+T236,0,crop or stubble or tillage; no new dark char at box
+T237,9,no-data mask near box in PRE
+T238,0,crop or stubble or tillage; no new dark char at box
+T239,9,smog or haze on PRE date
+T240,9,hazy PRE; dark grey-brown POST ambiguous
+T241,0,crop or stubble or tillage; no new dark char at box
+T242,9,smog or haze on PRE date
+T243,9,smog or haze on PRE date
+T244,0,crop or stubble or tillage; no new dark char at box
+T245,9,smog or haze on PRE date
+T246,0,crop or stubble or tillage; no new dark char at box
+T247,0,crop or stubble or tillage; no new dark char at box
+T248,9,smog or haze on PRE date
+T249,9,smog or haze on PRE date
+T250,9,smog or haze on PRE date
+T251,0,crop or stubble or tillage; no new dark char at box
+T252,0,crop or stubble or tillage; no new dark char at box
+T253,9,smog or haze on PRE date
+T254,0,crop or stubble or tillage; no new dark char at box
+T255,1,dark brownish patch at box POST; lighter PRE
+T256,1,dark char patch POST SWIR and true; tan PRE
+T257,9,smog or haze on PRE date
+T258,9,smog or haze on PRE date
+T259,9,smog or haze on PRE date
+T260,9,smog or haze on PRE date
+T261,0,crop or stubble or tillage; no new dark char at box
+T262,9,smog or haze on PRE date
+T263,9,smog or haze on PRE date
+T264,9,smog or haze on PRE date
+T265,9,smog or haze on PRE date
+T266,0,crop or stubble or tillage; no new dark char at box
+T267,0,crop or stubble or tillage; no new dark char at box
+T268,0,crop or stubble or tillage; no new dark char at box
+T269,0,crop or stubble or tillage; no new dark char at box
+T270,9,smog or haze on PRE date
+T271,0,crop or stubble or tillage; no new dark char at box
+T272,0,crop or stubble or tillage; no new dark char at box
+T273,9,smog or haze on PRE date
+T274,0,crop or stubble or tillage; no new dark char at box
+T275,0,crop or stubble or tillage; no new dark char at box
+T276,9,smog or haze on PRE date
+T277,9,smog or haze on PRE date
+T278,9,smog on POST date
+T279,9,smog on PRE
+T280,0,crop or stubble or tillage; no new dark char at box
+T281,9,smog on POST date
+T282,0,crop or stubble or tillage; no new dark char at box
+T283,9,no-data mask and smog in PRE
+T284,9,smog on POST date
+T285,1,dark olive-black patch at box POST; lighter PRE
+T286,0,crop or stubble or tillage; no new dark char at box
+T287,9,smog or haze on PRE date
+T288,0,crop or stubble or tillage; no new dark char at box
+T289,0,crop or stubble or tillage; no new dark char at box
+T290,9,smog or haze on PRE date
+T291,0,crop or stubble or tillage; no new dark char at box
+T292,9,smog or haze on PRE date
+T293,0,crop or stubble or tillage; no new dark char at box
+T294,0,crop or stubble or tillage; no new dark char at box
+T295,9,smog or haze on PRE date
+T296,9,smog or haze on PRE date
+T297,0,crop or stubble or tillage; no new dark char at box
+T298,9,smog or haze on PRE date
+T299,9,smog or haze on PRE date
+T300,9,smog or haze on PRE date
+T301,0,crop or stubble or tillage; no new dark char at box
+T302,0,crop or stubble or tillage; no new dark char at box
+T303,0,crop or stubble or tillage; no new dark char at box
+T304,0,crop or stubble or tillage; no new dark char at box
+T305,9,smog or haze on PRE date
+T306,0,crop or stubble or tillage; no new dark char at box
+T307,0,crop or stubble or tillage; no new dark char at box
+T308,0,crop or stubble or tillage; no new dark char at box
+T309,1,black blob in POST SWIR at box; bright PRE
+T310,9,smog or haze on PRE date
+T311,9,smog or haze on PRE date
+T312,0,crop or stubble or tillage; no new dark char at box
+T313,9,smog on POST date
+T314,9,smog or haze on PRE date
+T315,1,dark SWIR patch at box POST; pale PRE
+T316,9,smog or haze on PRE date
+T317,9,smog or haze on PRE date
+T318,9,smog or haze on PRE date
+T319,0,crop or stubble or tillage; no new dark char at box
+T320,9,smog or haze on PRE date
+T321,1,dark grey field POST both bands; pale tan PRE
+T322,9,smog or haze on PRE date
+T323,0,crop or stubble or tillage; no new dark char at box
+T324,9,smog or haze on PRE date
+T325,0,crop or stubble or tillage; no new dark char at box
+T326,0,crop or stubble or tillage; no new dark char at box
+T327,0,crop or stubble or tillage; no new dark char at box
+T328,0,crop or stubble or tillage; no new dark char at box
+T329,9,smog or haze on PRE date
+T330,0,crop or stubble or tillage; no new dark char at box
+T331,9,smog or haze on PRE date
+T332,0,crop or stubble or tillage; no new dark char at box
+T333,0,crop or stubble or tillage; no new dark char at box
+T334,9,smog or haze on PRE date
+T335,0,crop or stubble or tillage; no new dark char at box
+T336,1,charcoal field patch at box POST; pale PRE
+T337,9,smog or haze on PRE date
+T338,0,crop or stubble or tillage; no new dark char at box
+T339,0,crop or stubble or tillage; no new dark char at box
+T340,9,smog or haze on PRE date
+T341,9,smog or haze on PRE date
+T342,0,crop or stubble or tillage; no new dark char at box
+T343,9,smog or haze on PRE date
+T344,0,crop or stubble or tillage; no new dark char at box
+T345,9,smog or haze on PRE date
+T346,0,crop or stubble or tillage; no new dark char at box
+T347,9,smog or haze on PRE date
+T348,9,smog or haze on PRE date
+T349,0,crop or stubble or tillage; no new dark char at box
+T350,0,crop or stubble or tillage; no new dark char at box
+T351,0,crop or stubble or tillage; no new dark char at box
+T352,9,smog or haze on PRE date
+T353,0,crop or stubble or tillage; no new dark char at box
+T354,9,smog or haze on PRE date
+T355,9,smog or haze on PRE date
+T356,9,smog or haze on PRE date
+T357,0,crop or stubble or tillage; no new dark char at box
+T358,9,smog or haze on PRE date
+T359,0,crop or stubble or tillage; no new dark char at box
+T360,9,smog or haze on PRE date
+T361,1,dark patch at box top POST; lower confidence
+T362,0,crop or stubble or tillage; no new dark char at box
+T363,0,crop or stubble or tillage; no new dark char at box
+T364,9,smog or haze on PRE date
+T365,0,crop or stubble or tillage; no new dark char at box
+T366,9,smog or haze on PRE date
+T367,9,smog or haze on PRE date
+T368,9,smog or haze on PRE date
+T369,0,crop or stubble or tillage; no new dark char at box
+T370,0,crop or stubble or tillage; no new dark char at box
+T371,9,smog or haze on PRE date
+T372,0,crop or stubble or tillage; no new dark char at box
+T373,0,crop or stubble or tillage; no new dark char at box
+T374,0,crop or stubble or tillage; no new dark char at box
+T375,9,smog or haze on PRE date
+T376,9,smog or haze on PRE date
+T377,0,crop or stubble or tillage; no new dark char at box
+T378,1,dark patch at box POST SWIR; tan PRE
+T379,9,smog or haze on PRE date
+T380,9,smog or haze on PRE date
+T381,9,smog or haze on PRE date
+T382,0,crop or stubble or tillage; no new dark char at box
+T383,0,crop or stubble or tillage; no new dark char at box
+T384,0,crop or stubble or tillage; no new dark char at box
+T385,0,crop or stubble or tillage; no new dark char at box
+T386,0,crop or stubble or tillage; no new dark char at box
+T387,1,dark charcoal POST vs lavender PRE at box; near edge
+T388,0,crop or stubble or tillage; no new dark char at box
+T389,0,crop or stubble or tillage; no new dark char at box
+T390,0,crop or stubble or tillage; no new dark char at box
+T391,0,crop or stubble or tillage; no new dark char at box
+T392,0,crop or stubble or tillage; no new dark char at box
+T393,0,crop or stubble or tillage; no new dark char at box
+T394,0,crop or stubble or tillage; no new dark char at box
+T395,1,dark patch adjoining box POST SWIR; pale PRE; edge
+T396,0,crop or stubble or tillage; no new dark char at box
+T397,0,crop or stubble or tillage; no new dark char at box
+T398,0,crop or stubble or tillage; no new dark char at box
+T399,0,crop or stubble or tillage; no new dark char at box

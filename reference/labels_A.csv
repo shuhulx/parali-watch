@@ -1,0 +1,361 @@
+point_id,label,note
+P000,9,box at edge of dark POST field; straddles boundary
+P001,0,no dark char under box; crop/stubble/tilled
+P002,9,smog in PRE
+P003,0,no dark char under box; crop/stubble/tilled
+P004,9,smog both dates
+P005,1,dark charcoal patch under box in POST true and SWIR; PRE crop/stubble
+P006,0,no dark char under box; crop/stubble/tilled
+P007,0,no dark char under box; crop/stubble/tilled
+P008,0,dark patch already present in PRE
+P009,0,no dark char under box; crop/stubble/tilled
+P010,9,box in village/built-up
+P011,9,box in village/built-up
+P012,0,no dark char under box; crop/stubble/tilled
+P013,0,no dark char under box; crop/stubble/tilled
+P014,9,hazy PRE; dark patch ambiguous
+P015,0,no dark char under box; crop/stubble/tilled
+P016,0,no dark char under box; crop/stubble/tilled
+P017,0,no dark char under box; crop/stubble/tilled
+P018,0,no dark char under box; crop/stubble/tilled
+P019,0,no dark char under box; crop/stubble/tilled
+P020,9,smog
+P021,0,no dark char under box; crop/stubble/tilled
+P022,0,no dark char under box; crop/stubble/tilled
+P023,0,no dark char under box; crop/stubble/tilled
+P024,0,no dark char under box; crop/stubble/tilled
+P025,0,no dark char under box; crop/stubble/tilled
+P026,0,no dark char under box; crop/stubble/tilled
+P027,0,greyish patch below box not black
+P028,0,no dark char under box; crop/stubble/tilled
+P029,1,dark band at box in POST not in PRE
+P030,0,no dark char under box; crop/stubble/tilled
+P031,0,no dark char under box; crop/stubble/tilled
+P032,9,dark patch adjacent; box straddles boundary
+P033,0,no dark char under box; crop/stubble/tilled
+P034,0,no dark char under box; crop/stubble/tilled
+P035,0,no dark char under box; crop/stubble/tilled
+P036,0,no dark char under box; crop/stubble/tilled
+P037,0,no dark char under box; crop/stubble/tilled
+P038,0,no dark char under box; crop/stubble/tilled
+P039,1,dark char patch at box in POST true and SWIR
+P040,0,no dark char under box; crop/stubble/tilled
+P041,0,no dark char under box; crop/stubble/tilled
+P042,9,smog in PRE
+P043,9,village
+P044,0,no dark char under box; crop/stubble/tilled
+P045,0,no dark char under box; crop/stubble/tilled
+P046,9,hazy POST
+P047,0,no dark char under box; crop/stubble/tilled
+P048,0,no dark char under box; crop/stubble/tilled
+P049,0,no dark char under box; crop/stubble/tilled
+P050,0,no dark char under box; crop/stubble/tilled
+P051,0,no dark char under box; crop/stubble/tilled
+P052,0,no dark char under box; crop/stubble/tilled
+P053,0,no dark char under box; crop/stubble/tilled
+P054,0,no dark char under box; crop/stubble/tilled
+P055,9,smog both dates
+P056,0,no dark char under box; crop/stubble/tilled
+P057,9,hazy; dark band ambiguous
+P058,0,no dark char under box; crop/stubble/tilled
+P059,0,no dark char under box; crop/stubble/tilled
+P060,9,dark field adjacent; box straddles boundary
+P061,0,no dark char under box; crop/stubble/tilled
+P062,0,no dark char under box; crop/stubble/tilled
+P063,0,no dark char under box; crop/stubble/tilled
+P064,0,no dark char under box; crop/stubble/tilled
+P065,1,dark brown/black field under box in POST; PRE bright
+P066,0,no dark char under box; crop/stubble/tilled
+P067,0,no dark char under box; crop/stubble/tilled
+P068,0,no dark char under box; crop/stubble/tilled
+P069,0,no dark char under box; crop/stubble/tilled
+P070,0,no dark char under box; crop/stubble/tilled
+P071,0,no dark char under box; crop/stubble/tilled
+P072,0,no dark char under box; crop/stubble/tilled
+P073,9,village
+P074,0,no dark char under box; crop/stubble/tilled
+P075,0,no dark char under box; crop/stubble/tilled
+P076,9,dark patch at edge of box
+P077,1,small dark char blob at box in POST not in PRE
+P078,9,POST uniformly dark brown; ambiguous vs tilled
+P079,0,no dark char under box; crop/stubble/tilled
+P080,0,no dark char under box; crop/stubble/tilled
+P081,0,no dark char under box; crop/stubble/tilled
+P082,0,no dark char under box; crop/stubble/tilled
+P083,0,no dark char under box; crop/stubble/tilled
+P084,0,no dark char under box; crop/stubble/tilled
+P085,0,no dark char under box; crop/stubble/tilled
+P086,0,no dark char under box; crop/stubble/tilled
+P087,0,no dark char under box; crop/stubble/tilled
+P088,0,no dark char under box; crop/stubble/tilled
+P089,1,dark brown/black field under box in POST
+P090,1,large dark field under box in POST; PRE bright
+P091,0,no dark char under box; crop/stubble/tilled
+P092,0,no dark char under box; crop/stubble/tilled
+P093,1,near-black patch under box in POST not in PRE
+P094,0,no dark char under box; crop/stubble/tilled
+P095,0,no dark char under box; crop/stubble/tilled
+P096,0,no dark char under box; crop/stubble/tilled
+P097,1,dark brown/black field under box in POST; PRE bright
+P098,0,no dark char under box; crop/stubble/tilled
+P099,9,smog POST
+P100,9,hazy POST
+P101,0,no dark char under box; crop/stubble/tilled
+P102,1,dark patch at box in POST true and SWIR
+P103,0,no dark char under box; crop/stubble/tilled
+P104,1,dark brown-purple patch at box in POST
+P105,9,hazy POST
+P106,0,no dark char under box; crop/stubble/tilled
+P107,9,smog PRE
+P108,0,no dark char under box; crop/stubble/tilled
+P109,0,no dark char under box; crop/stubble/tilled
+P110,0,no dark char under box; crop/stubble/tilled
+P111,0,no dark char under box; crop/stubble/tilled
+P112,9,smog POST
+P113,0,no dark char under box; crop/stubble/tilled
+P114,0,no dark char under box; crop/stubble/tilled
+P115,0,no dark char under box; crop/stubble/tilled
+P116,0,no dark char under box; crop/stubble/tilled
+P117,0,no dark char under box; crop/stubble/tilled
+P118,0,no dark char under box; crop/stubble/tilled
+P119,0,no dark char under box; crop/stubble/tilled
+P120,0,no dark char under box; crop/stubble/tilled
+P121,0,no dark char under box; crop/stubble/tilled
+P122,1,dark charcoal patch at box in POST
+P123,0,no dark char under box; crop/stubble/tilled
+P124,0,no dark char under box; crop/stubble/tilled
+P125,1,dark grey/black patch at box in POST
+P126,0,no dark char under box; crop/stubble/tilled
+P127,0,no dark char under box; crop/stubble/tilled
+P128,0,no dark char under box; crop/stubble/tilled
+P129,9,dark patch just below box; straddles
+P130,9,dark patch beside box; straddles
+P131,0,no dark char under box; crop/stubble/tilled
+P132,1,large dark brown/black field under box in POST
+P133,0,no dark char under box; crop/stubble/tilled
+P134,0,no dark char under box; crop/stubble/tilled
+P135,0,no dark char under box; crop/stubble/tilled
+P136,0,no dark char under box; crop/stubble/tilled
+P137,9,small dark patch below box; ambiguous
+P138,9,smog PRE
+P139,0,no dark char under box; crop/stubble/tilled
+P140,0,no dark char under box; crop/stubble/tilled
+P141,0,no dark char under box; crop/stubble/tilled
+P142,0,no dark char under box; crop/stubble/tilled
+P143,9,smog PRE
+P144,0,no dark char under box; crop/stubble/tilled
+P145,0,no dark char under box; crop/stubble/tilled
+P146,0,no dark char under box; crop/stubble/tilled
+P147,0,no dark char under box; crop/stubble/tilled
+P148,0,no dark char under box; crop/stubble/tilled
+P149,0,no dark char under box; crop/stubble/tilled
+P150,1,dark brown/black field under box in POST; PRE bright
+P151,0,no dark char under box; crop/stubble/tilled
+P152,0,no dark char under box; crop/stubble/tilled
+P153,0,no dark char under box; crop/stubble/tilled
+P154,0,no dark char under box; crop/stubble/tilled
+P155,0,no dark char under box; crop/stubble/tilled
+P156,0,no dark char under box; crop/stubble/tilled
+P157,0,no dark char under box; crop/stubble/tilled
+P158,0,no dark char under box; crop/stubble/tilled
+P159,0,no dark char under box; crop/stubble/tilled
+P160,0,no dark char under box; crop/stubble/tilled
+P161,0,no dark char under box; crop/stubble/tilled
+P162,1,dark brown field under box in POST; PRE bright
+P163,9,hazy POST
+P164,0,no dark char under box; crop/stubble/tilled
+P165,0,no dark char under box; crop/stubble/tilled
+P166,0,no dark char under box; crop/stubble/tilled
+P167,0,no dark char under box; crop/stubble/tilled
+P168,9,smog POST
+P169,0,no dark char under box; crop/stubble/tilled
+P170,1,dark charcoal at box in POST SWIR; PRE bright
+P171,0,dark patch adjacent already in PRE
+P172,0,no dark char under box; crop/stubble/tilled
+P173,0,no dark char under box; crop/stubble/tilled
+P174,0,dark spot already present in PRE
+P175,0,no dark char under box; crop/stubble/tilled
+P176,0,no dark char under box; crop/stubble/tilled
+P177,0,no dark char under box; crop/stubble/tilled
+P178,9,village
+P179,9,smog PRE
+P180,1,large dark brown field under box in POST; PRE bright
+P181,9,village
+P182,0,no dark char under box; crop/stubble/tilled
+P183,1,small dark spot at box in POST SWIR not in PRE
+P184,0,no dark char under box; crop/stubble/tilled or unchanged
+P185,0,no dark char under box; crop/stubble/tilled or unchanged
+P186,1,black rectangular SWIR scar under box in POST; not in PRE
+P187,0,no dark char under box; crop/stubble/tilled or unchanged
+P188,0,no dark char under box; crop/stubble/tilled or unchanged
+P189,9,PRE smog white wash
+P190,1,grey-dark patch under box in POST SWIR; PRE hazy; low confidence
+P191,0,no dark char under box; crop/stubble/tilled or unchanged
+P192,0,no dark char under box; crop/stubble/tilled or unchanged
+P193,0,no dark char under box; crop/stubble/tilled or unchanged
+P194,0,no dark char under box; crop/stubble/tilled or unchanged
+P195,0,no dark char under box; crop/stubble/tilled or unchanged
+P196,0,no dark char under box; crop/stubble/tilled or unchanged
+P197,0,no dark char under box; crop/stubble/tilled or unchanged
+P198,1,dark char patch at/below box in POST; low confidence
+P199,0,no dark char under box; crop/stubble/tilled or unchanged
+P200,0,no dark char under box; crop/stubble/tilled or unchanged
+P201,0,no dark char under box; crop/stubble/tilled or unchanged
+P202,0,no dark char under box; crop/stubble/tilled or unchanged
+P203,1,dark grey-purple patch at box POST SWIR; PRE lavender stubble
+P204,0,no dark char under box; crop/stubble/tilled or unchanged
+P205,9,dark patch at box top edge; straddles
+P206,0,no dark char under box; crop/stubble/tilled or unchanged
+P207,0,no dark char under box; crop/stubble/tilled or unchanged
+P208,0,no dark char under box; crop/stubble/tilled or unchanged
+P209,0,no dark char under box; crop/stubble/tilled or unchanged
+P210,0,no dark char under box; crop/stubble/tilled or unchanged
+P211,0,no dark char under box; crop/stubble/tilled or unchanged
+P212,0,no dark char under box; crop/stubble/tilled or unchanged
+P213,0,no dark char under box; crop/stubble/tilled or unchanged
+P214,0,no dark char under box; crop/stubble/tilled or unchanged
+P215,0,no dark char under box; crop/stubble/tilled or unchanged
+P216,0,no dark char under box; crop/stubble/tilled or unchanged
+P217,0,no dark char under box; crop/stubble/tilled or unchanged
+P218,1,dark charcoal band across box POST; PRE crop
+P219,1,dark patch with black spots at box POST; PRE tan/mauve
+P220,0,no dark char under box; crop/stubble/tilled or unchanged
+P221,0,no dark char under box; crop/stubble/tilled or unchanged
+P222,0,no dark char under box; crop/stubble/tilled or unchanged
+P223,0,no dark char under box; crop/stubble/tilled or unchanged
+P224,9,dark patch just above box; box straddles edge
+P225,0,no dark char under box; crop/stubble/tilled or unchanged
+P226,0,no dark char under box; crop/stubble/tilled or unchanged
+P227,9,hazy grey texture POST/PRE; unreliable
+P228,9,PRE fully white smog
+P229,0,no dark char under box; crop/stubble/tilled or unchanged
+P230,0,no dark char under box; crop/stubble/tilled or unchanged
+P231,0,no dark char under box; crop/stubble/tilled or unchanged
+P232,0,no dark char under box; crop/stubble/tilled or unchanged
+P233,0,no dark char under box; crop/stubble/tilled or unchanged
+P234,0,no dark char under box; crop/stubble/tilled or unchanged
+P235,0,no dark char under box; crop/stubble/tilled or unchanged
+P236,0,no dark char under box; crop/stubble/tilled or unchanged
+P237,0,no dark char under box; crop/stubble/tilled or unchanged
+P238,0,no dark char under box; crop/stubble/tilled or unchanged
+P239,0,no dark char under box; crop/stubble/tilled or unchanged
+P240,0,no dark char under box; crop/stubble/tilled or unchanged
+P241,0,no dark char under box; crop/stubble/tilled or unchanged
+P242,1,black SWIR patch under box POST on narrow chip; PRE lavender
+P243,0,no dark char under box; crop/stubble/tilled or unchanged
+P244,0,no dark char under box; crop/stubble/tilled or unchanged
+P245,1,dark charcoal patch at box POST; PRE lavender/green
+P246,9,POST smog wash; PRE tan
+P247,0,no dark char under box; crop/stubble/tilled or unchanged
+P248,0,no dark char under box; crop/stubble/tilled or unchanged
+P249,0,no dark char under box; crop/stubble/tilled or unchanged
+P250,1,black patch at box POST SWIR; PRE lavender
+P251,0,no dark char under box; crop/stubble/tilled or unchanged
+P252,0,no dark char under box; crop/stubble/tilled or unchanged
+P253,1,small dark brown patch at box POST; PRE lavender; low confidence
+P254,0,no dark char under box; crop/stubble/tilled or unchanged
+P255,9,dark strip adjacent to box; boundary
+P256,1,dark patch at box POST SWIR; PRE lavender; low confidence
+P257,0,no dark char under box; crop/stubble/tilled or unchanged
+P258,0,no dark char under box; crop/stubble/tilled or unchanged
+P259,0,no dark char under box; crop/stubble/tilled or unchanged
+P260,0,no dark char under box; crop/stubble/tilled or unchanged
+P261,0,no dark char under box; crop/stubble/tilled or unchanged
+P262,0,no dark char under box; crop/stubble/tilled or unchanged
+P263,9,village texture
+P264,9,POST uniformly dark grey; smog-like
+P265,0,no dark char under box; crop/stubble/tilled or unchanged
+P266,9,POST uniformly dark grey; smog-like
+P267,0,no dark char under box; crop/stubble/tilled or unchanged
+P268,0,no dark char under box; crop/stubble/tilled or unchanged
+P269,0,no dark char under box; crop/stubble/tilled or unchanged
+P270,0,no dark char under box; crop/stubble/tilled or unchanged
+P271,9,dark stripe beside box; boundary straddle
+P272,9,village
+P273,0,no dark char under box; crop/stubble/tilled or unchanged
+P274,0,no dark char under box; crop/stubble/tilled or unchanged
+P275,0,no dark char under box; crop/stubble/tilled or unchanged
+P276,1,large black scar under box POST; PRE stubble
+P277,0,no dark char under box; crop/stubble/tilled or unchanged
+P278,0,no dark char under box; crop/stubble/tilled or unchanged
+P279,0,no dark char under box; crop/stubble/tilled or unchanged
+P280,0,no dark char under box; crop/stubble/tilled or unchanged
+P281,0,no dark char under box; crop/stubble/tilled or unchanged
+P282,0,no dark char under box; crop/stubble/tilled or unchanged
+P283,0,no dark char under box; crop/stubble/tilled or unchanged
+P284,0,no dark char under box; crop/stubble/tilled or unchanged
+P285,0,no dark char under box; crop/stubble/tilled or unchanged
+P286,0,no dark char under box; crop/stubble/tilled or unchanged
+P287,0,no dark char under box; crop/stubble/tilled or unchanged
+P288,0,no dark char under box; crop/stubble/tilled or unchanged
+P289,9,tree/canal dark green band at box
+P290,0,no dark char under box; crop/stubble/tilled or unchanged
+P291,9,truncated chip; box at edge
+P292,9,PRE smog; POST village texture
+P293,0,no dark char under box; crop/stubble/tilled or unchanged
+P294,0,no dark char under box; crop/stubble/tilled or unchanged
+P295,0,no dark char under box; crop/stubble/tilled or unchanged
+P296,0,no dark char under box; crop/stubble/tilled or unchanged
+P297,0,no dark char under box; crop/stubble/tilled or unchanged
+P298,0,no dark char under box; crop/stubble/tilled or unchanged
+P299,0,no dark char under box; crop/stubble/tilled or unchanged
+P300,0,no dark char under box; crop/stubble/tilled or unchanged
+P301,0,no dark char under box; crop/stubble/tilled or unchanged
+P302,0,no dark char under box; crop/stubble/tilled or unchanged
+P303,0,no dark char under box; crop/stubble/tilled or unchanged
+P304,1,dark charcoal patch at box POST; PRE lavender
+P305,0,no dark char under box; crop/stubble/tilled or unchanged
+P306,0,no dark char under box; crop/stubble/tilled or unchanged
+P307,0,no dark char under box; crop/stubble/tilled or unchanged
+P308,0,no dark char under box; crop/stubble/tilled or unchanged
+P309,0,no dark char under box; crop/stubble/tilled or unchanged
+P310,0,no dark char under box; crop/stubble/tilled or unchanged
+P311,0,no dark char under box; crop/stubble/tilled or unchanged
+P312,0,no dark char under box; crop/stubble/tilled or unchanged
+P313,0,no dark char under box; crop/stubble/tilled or unchanged
+P314,0,no dark char under box; crop/stubble/tilled or unchanged
+P315,0,no dark char under box; crop/stubble/tilled or unchanged
+P316,0,no dark char under box; crop/stubble/tilled or unchanged
+P317,0,no dark char under box; crop/stubble/tilled or unchanged
+P318,0,no dark char under box; crop/stubble/tilled or unchanged
+P319,0,no dark char under box; crop/stubble/tilled or unchanged
+P320,9,PRE smog wash
+P321,0,no dark char under box; crop/stubble/tilled or unchanged
+P322,0,no dark char under box; crop/stubble/tilled or unchanged
+P323,1,black patch at box POST SWIR; PRE lavender
+P324,0,no dark char under box; crop/stubble/tilled or unchanged
+P325,0,no dark char under box; crop/stubble/tilled or unchanged
+P326,0,no dark char under box; crop/stubble/tilled or unchanged
+P327,0,no dark char under box; crop/stubble/tilled or unchanged
+P328,0,no dark char under box; crop/stubble/tilled or unchanged
+P329,0,no dark char under box; crop/stubble/tilled or unchanged
+P330,0,no dark char under box; crop/stubble/tilled or unchanged
+P331,9,PRE smog wash
+P332,0,no dark char under box; crop/stubble/tilled or unchanged
+P333,0,no dark char under box; crop/stubble/tilled or unchanged
+P334,0,no dark char under box; crop/stubble/tilled or unchanged
+P335,9,POST hazy wash
+P336,0,no dark char under box; crop/stubble/tilled or unchanged
+P337,0,no dark char under box; crop/stubble/tilled or unchanged
+P338,1,whole field dark brown/black POST; PRE tan/lavender
+P339,0,no dark char under box; crop/stubble/tilled or unchanged
+P340,0,no dark char under box; crop/stubble/tilled or unchanged
+P341,0,no dark char under box; crop/stubble/tilled or unchanged
+P342,0,no dark char under box; crop/stubble/tilled or unchanged
+P343,0,no dark char under box; crop/stubble/tilled or unchanged
+P344,0,no dark char under box; crop/stubble/tilled or unchanged
+P345,0,no dark char under box; crop/stubble/tilled or unchanged
+P346,9,village
+P347,0,no dark char under box; crop/stubble/tilled or unchanged
+P348,1,dark brown/black field at box POST; PRE tan
+P349,0,no dark char under box; crop/stubble/tilled or unchanged
+P350,0,no dark char under box; crop/stubble/tilled or unchanged
+P351,0,no dark char under box; crop/stubble/tilled or unchanged
+P352,0,no dark char under box; crop/stubble/tilled or unchanged
+P353,0,no dark char under box; crop/stubble/tilled or unchanged
+P354,0,no dark char under box; crop/stubble/tilled or unchanged
+P355,0,no dark char under box; crop/stubble/tilled or unchanged
+P356,1,dark patch at box POST; PRE green/lavender
+P357,1,black scar at box POST; PRE lavender
+P358,1,dark grey patch at box POST; PRE lavender; low confidence
+P359,0,no dark char under box; crop/stubble/tilled or unchanged

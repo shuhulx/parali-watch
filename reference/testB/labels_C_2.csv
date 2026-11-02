@@ -1,0 +1,79 @@
+point_id,label,note
+B331,0,post grey-brown/plum SWIR; tilled not char
+B336,0,post dark plum SWIR = tilled
+B337,1,new dark blob at road junction in post both renderings; low conf
+B338,0,centre purple stubble; dark patches nearby only
+B353,0,unchanged stubble
+B354,0,speckled unchanged
+B359,0,unchanged tan/lavender
+B363,0,green crop to harvested stubble; no char
+B369,1,post dark slate SWIR at centre; low conf
+B375,1,post dark slate field at centre
+B376,0,post magenta tilled
+B377,0,unchanged
+B378,0,centre stays mauve
+B380,0,unchanged purple
+B382,1,dark rectangle at centre in post both
+B389,0,lavender stubble both
+B390,0,green crop both
+B393,0,centre magenta; dark patch to left
+B401,1,charcoal triangle at centre in post
+B402,0,green crop in post
+B405,1,lavender to dark charcoal-plum; moderate conf
+B407,1,charcoal patch at centre in post
+B412,0,no new dark at centre
+B413,1,dark SWIR pixel at centre post; TRUE hazy; low conf
+B414,0,speckled unchanged
+B418,0,centre mauve; dark patches nearby
+B421,0,centre mauve; dark patch adjacent
+B423,0,road edge purple field
+B424,0,centre mauve-grey; dark area offset
+B427,1,green crop to dark slate SWIR; low conf
+B432,1,dark char block at centre edge; low conf
+B433,1,post dark slate at centre
+B434,1,purple to charcoal field
+B436,0,unchanged
+B438,1,purple to charcoal patch
+B442,0,speckled unchanged
+B444,1,small dark slate patch at centre post; low conf
+B448,1,lavender to charcoal
+B449,0,centre pale grey; dark block to right
+B451,0,dark plum = tilled
+B454,1,lavender to charcoal-grey
+B456,1,purple to charcoal patch
+B457,0,centre plum not char; haze top-left
+B460,0,speckled unchanged
+B467,0,village edge unchanged
+B468,1,small dark spot at centre post; low conf
+B469,1,purple to charcoal
+B470,1,dark patch at centre post; moderate conf
+B473,0,centre lavender; dark below
+B474,1,purple to charcoal
+B476,1,lavender to charcoal
+B484,0,village/green unchanged
+B491,0,speckled unchanged
+B492,0,lavender/grey no char
+B497,0,centre tan/lavender; dark patch offset
+B501,0,unchanged
+B503,1,purple to charcoal
+B506,0,unchanged
+B507,1,lavender to dark charcoal-plum; moderate conf
+B508,1,green/lavender to charcoal
+B509,1,purple to dark grey at centre; low conf
+B514,0,centre grey-lavender; char spot to right
+B518,0,speckled unchanged
+B519,0,village unchanged
+B521,0,green strip
+B524,0,unchanged
+B525,0,village edge
+B526,0,centre purple
+B528,0,plum tilled
+B529,0,speckled unchanged
+B530,1,lavender to dark charcoal-plum; low conf
+B532,1,lavender to charcoal
+B536,1,dark slate not bright-green wheat; low conf
+B543,0,village unchanged
+B545,1,purple to charcoal
+B546,0,centre purple; dark patch below
+B549,0,dark plum tilled
+B551,0,canal edge field unchanged

@@ -1,0 +1,201 @@
+point_id,label,note
+T000,1,dark char at box in POST; absent in PRE
+T001,0,crop; stubble; tillage or unchanged/already dark in PRE
+T002,0,crop; stubble; tillage or unchanged/already dark in PRE
+T003,9,smog/no-data/edge/unjudgeable
+T004,9,smog/no-data/edge/unjudgeable
+T005,9,smog/no-data/edge/unjudgeable
+T006,0,crop; stubble; tillage or unchanged/already dark in PRE
+T007,0,crop; stubble; tillage or unchanged/already dark in PRE
+T008,9,smog/no-data/edge/unjudgeable
+T009,9,smog/no-data/edge/unjudgeable
+T010,0,crop; stubble; tillage or unchanged/already dark in PRE
+T011,9,smog/no-data/edge/unjudgeable
+T012,9,smog/no-data/edge/unjudgeable
+T013,9,smog/no-data/edge/unjudgeable
+T014,9,smog/no-data/edge/unjudgeable
+T015,0,crop; stubble; tillage or unchanged/already dark in PRE
+T016,9,smog/no-data/edge/unjudgeable
+T017,0,crop; stubble; tillage or unchanged/already dark in PRE
+T018,1,dark char at box in POST; absent in PRE
+T019,0,crop; stubble; tillage or unchanged/already dark in PRE
+T020,0,crop; stubble; tillage or unchanged/already dark in PRE
+T021,9,smog/no-data/edge/unjudgeable
+T022,0,crop; stubble; tillage or unchanged/already dark in PRE
+T023,0,crop; stubble; tillage or unchanged/already dark in PRE
+T024,9,smog/no-data/edge/unjudgeable
+T025,9,smog/no-data/edge/unjudgeable
+T026,0,crop; stubble; tillage or unchanged/already dark in PRE
+T027,0,crop; stubble; tillage or unchanged/already dark in PRE
+T028,9,smog/no-data/edge/unjudgeable
+T029,0,crop; stubble; tillage or unchanged/already dark in PRE
+T030,9,smog/no-data/edge/unjudgeable
+T031,0,crop; stubble; tillage or unchanged/already dark in PRE
+T032,9,smog/no-data/edge/unjudgeable
+T033,0,crop; stubble; tillage or unchanged/already dark in PRE
+T034,0,crop; stubble; tillage or unchanged/already dark in PRE
+T035,0,crop; stubble; tillage or unchanged/already dark in PRE
+T036,9,smog/no-data/edge/unjudgeable
+T037,9,smog/no-data/edge/unjudgeable
+T038,0,crop; stubble; tillage or unchanged/already dark in PRE
+T039,9,smog/no-data/edge/unjudgeable
+T040,9,smog/no-data/edge/unjudgeable
+T041,1,dark char at box in POST; absent in PRE
+T042,0,crop; stubble; tillage or unchanged/already dark in PRE
+T043,0,crop; stubble; tillage or unchanged/already dark in PRE
+T044,9,smog/no-data/edge/unjudgeable
+T045,9,smog/no-data/edge/unjudgeable
+T046,0,crop; stubble; tillage or unchanged/already dark in PRE
+T047,0,crop; stubble; tillage or unchanged/already dark in PRE
+T048,1,dark char at box in POST; absent in PRE
+T049,0,crop; stubble; tillage or unchanged/already dark in PRE
+T050,9,smog/no-data/edge/unjudgeable
+T051,0,crop; stubble; tillage or unchanged/already dark in PRE
+T052,0,crop; stubble; tillage or unchanged/already dark in PRE
+T053,9,smog/no-data/edge/unjudgeable
+T054,9,smog/no-data/edge/unjudgeable
+T055,0,crop; stubble; tillage or unchanged/already dark in PRE
+T056,1,dark char at box in POST; absent in PRE
+T057,0,crop; stubble; tillage or unchanged/already dark in PRE
+T058,0,crop; stubble; tillage or unchanged/already dark in PRE
+T059,1,dark char at box in POST; absent in PRE
+T060,9,smog/no-data/edge/unjudgeable
+T061,9,smog/no-data/edge/unjudgeable
+T062,9,smog/no-data/edge/unjudgeable
+T063,0,crop; stubble; tillage or unchanged/already dark in PRE
+T064,1,dark char at box in POST; absent in PRE
+T065,0,crop; stubble; tillage or unchanged/already dark in PRE
+T066,9,smog/no-data/edge/unjudgeable
+T067,0,crop; stubble; tillage or unchanged/already dark in PRE
+T068,0,crop; stubble; tillage or unchanged/already dark in PRE
+T069,9,smog/no-data/edge/unjudgeable
+T070,9,smog/no-data/edge/unjudgeable
+T071,0,crop; stubble; tillage or unchanged/already dark in PRE
+T072,9,smog/no-data/edge/unjudgeable
+T073,9,smog/no-data/edge/unjudgeable
+T074,9,smog/no-data/edge/unjudgeable
+T075,9,smog/no-data/edge/unjudgeable
+T076,9,smog/no-data/edge/unjudgeable
+T077,9,smog/no-data/edge/unjudgeable
+T078,0,crop; stubble; tillage or unchanged/already dark in PRE
+T079,0,crop; stubble; tillage or unchanged/already dark in PRE
+T080,9,smog/no-data/edge/unjudgeable
+T081,1,dark char at box in POST; absent in PRE
+T082,1,dark char at box in POST; absent in PRE
+T083,0,crop; stubble; tillage or unchanged/already dark in PRE
+T084,0,crop; stubble; tillage or unchanged/already dark in PRE
+T085,0,crop; stubble; tillage or unchanged/already dark in PRE
+T086,0,crop; stubble; tillage or unchanged/already dark in PRE
+T087,9,smog/no-data/edge/unjudgeable
+T088,9,smog/no-data/edge/unjudgeable
+T089,0,crop; stubble; tillage or unchanged/already dark in PRE
+T090,9,smog/no-data/edge/unjudgeable
+T091,0,crop; stubble; tillage or unchanged/already dark in PRE
+T092,9,smog/no-data/edge/unjudgeable
+T093,0,crop; stubble; tillage or unchanged/already dark in PRE
+T094,0,crop; stubble; tillage or unchanged/already dark in PRE
+T095,9,smog/no-data/edge/unjudgeable
+T096,0,crop; stubble; tillage or unchanged/already dark in PRE
+T097,0,crop; stubble; tillage or unchanged/already dark in PRE
+T098,9,smog/no-data/edge/unjudgeable
+T099,0,crop; stubble; tillage or unchanged/already dark in PRE
+T100,0,crop; stubble; tillage or unchanged/already dark in PRE
+T101,0,crop; stubble; tillage or unchanged/already dark in PRE
+T102,0,crop; stubble; tillage or unchanged/already dark in PRE
+T103,9,smog/no-data/edge/unjudgeable
+T104,0,crop; stubble; tillage or unchanged/already dark in PRE
+T105,9,smog/no-data/edge/unjudgeable
+T106,0,crop; stubble; tillage or unchanged/already dark in PRE
+T107,0,crop; stubble; tillage or unchanged/already dark in PRE
+T108,0,crop; stubble; tillage or unchanged/already dark in PRE
+T109,9,smog/no-data/edge/unjudgeable
+T110,0,crop; stubble; tillage or unchanged/already dark in PRE
+T111,0,crop; stubble; tillage or unchanged/already dark in PRE
+T112,9,smog/no-data/edge/unjudgeable
+T113,9,smog/no-data/edge/unjudgeable
+T114,9,smog/no-data/edge/unjudgeable
+T115,9,smog/no-data/edge/unjudgeable
+T116,0,crop; stubble; tillage or unchanged/already dark in PRE
+T117,9,smog/no-data/edge/unjudgeable
+T118,9,smog/no-data/edge/unjudgeable
+T119,9,smog/no-data/edge/unjudgeable
+T120,9,smog/no-data/edge/unjudgeable
+T121,0,crop; stubble; tillage or unchanged/already dark in PRE
+T122,0,crop; stubble; tillage or unchanged/already dark in PRE
+T123,0,crop; stubble; tillage or unchanged/already dark in PRE
+T124,9,smog/no-data/edge/unjudgeable
+T125,0,crop; stubble; tillage or unchanged/already dark in PRE
+T126,9,smog/no-data/edge/unjudgeable
+T127,9,smog/no-data/edge/unjudgeable
+T128,0,crop; stubble; tillage or unchanged/already dark in PRE
+T129,9,smog/no-data/edge/unjudgeable
+T130,9,smog/no-data/edge/unjudgeable
+T131,0,crop; stubble; tillage or unchanged/already dark in PRE
+T132,9,smog/no-data/edge/unjudgeable
+T133,0,crop; stubble; tillage or unchanged/already dark in PRE
+T134,9,smog/no-data/edge/unjudgeable
+T135,9,smog/no-data/edge/unjudgeable
+T136,0,crop; stubble; tillage or unchanged/already dark in PRE
+T137,9,smog/no-data/edge/unjudgeable
+T138,9,smog/no-data/edge/unjudgeable
+T139,0,crop; stubble; tillage or unchanged/already dark in PRE
+T140,0,crop; stubble; tillage or unchanged/already dark in PRE
+T141,0,crop; stubble; tillage or unchanged/already dark in PRE
+T142,0,crop; stubble; tillage or unchanged/already dark in PRE
+T143,0,crop; stubble; tillage or unchanged/already dark in PRE
+T144,9,smog/no-data/edge/unjudgeable
+T145,9,smog/no-data/edge/unjudgeable
+T146,0,crop; stubble; tillage or unchanged/already dark in PRE
+T147,9,smog/no-data/edge/unjudgeable
+T148,0,crop; stubble; tillage or unchanged/already dark in PRE
+T149,9,smog/no-data/edge/unjudgeable
+T150,9,smog/no-data/edge/unjudgeable
+T151,9,smog/no-data/edge/unjudgeable
+T152,0,crop; stubble; tillage or unchanged/already dark in PRE
+T153,0,crop; stubble; tillage or unchanged/already dark in PRE
+T154,0,crop; stubble; tillage or unchanged/already dark in PRE
+T155,0,crop; stubble; tillage or unchanged/already dark in PRE
+T156,0,crop; stubble; tillage or unchanged/already dark in PRE
+T157,0,crop; stubble; tillage or unchanged/already dark in PRE
+T158,0,crop; stubble; tillage or unchanged/already dark in PRE
+T159,0,crop; stubble; tillage or unchanged/already dark in PRE
+T160,9,smog/no-data/edge/unjudgeable
+T161,1,dark char at box in POST; absent in PRE
+T162,0,crop; stubble; tillage or unchanged/already dark in PRE
+T163,9,smog/no-data/edge/unjudgeable
+T164,9,smog/no-data/edge/unjudgeable
+T165,9,smog/no-data/edge/unjudgeable
+T166,9,smog/no-data/edge/unjudgeable
+T167,9,smog/no-data/edge/unjudgeable
+T168,0,crop; stubble; tillage or unchanged/already dark in PRE
+T169,0,crop; stubble; tillage or unchanged/already dark in PRE
+T170,1,dark char at box in POST; absent in PRE
+T171,0,crop; stubble; tillage or unchanged/already dark in PRE
+T172,9,smog/no-data/edge/unjudgeable
+T173,1,dark char at box in POST; absent in PRE
+T174,0,crop; stubble; tillage or unchanged/already dark in PRE
+T175,0,crop; stubble; tillage or unchanged/already dark in PRE
+T176,9,smog/no-data/edge/unjudgeable
+T177,0,crop; stubble; tillage or unchanged/already dark in PRE
+T178,1,dark char at box in POST; absent in PRE
+T179,0,crop; stubble; tillage or unchanged/already dark in PRE
+T180,0,crop; stubble; tillage or unchanged/already dark in PRE
+T181,9,smog/no-data/edge/unjudgeable
+T182,9,smog/no-data/edge/unjudgeable
+T183,9,smog/no-data/edge/unjudgeable
+T184,0,crop; stubble; tillage or unchanged/already dark in PRE
+T185,9,smog/no-data/edge/unjudgeable
+T186,0,crop; stubble; tillage or unchanged/already dark in PRE
+T187,0,crop; stubble; tillage or unchanged/already dark in PRE
+T188,9,smog/no-data/edge/unjudgeable
+T189,9,smog/no-data/edge/unjudgeable
+T190,9,smog/no-data/edge/unjudgeable
+T191,9,smog/no-data/edge/unjudgeable
+T192,0,crop; stubble; tillage or unchanged/already dark in PRE
+T193,0,crop; stubble; tillage or unchanged/already dark in PRE
+T194,9,smog/no-data/edge/unjudgeable
+T195,0,crop; stubble; tillage or unchanged/already dark in PRE
+T196,9,smog/no-data/edge/unjudgeable
+T197,9,smog/no-data/edge/unjudgeable
+T198,9,smog/no-data/edge/unjudgeable
+T199,9,smog/no-data/edge/unjudgeable

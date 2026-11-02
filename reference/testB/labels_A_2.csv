@@ -1,0 +1,185 @@
+point_id,label,note
+B184,0,no dark char under square after; stubble or soil or crop unchanged
+B185,0,no dark char under square after; stubble or soil or crop unchanged
+B186,0,no dark char under square after; stubble or soil or crop unchanged
+B187,0,no dark char under square after; stubble or soil or crop unchanged
+B188,9,pre haze
+B189,0,no dark char under square after; stubble or soil or crop unchanged
+B190,0,no dark char under square after; stubble or soil or crop unchanged
+B191,9,noisy hazy chips
+B192,1,post SWIR dark grey patch at square; pre lavender stubble
+B193,1,post dark char-like blob at square; pre magenta soil
+B194,9,noisy hazy chips
+B195,1,post dark patch at square in true and SWIR; pre hazy but soil-coloured
+B196,0,no dark char under square after; stubble or soil or crop unchanged
+B197,0,no dark char under square after; stubble or soil or crop unchanged
+B198,0,no dark char under square after; stubble or soil or crop unchanged
+B199,0,no dark char under square after; stubble or soil or crop unchanged
+B200,0,no dark char under square after; stubble or soil or crop unchanged
+B201,0,no dark char under square after; stubble or soil or crop unchanged
+B202,0,no dark char under square after; stubble or soil or crop unchanged
+B203,0,no dark char under square after; stubble or soil or crop unchanged
+B204,0,no dark char under square after; stubble or soil or crop unchanged
+B205,0,no dark char under square after; stubble or soil or crop unchanged
+B206,1,post SWIR darker block at square; pre lavender
+B207,0,no dark char under square after; stubble or soil or crop unchanged
+B208,0,no dark char under square after; stubble or soil or crop unchanged
+B209,1,post dark patch at square; pre magenta soil
+B210,0,no dark char under square after; stubble or soil or crop unchanged
+B211,0,no dark char under square after; stubble or soil or crop unchanged
+B212,0,no dark char under square after; stubble or soil or crop unchanged
+B213,9,post haze/greenish wash
+B214,0,no dark char under square after; stubble or soil or crop unchanged
+B215,0,no dark char under square after; stubble or soil or crop unchanged
+B216,0,no dark char under square after; stubble or soil or crop unchanged
+B217,0,no dark char under square after; stubble or soil or crop unchanged
+B218,0,no dark char under square after; stubble or soil or crop unchanged
+B219,0,no dark char under square after; stubble or soil or crop unchanged
+B220,0,no dark char under square after; stubble or soil or crop unchanged
+B221,0,no dark char under square after; stubble or soil or crop unchanged
+B222,0,no dark char under square after; stubble or soil or crop unchanged
+B223,0,no dark char under square after; stubble or soil or crop unchanged
+B224,0,no dark char under square after; stubble or soil or crop unchanged
+B225,0,no dark char under square after; stubble or soil or crop unchanged
+B226,0,no dark char under square after; stubble or soil or crop unchanged
+B227,0,no dark char under square after; stubble or soil or crop unchanged
+B228,0,no dark char under square after; stubble or soil or crop unchanged
+B229,0,no dark char under square after; stubble or soil or crop unchanged
+B230,0,no dark char under square after; stubble or soil or crop unchanged
+B231,0,field already dark grey before; not newly burnt
+B232,0,no dark char under square after; stubble or soil or crop unchanged
+B233,0,no dark char under square after; stubble or soil or crop unchanged
+B234,0,no dark char under square after; stubble or soil or crop unchanged
+B235,0,no dark char under square after; stubble or soil or crop unchanged
+B236,0,no dark char under square after; stubble or soil or crop unchanged
+B237,0,no dark char under square after; stubble or soil or crop unchanged
+B238,1,post field dark grey in true and SWIR; pre magenta soil under haze
+B239,0,no dark char under square after; stubble or soil or crop unchanged
+B240,9,noisy hazy chips
+B241,0,no dark char under square after; stubble or soil or crop unchanged
+B242,0,no dark char under square after; stubble or soil or crop unchanged
+B243,0,no dark char under square after; stubble or soil or crop unchanged
+B244,9,pre haze
+B245,0,no dark char under square after; stubble or soil or crop unchanged
+B246,0,no dark char under square after; stubble or soil or crop unchanged
+B247,0,no dark char under square after; stubble or soil or crop unchanged
+B248,0,no dark char under square after; stubble or soil or crop unchanged
+B249,9,noisy hazy chips
+B250,0,no dark char under square after; stubble or soil or crop unchanged
+B251,0,no dark char under square after; stubble or soil or crop unchanged
+B252,0,no dark char under square after; stubble or soil or crop unchanged
+B253,0,no dark char under square after; stubble or soil or crop unchanged
+B254,0,no dark char under square after; stubble or soil or crop unchanged
+B255,0,no dark char under square after; stubble or soil or crop unchanged
+B256,1,post dark grey rectangle at square; pre magenta
+B257,0,no dark char under square after; stubble or soil or crop unchanged
+B258,0,no dark char under square after; stubble or soil or crop unchanged
+B259,0,no dark char under square after; stubble or soil or crop unchanged
+B260,0,no dark char under square after; stubble or soil or crop unchanged
+B261,0,no dark char under square after; stubble or soil or crop unchanged
+B262,1,post SWIR dark patch at square; pre lavender stubble
+B263,0,no dark char under square after; stubble or soil or crop unchanged
+B264,0,no dark char under square after; stubble or soil or crop unchanged
+B265,0,no dark char under square after; stubble or soil or crop unchanged
+B266,0,no dark char under square after; stubble or soil or crop unchanged
+B267,0,no dark char under square after; stubble or soil or crop unchanged
+B268,0,no dark char under square after; stubble or soil or crop unchanged
+B269,0,no dark char under square after; stubble or soil or crop unchanged
+B270,0,no dark char under square after; stubble or soil or crop unchanged
+B271,0,no dark char under square after; stubble or soil or crop unchanged
+B272,0,no dark char under square after; stubble or soil or crop unchanged
+B273,0,no dark char under square after; stubble or soil or crop unchanged
+B274,0,no dark char under square after; stubble or soil or crop unchanged
+B275,0,no dark char under square after; stubble or soil or crop unchanged
+B276,0,no dark char under square after; stubble or soil or crop unchanged
+B277,1,post SWIR dark vertical strip at square; pre lavender
+B278,9,pre haze
+B279,0,no dark char under square after; stubble or soil or crop unchanged
+B280,0,no dark char under square after; stubble or soil or crop unchanged
+B281,0,no dark char under square after; stubble or soil or crop unchanged
+B282,0,no dark char under square after; stubble or soil or crop unchanged
+B283,0,no dark char under square after; stubble or soil or crop unchanged
+B284,0,no dark char under square after; stubble or soil or crop unchanged
+B285,0,no dark char under square after; stubble or soil or crop unchanged
+B286,0,no dark char under square after; stubble or soil or crop unchanged
+B287,0,no dark char under square after; stubble or soil or crop unchanged
+B288,0,no dark char under square after; stubble or soil or crop unchanged
+B289,0,no dark char under square after; stubble or soil or crop unchanged
+B290,0,no dark char under square after; stubble or soil or crop unchanged
+B291,0,no dark char under square after; stubble or soil or crop unchanged
+B292,0,no dark char under square after; stubble or soil or crop unchanged
+B293,0,no dark char under square after; stubble or soil or crop unchanged
+B294,9,square straddles dark patch edge
+B295,0,no dark char under square after; stubble or soil or crop unchanged
+B296,0,no dark char under square after; stubble or soil or crop unchanged
+B297,0,no dark char under square after; stubble or soil or crop unchanged
+B298,0,no dark char under square after; stubble or soil or crop unchanged
+B299,0,no dark char under square after; stubble or soil or crop unchanged
+B300,0,no dark char under square after; stubble or soil or crop unchanged
+B301,9,noisy hazy chips
+B302,9,square on road/canal diagonal
+B303,9,square on canal/road
+B304,9,noisy hazy chips
+B305,0,no dark char under square after; stubble or soil or crop unchanged
+B306,1,post dark patch at square; pre hazy magenta
+B307,0,no dark char under square after; stubble or soil or crop unchanged
+B308,0,no dark char under square after; stubble or soil or crop unchanged
+B309,0,no dark char under square after; stubble or soil or crop unchanged
+B310,0,no dark char under square after; stubble or soil or crop unchanged
+B311,0,no dark char under square after; stubble or soil or crop unchanged
+B312,0,no dark char under square after; stubble or soil or crop unchanged
+B313,0,no dark char under square after; stubble or soil or crop unchanged
+B314,0,no dark char under square after; stubble or soil or crop unchanged
+B315,0,no dark char under square after; stubble or soil or crop unchanged
+B316,0,no dark char under square after; stubble or soil or crop unchanged
+B317,0,no dark char under square after; stubble or soil or crop unchanged
+B318,9,truncated chip
+B319,0,no dark char under square after; stubble or soil or crop unchanged
+B320,0,no dark char under square after; stubble or soil or crop unchanged
+B321,0,no dark char under square after; stubble or soil or crop unchanged
+B322,0,no dark char under square after; stubble or soil or crop unchanged
+B323,1,post dark blob at square in SWIR; pre pale
+B324,0,no dark char under square after; stubble or soil or crop unchanged
+B325,0,no dark char under square after; stubble or soil or crop unchanged
+B326,0,no dark char under square after; stubble or soil or crop unchanged
+B327,0,no dark char under square after; stubble or soil or crop unchanged
+B328,0,no dark char under square after; stubble or soil or crop unchanged
+B329,0,no dark char under square after; stubble or soil or crop unchanged
+B330,1,post dark block centred on square; pre pale grey stubble
+B331,0,no dark char under square after; stubble or soil or crop unchanged
+B332,1,post dark patch at square; pre green crop
+B333,0,no dark char under square after; stubble or soil or crop unchanged
+B334,0,no dark char under square after; stubble or soil or crop unchanged
+B335,0,no dark char under square after; stubble or soil or crop unchanged
+B336,9,truncated chip
+B337,0,no dark char under square after; stubble or soil or crop unchanged
+B338,9,pre haze
+B339,0,no dark char under square after; stubble or soil or crop unchanged
+B340,0,no dark char under square after; stubble or soil or crop unchanged
+B341,0,dark patch already present pre
+B342,0,no dark char under square after; stubble or soil or crop unchanged
+B343,0,no dark char under square after; stubble or soil or crop unchanged
+B344,0,no dark char under square after; stubble or soil or crop unchanged
+B345,0,no dark char under square after; stubble or soil or crop unchanged
+B346,1,post dark block at square; pre lavender stubble
+B347,0,no dark char under square after; stubble or soil or crop unchanged
+B348,0,no dark char under square after; stubble or soil or crop unchanged
+B349,0,no dark char under square after; stubble or soil or crop unchanged
+B350,0,no dark char under square after; stubble or soil or crop unchanged
+B351,0,no dark char under square after; stubble or soil or crop unchanged
+B352,0,no dark char under square after; stubble or soil or crop unchanged
+B353,0,no dark char under square after; stubble or soil or crop unchanged
+B354,9,hazy noisy chips
+B355,0,no dark char under square after; stubble or soil or crop unchanged
+B356,0,no dark char under square after; stubble or soil or crop unchanged
+B357,0,no dark char under square after; stubble or soil or crop unchanged
+B358,0,no dark char under square after; stubble or soil or crop unchanged
+B359,0,no dark char under square after; stubble or soil or crop unchanged
+B360,0,no dark char under square after; stubble or soil or crop unchanged
+B361,1,post SWIR dark grey at square; pre pale
+B362,1,post SWIR black patch at square; pre magenta
+B363,0,no dark char under square after; stubble or soil or crop unchanged
+B364,0,no dark char under square after; stubble or soil or crop unchanged
+B365,0,no dark char under square after; stubble or soil or crop unchanged
+B366,0,no dark char under square after; stubble or soil or crop unchanged
+B367,0,no dark char under square after; stubble or soil or crop unchanged

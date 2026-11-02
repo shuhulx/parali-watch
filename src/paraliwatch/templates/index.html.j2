@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ParaliWatch — stubble-burn now-cast</title>
+<meta name="description" content="Weekly field-scale stubble-burn now-cast for the Ludhiana–Patiala belt, fusing MODIS fire detections with Sentinel-2.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#f6f4ef; --panel:#ffffff; --ink:#1d1d1b; --muted:#6b6862; --line:#e4e0d6;
+  --burn:#d62828; --s2:#ff9f1c; --modis:#7b2cbf; --ok:#2a9d8f; --warn:#b5651d; --accent:#1d3557;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#141412; --panel:#1e1d1a; --ink:#ece9e1; --muted:#a19d93; --line:#34322d; --accent:#a8c5e8; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:14px 20px 10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}
+header h1{font-size:18px;margin:0;letter-spacing:-.01em}
+header .sub{color:var(--muted);font-size:13px}
+.weeks{display:flex;gap:4px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line);align-items:center}
+.weeks span{color:var(--muted);font-size:12px;margin-right:6px}
+.weeks button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:14px;padding:3px 10px;font-size:12px;cursor:pointer}
+.weeks button.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.weeks button .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--burn);margin-left:5px;vertical-align:middle}
+main{display:grid;grid-template-columns:380px 1fr;gap:16px;padding:16px 20px}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px;font-weight:600}
+.big{font-size:34px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.big small{font-size:14px;font-weight:500;color:var(--muted)}
+.delta.up{color:var(--burn)} .delta.down{color:var(--ok)}
+.kv{display:grid;grid-template-columns:1fr auto;gap:3px 10px;margin-top:10px;font-variant-numeric:tabular-nums}
+.kv div:nth-child(odd){color:var(--muted)}
+.banner{border-radius:8px;padding:9px 11px;margin-top:10px;font-size:13px}
+.banner.warn{background:color-mix(in srgb,var(--warn) 14%,transparent);border:1px solid color-mix(in srgb,var(--warn) 40%,transparent)}
+.banner.info{background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;font-weight:600;padding:4px 4px;border-bottom:1px solid var(--line)}
+td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{text-align:right;white-space:nowrap}
+tr.pick{cursor:pointer} tr.pick:hover{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.badge{display:inline-block;font-size:10.5px;padding:1px 6px;border-radius:9px;white-space:nowrap}
+.b-confirmed{background:color-mix(in srgb,var(--burn) 16%,transparent);color:var(--burn)}
+.b-s2-only{background:color-mix(in srgb,var(--s2) 22%,transparent);color:#a35f00}
+.b-modis-only{background:color-mix(in srgb,var(--modis) 16%,transparent);color:var(--modis)}
+#map .osm{filter:saturate(.35) brightness(1.04)}
+#map{height:560px;border-radius:10px;border:1px solid var(--line)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted);margin-top:8px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:-1px;margin-right:4px}
+.chartwrap{position:relative;height:260px}
+.muted{color:var(--muted)} a{color:var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px} @media (max-width:900px){.grid2{grid-template-columns:1fr}}
+footer{padding:4px 20px 30px;color:var(--muted);font-size:12px}
+.evaltable td,.evaltable th{font-size:12.5px}
+.me{font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <h1>ParaliWatch</h1>
+  <div class="sub">Stubble-burn now-cast · {{ aoi_name }} · for district nodal officers deciding where field teams go this week</div>
+</header>
+<div class="weeks" id="weeks"><span>Week</span></div>
+<main>
+  <section>
+    <div class="card" id="nowcast"></div>
+    <div class="card" id="blindcard" style="display:none">
+      <h2>Blind spots — MODIS sees fire, Sentinel-2 can’t see the ground</h2>
+      <table id="blind"><thead><tr><th>Nearest villages</th><th class="n">Fire cell-days</th><th class="n">S2 view</th></tr></thead><tbody></tbody></table>
+      <div class="muted" style="font-size:12px;margin-top:6px">An optical-only map drops these silently. Send a team to verify on the ground.</div>
+    </div>
+    <div class="card">
+      <h2>Dispatch list — top village clusters this week</h2>
+      <table id="dispatch"><thead><tr><th>#</th><th>Nearest villages</th><th class="n">Burnt ha</th><th class="n">vs last wk</th><th>Evidence</th></tr></thead><tbody></tbody></table>
+      <div class="muted" style="font-size:12px;margin-top:6px">Clusters are H3 res-7 cells (~5 km²). Click a row to zoom; “map” opens directions.</div>
+    </div>
+  </section>
+  <section>
+    <div id="map"></div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--burn)"></i>Burnt field, MODIS-confirmed</span>
+      <span><i class="sw" style="background:var(--s2)"></i>Burnt field, Sentinel-2 only</span>
+      <span><i class="sw" style="border:2px solid var(--modis)"></i>MODIS 1 km fire cell</span>
+      <span><i class="sw" style="background:linear-gradient(90deg,#fde0c5,#e85d04,#6a040f)"></i>Cluster burnt ha</span>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h2>Season so far</h2><div class="chartwrap"><canvas id="season"></canvas></div></div>
+      <div class="card" id="trust"><h2>How far to trust this</h2></div>
+    </div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script>
+const D = {{ data }};
+const fmt = (x, d=0) => (x ?? 0).toLocaleString('en-IN', {maximumFractionDigits:d, minimumFractionDigits:d});
+const weekIdx = Object.fromEntries(D.weeks.map((w,i)=>[w.week,i]));
+const peak = D.weeks.reduce((a,b)=> b.burnt_ha > a.burnt_ha ? b : a);
+let current = (location.hash.slice(1) in weekIdx) ? location.hash.slice(1) : (D.as_of || peak.week);
+
+// ---------- map ----------
+const map = L.map('map', {zoomSnap:.25, attributionControl:true});
+const base = {
+  'Streets': L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:'© OpenStreetMap contributors', maxZoom:18, className:'osm'}),
+  'Satellite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {attribution:'Esri World Imagery', maxZoom:18}),
+};
+base['Streets'].addTo(map);
+const [w,s,e,n] = D.aoi;
+map.fitBounds([[s,w],[n,e]]);
+L.rectangle([[s,w],[n,e]], {color:'#888', weight:1, fill:false, dashArray:'4 4', interactive:false}).addTo(map);
+const hexLayer = L.layerGroup().addTo(map), fireLayer = L.layerGroup().addTo(map);
+let burnLayer = null;
+L.control.layers(base, {'Clusters (H3)': hexLayer, 'MODIS fire cells': fireLayer}, {collapsed:true}).addTo(map);
+const ramp = v => v<=0 ? null : v<5 ? '#fde0c5' : v<15 ? '#facb93' : v<30 ? '#f48c06' : v<60 ? '#dc2f02' : v<120 ? '#9d0208' : '#6a040f';
+
+function drawMap(wk){
+  hexLayer.clearLayers(); fireLayer.clearLayers();
+  if (burnLayer) map.removeLayer(burnLayer);
+  for (const r of D.per_week[wk] || []){
+    const hx = D.hexes[r.h], c = ramp(r.b);
+    const poly = L.polygon(hx.ring, {weight: r.e==='modis-only'?1.5:.6, color: r.e==='modis-only'?'#7b2cbf':'#8a857a',
+      dashArray: r.e==='modis-only'?'3 3':null, fillColor:c||'#000', fillOpacity:c?.38:0});
+    poly.bindTooltip(`<b>${hx.places.join(' · ')||r.h}</b><br>${fmt(r.b,1)} ha newly burnt (${fmt(r.c,1)} MODIS-confirmed)<br>`+
+      `MODIS fire cell-days: ${fmt(r.f,1)} · S2 clear view: ${fmt(r.s*100)}%<br>MCD64A1 (MODIS product): ${fmt(r.m,1)} ha`, {sticky:true});
+    poly.addTo(hexLayer);
+  }
+  burnLayer = L.imageOverlay(D.overlay.png[wk], D.overlay.bounds, {opacity:1, interactive:false}).addTo(map);
+  for (const f of D.fire[wk] || []) L.polygon(f.ring, {color:'#7b2cbf', weight:1.2, fill:false}).bindTooltip(`MODIS fire: ${f.days} day(s) this week`).addTo(fireLayer);
+}
+
+// ---------- panels ----------
+function drawPanels(wk){
+  const i = weekIdx[wk], W = D.weeks[i], P = D.weeks[i-1];
+  const dd = P ? W.burnt_ha - P.burnt_ha : null;
+  const pct = P && P.burnt_ha > 0 ? Math.round(100*dd/P.burnt_ha) : null;
+  const conf = W.burnt_ha > 0 ? Math.round(100*W.confirmed_ha/W.burnt_ha) : 0;
+  let html = `<h2>Week ${wk.split('-W')[1]} · ${new Date(W.start).toLocaleDateString('en-IN',{day:'numeric',month:'short'})} – ${new Date(W.end).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})}</h2>
+    <div class="big">${fmt(W.burnt_ha)} <small>ha newly burnt</small></div>
+    ${dd!==null ? `<div class="delta ${dd>0?'up':'down'}">${dd>0?'▲':'▼'} ${fmt(Math.abs(dd))} ha${pct!==null?` (${pct>0?'+':''}${pct}%)`:''} vs previous week</div>`:''}
+    <div class="kv">
+      <div>MODIS-confirmed share</div><div>${conf}%</div>
+      <div>Sentinel-2 clear view of AOI</div><div>${fmt(W.s2_seen*100)}% · ${W.s2_scenes} scene(s)</div>
+      <div>MODIS fire cell-days</div><div>${fmt(W.fire_cell_days)}</div>
+      <div>MODIS MCD64A1 product says</div><div>${fmt(W.mcd64_ha)} ha</div>
+    </div>`;
+  if (W.s2_seen < 0.6) html += `<div class="banner warn"><b>Sentinel-2 mostly blind this week</b> (smoke/cloud: ${fmt(100-W.s2_seen*100)}% of the AOI unseen). The burnt area is a <b>lower bound</b>; fields burnt now will be counted when the sky clears. Use the purple MODIS fire cells to direct teams this week.</div>`;
+  else if (W.long_gap_ha > 0.2*W.burnt_ha && W.burnt_ha>0) html += `<div class="banner info">${fmt(100*W.long_gap_ha/W.burnt_ha)}% of this week's area was first seen after a gap of more than 20 days — the burn may be older than this week.</div>`;
+  document.getElementById('nowcast').innerHTML = html;
+
+  const rows = (D.per_week[wk]||[]).filter(r=>r.b>0).slice(0,8);
+  document.querySelector('#dispatch tbody').innerHTML = rows.length ? rows.map((r,k)=>{
+    const hx = D.hexes[r.h];
+    return `<tr class="pick" data-h="${r.h}"><td>${k+1}</td><td>${hx.places.join(', ')||r.h}
+      <a href="https://www.google.com/maps/dir/?api=1&destination=${hx.centre[0]},${hx.centre[1]}" target="_blank" rel="noopener" onclick="event.stopPropagation()">map</a></td>
+      <td class="n">${fmt(r.b,1)}</td><td class="n">${r.d>0?'+':''}${fmt(r.d,1)}</td>
+      <td><span class="badge b-${r.e}">${r.e.replace('-',' ')}</span></td></tr>`}).join('')
+    : `<tr><td colspan="5" class="muted">No new burns detected this week.</td></tr>`;
+  const blind = (D.per_week[wk]||[]).filter(r=>r.x>0.25).sort((a,b)=>b.x-a.x).slice(0,5);
+  document.getElementById('blindcard').style.display = blind.length ? '' : 'none';
+  document.querySelector('#blind tbody').innerHTML = blind.map(r=>`<tr class="pick" data-h="${r.h}"><td>${D.hexes[r.h].places.join(', ')}</td><td class="n">${fmt(r.f,1)}</td><td class="n">${fmt(r.s*100)}%</td></tr>`).join('');
+  document.querySelectorAll('#dispatch tr.pick, #blind tr.pick').forEach(tr=>tr.onclick=()=>map.setView(D.hexes[tr.dataset.h].centre, 13));
+  document.querySelectorAll('.weeks button').forEach(b=>b.classList.toggle('on', b.dataset.w===wk));
+}
+
+function select(wk){ current = wk; history.replaceState(null,'','#'+wk); drawPanels(wk); drawMap(wk); chart.update(); }
+
+const bar = document.getElementById('weeks');
+for (const W of D.weeks){
+  const b = document.createElement('button'); b.dataset.w = W.week;
+  b.innerHTML = `W${W.week.split('-W')[1]}` + (W.burnt_ha > 0.5*peak.burnt_ha ? '<i class="dot"></i>' : '');
+  b.title = `${W.start} – ${W.end}: ${fmt(W.burnt_ha)} ha`; b.onclick = () => select(W.week); bar.appendChild(b);
+}
+
+// ---------- season chart ----------
+const css = getComputedStyle(document.documentElement);
+const C = k => css.getPropertyValue(k).trim();
+const chart = new Chart(document.getElementById('season'), {
+  data:{ labels: D.weeks.map(w=>'W'+w.week.split('-W')[1]), datasets:[
+    {type:'bar', label:'Burnt ha — MODIS-confirmed', data:D.weeks.map(w=>w.confirmed_ha), backgroundColor:C('--burn'), stack:'a'},
+    {type:'bar', label:'Burnt ha — S2 only', data:D.weeks.map(w=>w.s2_only_ha), backgroundColor:C('--s2'), stack:'a'},
+    {type:'line', label:'MCD64A1 ha (MODIS product)', data:D.weeks.map(w=>w.mcd64_ha), borderColor:C('--muted'), borderDash:[4,3], pointRadius:0, tension:.2},
+    {type:'line', label:'MODIS fire cell-days', data:D.weeks.map(w=>w.fire_cell_days), borderColor:C('--modis'), pointRadius:2, tension:.2, yAxisID:'y2'},
+  ]},
+  options:{ responsive:true, maintainAspectRatio:false, interaction:{mode:'index', intersect:false},
+    plugins:{ legend:{labels:{boxWidth:10, font:{size:10.5}, color:C('--muted')}} },
+    scales:{ x:{stacked:true, ticks:{color:C('--muted')}, grid:{display:false}},
+             y:{stacked:true, title:{display:true,text:'ha',color:C('--muted')}, ticks:{color:C('--muted')}, grid:{color:C('--line')}},
+             y2:{position:'right', title:{display:true,text:'fire cell-days',color:C('--modis')}, ticks:{color:C('--muted')}, grid:{display:false}} },
+    onClick:(e,els)=>{ if(els.length) select(D.weeks[els[0].index].week); } },
+  plugins:[{id:'cur', beforeDatasetsDraw(c){ const i = weekIdx[current], x = c.scales.x; if(i===undefined) return;
+    const w = x.width/D.weeks.length, ctx=c.ctx; ctx.save(); ctx.fillStyle=C('--accent'); ctx.globalAlpha=.08;
+    ctx.fillRect(x.getPixelForValue(i)-w/2, c.chartArea.top, w, c.chartArea.bottom-c.chartArea.top); ctx.restore(); }}]
+});
+
+// ---------- trust panel ----------
+(function(){
+  const E = D.evaluation, M = D.model, el = document.getElementById('trust');
+  let h = '<h2>How far to trust this</h2>';
+  if (E){
+    const names = {fusion:'S2 × MODIS student (this)', fusion_teacher:'MODIS-taught teacher', s2_dnbr:'Sentinel-2 dNBR only', modis_af:'MODIS active fire cell', mcd64:'MODIS MCD64A1'};
+    const ci = a => `${Math.round(a[0]*100)}<span class="muted" style="font-size:10.5px"> ${Math.round(a[1]*100)}–${Math.round(a[2]*100)}</span>`;
+    h += `<table class="evaltable"><thead><tr><th>Method</th><th class="n">Precision</th><th class="n">Recall</th><th class="n">F1</th></tr></thead><tbody>`+
+      Object.entries(names).map(([k,v])=>`<tr class="${k==='fusion'?'me':''}"><td>${v}</td><td class="n">${ci(E.pooled[k].precision)}</td><td class="n">${ci(E.pooled[k].recall)}</td><td class="n">${ci(E.pooled[k].f1)}</td></tr>`).join('')+
+      `</tbody></table><div class="muted" style="font-size:11.5px;margin-top:6px">% with 95% CI · ${E.set} · ${E.n_agreed} photo-interpreted reference points, 2 blind interpreters (κ = ${E.cohens_kappa}) + blind adjudicator, stratum-weighted. Intervals: ${E.intervals.map(i=>i.join(' → ')).join('; ')}.</div>`;
+  } else h += '<div class="muted">Evaluation pending.</div>';
+  h += `<div style="font-size:12.5px;margin-top:10px"><b>Do not use it to</b> fine an individual farmer: a 20 m pixel is evidence for a field visit, not proof. Recently tilled soil can look like char; fields burnt and tilled inside a cloudy gap are missed. ${M.student_oof_auc ? `Student spatial-CV AUC ${M.student_oof_auc} on ${M.n_labelled} labelled transitions.` : `Weak-label spatial-CV AUC ${M.weak_label_auc_spatial_cv[0]}.`} Reference labels are AI photo-interpretation, not field truth.</div>`;
+  el.innerHTML = h;
+})();
+
+const Lg = D.lineage;
+document.getElementById('foot').innerHTML = `${D.codes}. Built from ${Lg.s2_scenes} Sentinel-2 L2A scenes (${Lg.s2_first} → ${Lg.s2_last}), ${Lg.modis_fire_files} MODIS MOD14A1/MYD14A1 fire files and ${Lg.mcd64_files} MCD64A1 files via Microsoft Planetary Computer STAC; every product is traceable through the local STAC catalogue. Place names © OpenStreetMap contributors. ParaliWatch v${D.version}.`;
+
+select(current);
+</script>
+</body>
+</html>

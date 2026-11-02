@@ -1,0 +1,301 @@
+point_id,label,note
+P000,0,no new char; stubble/ploughed/crop or pre-existing dark
+P001,0,no new char; stubble/ploughed/crop or pre-existing dark
+P002,0,no new char; stubble/ploughed/crop or pre-existing dark
+P003,0,no new char; stubble/ploughed/crop or pre-existing dark
+P004,0,no new char; stubble/ploughed/crop or pre-existing dark
+P005,0,no new char; stubble/ploughed/crop or pre-existing dark
+P006,0,no new char; stubble/ploughed/crop or pre-existing dark
+P007,9,truncated chip; square at edge
+P008,0,no new char; stubble/ploughed/crop or pre-existing dark
+P009,0,no new char; stubble/ploughed/crop or pre-existing dark
+P010,0,no new char; stubble/ploughed/crop or pre-existing dark
+P011,0,no new char; stubble/ploughed/crop or pre-existing dark
+P012,9,whole chip uniformly dark post; not judgeable
+P013,0,no new char; stubble/ploughed/crop or pre-existing dark
+P014,0,no new char; stubble/ploughed/crop or pre-existing dark
+P015,9,pre date white haze
+P016,0,no new char; stubble/ploughed/crop or pre-existing dark
+P017,0,no new char; stubble/ploughed/crop or pre-existing dark
+P018,0,no new char; stubble/ploughed/crop or pre-existing dark
+P019,0,no new char; stubble/ploughed/crop or pre-existing dark
+P020,0,no new char; stubble/ploughed/crop or pre-existing dark
+P021,0,no new char; stubble/ploughed/crop or pre-existing dark
+P022,0,no new char; stubble/ploughed/crop or pre-existing dark
+P023,0,no new char; stubble/ploughed/crop or pre-existing dark
+P024,0,no new char; stubble/ploughed/crop or pre-existing dark
+P025,0,no new char; stubble/ploughed/crop or pre-existing dark
+P026,0,no new char; stubble/ploughed/crop or pre-existing dark
+P027,0,no new char; stubble/ploughed/crop or pre-existing dark
+P028,0,no new char; stubble/ploughed/crop or pre-existing dark
+P029,0,no new char; stubble/ploughed/crop or pre-existing dark
+P030,0,no new char; stubble/ploughed/crop or pre-existing dark
+P031,0,no new char; stubble/ploughed/crop or pre-existing dark
+P032,0,no new char; stubble/ploughed/crop or pre-existing dark
+P033,0,no new char; stubble/ploughed/crop or pre-existing dark
+P034,9,post haze; dark patch beside square
+P035,0,no new char; stubble/ploughed/crop or pre-existing dark
+P036,1,large black char patch SWIR post; dark brown true post
+P037,0,no new char; stubble/ploughed/crop or pre-existing dark
+P038,0,no new char; stubble/ploughed/crop or pre-existing dark
+P039,0,no new char; stubble/ploughed/crop or pre-existing dark
+P040,0,no new char; stubble/ploughed/crop or pre-existing dark
+P041,0,no new char; stubble/ploughed/crop or pre-existing dark
+P042,0,no new char; stubble/ploughed/crop or pre-existing dark
+P043,0,no new char; stubble/ploughed/crop or pre-existing dark
+P044,9,dark patch adjacent at field edge
+P045,0,no new char; stubble/ploughed/crop or pre-existing dark
+P046,0,no new char; stubble/ploughed/crop or pre-existing dark
+P047,0,no new char; stubble/ploughed/crop or pre-existing dark
+P048,0,no new char; stubble/ploughed/crop or pre-existing dark
+P049,0,no new char; stubble/ploughed/crop or pre-existing dark
+P050,0,no new char; stubble/ploughed/crop or pre-existing dark
+P051,0,no new char; stubble/ploughed/crop or pre-existing dark
+P052,0,no new char; stubble/ploughed/crop or pre-existing dark
+P053,0,no new char; stubble/ploughed/crop or pre-existing dark
+P054,0,no new char; stubble/ploughed/crop or pre-existing dark
+P055,0,no new char; stubble/ploughed/crop or pre-existing dark
+P056,0,no new char; stubble/ploughed/crop or pre-existing dark
+P057,0,no new char; stubble/ploughed/crop or pre-existing dark
+P058,0,no new char; stubble/ploughed/crop or pre-existing dark
+P059,0,no new char; stubble/ploughed/crop or pre-existing dark
+P060,0,no new char; stubble/ploughed/crop or pre-existing dark
+P061,0,no new char; stubble/ploughed/crop or pre-existing dark
+P062,0,no new char; stubble/ploughed/crop or pre-existing dark
+P063,0,no new char; stubble/ploughed/crop or pre-existing dark
+P064,9,square on canal line
+P065,0,no new char; stubble/ploughed/crop or pre-existing dark
+P066,9,square on white track/road
+P067,0,no new char; stubble/ploughed/crop or pre-existing dark
+P068,0,no new char; stubble/ploughed/crop or pre-existing dark
+P069,0,no new char; stubble/ploughed/crop or pre-existing dark
+P070,9,post date haze
+P071,0,no new char; stubble/ploughed/crop or pre-existing dark
+P072,0,no new char; stubble/ploughed/crop or pre-existing dark
+P073,0,no new char; stubble/ploughed/crop or pre-existing dark
+P074,0,no new char; stubble/ploughed/crop or pre-existing dark
+P075,0,no new char; stubble/ploughed/crop or pre-existing dark
+P076,0,no new char; stubble/ploughed/crop or pre-existing dark
+P077,1,dark patch at square post SWIR; pale before
+P078,0,no new char; stubble/ploughed/crop or pre-existing dark
+P079,0,no new char; stubble/ploughed/crop or pre-existing dark
+P080,9,square on bright structure/canal edge
+P081,0,no new char; stubble/ploughed/crop or pre-existing dark
+P082,1,dark grey patch post; crop/mixed pre
+P083,0,no new char; stubble/ploughed/crop or pre-existing dark
+P084,0,no new char; stubble/ploughed/crop or pre-existing dark
+P085,0,no new char; stubble/ploughed/crop or pre-existing dark
+P086,9,square on linear canal/road feature
+P087,0,no new char; stubble/ploughed/crop or pre-existing dark
+P088,0,no new char; stubble/ploughed/crop or pre-existing dark
+P089,0,no new char; stubble/ploughed/crop or pre-existing dark
+P090,1,square dark grey post vs bright pre
+P091,0,no new char; stubble/ploughed/crop or pre-existing dark
+P092,0,no new char; stubble/ploughed/crop or pre-existing dark
+P093,9,pre date hazy/white wash
+P094,0,no new char; stubble/ploughed/crop or pre-existing dark
+P095,0,no new char; stubble/ploughed/crop or pre-existing dark
+P096,0,no new char; stubble/ploughed/crop or pre-existing dark
+P097,1,dark grey-green patch at square post; mauve pre
+P098,0,no new char; stubble/ploughed/crop or pre-existing dark
+P099,0,no new char; stubble/ploughed/crop or pre-existing dark
+P100,0,no new char; stubble/ploughed/crop or pre-existing dark
+P101,0,no new char; stubble/ploughed/crop or pre-existing dark
+P102,0,no new char; stubble/ploughed/crop or pre-existing dark
+P103,0,no new char; stubble/ploughed/crop or pre-existing dark
+P104,0,no new char; stubble/ploughed/crop or pre-existing dark
+P105,0,no new char; stubble/ploughed/crop or pre-existing dark
+P106,0,no new char; stubble/ploughed/crop or pre-existing dark
+P107,0,no new char; stubble/ploughed/crop or pre-existing dark
+P108,0,no new char; stubble/ploughed/crop or pre-existing dark
+P109,0,no new char; stubble/ploughed/crop or pre-existing dark
+P110,0,no new char; stubble/ploughed/crop or pre-existing dark
+P111,0,no new char; stubble/ploughed/crop or pre-existing dark
+P112,0,no new char; stubble/ploughed/crop or pre-existing dark
+P113,1,dark grey-brown patch post; pale stubble pre
+P114,0,no new char; stubble/ploughed/crop or pre-existing dark
+P115,0,no new char; stubble/ploughed/crop or pre-existing dark
+P116,0,no new char; stubble/ploughed/crop or pre-existing dark
+P117,9,dark rectangles abut square; ambiguous
+P118,0,no new char; stubble/ploughed/crop or pre-existing dark
+P119,9,dark patch adjacent to square
+P120,0,no new char; stubble/ploughed/crop or pre-existing dark
+P121,0,no new char; stubble/ploughed/crop or pre-existing dark
+P122,0,no new char; stubble/ploughed/crop or pre-existing dark
+P123,0,no new char; stubble/ploughed/crop or pre-existing dark
+P124,0,no new char; stubble/ploughed/crop or pre-existing dark
+P125,0,no new char; stubble/ploughed/crop or pre-existing dark
+P126,0,no new char; stubble/ploughed/crop or pre-existing dark
+P127,0,no new char; stubble/ploughed/crop or pre-existing dark
+P128,0,no new char; stubble/ploughed/crop or pre-existing dark
+P129,0,no new char; stubble/ploughed/crop or pre-existing dark
+P130,0,no new char; stubble/ploughed/crop or pre-existing dark
+P131,0,no new char; stubble/ploughed/crop or pre-existing dark
+P132,0,no new char; stubble/ploughed/crop or pre-existing dark
+P133,0,no new char; stubble/ploughed/crop or pre-existing dark
+P134,0,no new char; stubble/ploughed/crop or pre-existing dark
+P135,0,no new char; stubble/ploughed/crop or pre-existing dark
+P136,0,no new char; stubble/ploughed/crop or pre-existing dark
+P137,1,charcoal patch at square post SWIR; lavender pre
+P138,0,no new char; stubble/ploughed/crop or pre-existing dark
+P139,0,no new char; stubble/ploughed/crop or pre-existing dark
+P140,0,no new char; stubble/ploughed/crop or pre-existing dark
+P141,1,dark grey patch overlapping square post; pale pre
+P142,0,no new char; stubble/ploughed/crop or pre-existing dark
+P143,0,no new char; stubble/ploughed/crop or pre-existing dark
+P144,0,no new char; stubble/ploughed/crop or pre-existing dark
+P145,0,no new char; stubble/ploughed/crop or pre-existing dark
+P146,0,no new char; stubble/ploughed/crop or pre-existing dark
+P147,0,no new char; stubble/ploughed/crop or pre-existing dark
+P148,0,no new char; stubble/ploughed/crop or pre-existing dark
+P149,9,dark patch adjacent to square; edge
+P150,0,no new char; stubble/ploughed/crop or pre-existing dark
+P151,0,no new char; stubble/ploughed/crop or pre-existing dark
+P152,0,stubble or ploughed soil; no new char in square
+P153,0,stubble or ploughed soil; no new char in square
+P154,9,bright haze on pre date
+P155,0,stubble or ploughed soil; no new char in square
+P156,9,square on edge of dark patch in post; ambiguous
+P157,0,stubble or ploughed soil; no new char in square
+P158,0,stubble or ploughed soil; no new char in square
+P159,0,stubble or ploughed soil; no new char in square
+P160,0,stubble or ploughed soil; no new char in square
+P161,0,stubble or ploughed soil; no new char in square
+P162,0,stubble or ploughed soil; no new char in square
+P163,0,dark patch adjacent not in square
+P164,0,stubble or ploughed soil; no new char in square
+P165,0,stubble or ploughed soil; no new char in square
+P166,0,stubble or ploughed soil; no new char in square
+P167,0,stubble or ploughed soil; no new char in square
+P168,0,stubble or ploughed soil; no new char in square
+P169,0,stubble or ploughed soil; no new char in square
+P170,0,stubble or ploughed soil; no new char in square
+P171,0,stubble or ploughed soil; no new char in square
+P172,0,stubble or ploughed soil; no new char in square
+P173,0,stubble or ploughed soil; no new char in square
+P174,0,stubble or ploughed soil; no new char in square
+P175,0,stubble or ploughed soil; no new char in square
+P176,0,stubble or ploughed soil; no new char in square
+P177,0,stubble or ploughed soil; no new char in square
+P178,9,square on upper edge of dark rectangle in post; ambiguous
+P179,0,stubble or ploughed soil; no new char in square
+P180,0,stubble or ploughed soil; no new char in square
+P181,9,settlement/mixed texture
+P182,9,haze on pre date
+P183,0,stubble or ploughed soil; no new char in square
+P184,0,stubble or ploughed soil; no new char in square
+P185,9,settlement white structures at square
+P186,0,stubble or ploughed soil; no new char in square
+P187,0,stubble or ploughed soil; no new char in square
+P188,0,stubble or ploughed soil; no new char in square
+P189,0,stubble or ploughed soil; no new char in square
+P190,0,stubble or ploughed soil; no new char in square
+P191,0,stubble or ploughed soil; no new char in square
+P192,0,stubble or ploughed soil; no new char in square
+P193,0,stubble or ploughed soil; no new char in square
+P194,0,stubble or ploughed soil; no new char in square
+P195,0,stubble or ploughed soil; no new char in square
+P196,0,stubble or ploughed soil; no new char in square
+P197,9,pre chip saturated white haze
+P198,0,dark field both dates
+P199,0,stubble or ploughed soil; no new char in square
+P200,0,stubble or ploughed soil; no new char in square
+P201,0,stubble or ploughed soil; no new char in square
+P202,0,stubble or ploughed soil; no new char in square
+P203,0,stubble or ploughed soil; no new char in square
+P204,0,stubble or ploughed soil; no new char in square
+P205,1,crop/stubble before; very dark charcoal patch after in SWIR and true
+P206,0,stubble or ploughed soil; no new char in square
+P207,0,stubble or ploughed soil; no new char in square
+P208,0,stubble or ploughed soil; no new char in square
+P209,0,stubble or ploughed soil; no new char in square
+P210,0,stubble or ploughed soil; no new char in square
+P211,0,stubble or ploughed soil; no new char in square
+P212,9,truncated chip; square at chip edge
+P213,0,stubble or ploughed soil; no new char in square
+P214,0,stubble or ploughed soil; no new char in square
+P215,0,stubble or ploughed soil; no new char in square
+P216,0,stubble or ploughed soil; no new char in square
+P217,0,stubble or ploughed soil; no new char in square
+P218,0,dark spot both dates
+P219,0,dark spot both dates
+P220,0,stubble or ploughed soil; no new char in square
+P221,0,stubble or ploughed soil; no new char in square
+P222,0,stubble or ploughed soil; no new char in square
+P223,9,settlement texture at square
+P224,0,dark patch present in both dates
+P225,0,dark strip ambiguous; likely tillage
+P226,0,stubble or ploughed soil; no new char in square
+P227,0,stubble or ploughed soil; no new char in square
+P228,0,stubble or ploughed soil; no new char in square
+P229,0,stubble or ploughed soil; no new char in square
+P230,0,stubble or ploughed soil; no new char in square
+P231,0,stubble or ploughed soil; no new char in square
+P232,0,stubble or ploughed soil; no new char in square
+P233,0,stubble or ploughed soil; no new char in square
+P234,0,stubble or ploughed soil; no new char in square
+P235,9,settlement/mixed texture
+P236,0,stubble or ploughed soil; no new char in square
+P237,0,stubble or ploughed soil; no new char in square
+P238,9,settlement-like bright spots
+P239,0,stubble or ploughed soil; no new char in square
+P240,0,stubble or ploughed soil; no new char in square
+P241,0,stubble or ploughed soil; no new char in square
+P242,0,stubble or ploughed soil; no new char in square
+P243,0,stubble or ploughed soil; no new char in square
+P244,0,stubble or ploughed soil; no new char in square
+P245,0,stubble or ploughed soil; no new char in square
+P246,0,stubble or ploughed soil; no new char in square
+P247,0,stubble or ploughed soil; no new char in square
+P248,0,stubble or ploughed soil; no new char in square
+P249,0,stubble or ploughed soil; no new char in square
+P250,0,dark patch before only; ploughed after
+P251,0,stubble or ploughed soil; no new char in square
+P252,0,stubble or ploughed soil; no new char in square
+P253,0,stubble or ploughed soil; no new char in square
+P254,9,haze on pre date
+P255,0,stubble or ploughed soil; no new char in square
+P256,0,stubble or ploughed soil; no new char in square
+P257,0,stubble or ploughed soil; no new char in square
+P258,0,stubble or ploughed soil; no new char in square
+P259,0,stubble or ploughed soil; no new char in square
+P260,9,settlement-like speckle post
+P261,0,stubble or ploughed soil; no new char in square
+P262,0,stubble or ploughed soil; no new char in square
+P263,0,stubble or ploughed soil; no new char in square
+P264,0,stubble or ploughed soil; no new char in square
+P265,0,stubble or ploughed soil; no new char in square
+P266,0,stubble or ploughed soil; no new char in square
+P267,0,stubble or ploughed soil; no new char in square
+P268,0,stubble or ploughed soil; no new char in square
+P269,0,stubble or ploughed soil; no new char in square
+P270,0,stubble or ploughed soil; no new char in square
+P271,9,square at chip bottom edge; settlement
+P272,0,stubble or ploughed soil; no new char in square
+P273,0,stubble or ploughed soil; no new char in square
+P274,0,stubble or ploughed soil; no new char in square
+P275,0,stubble or ploughed soil; no new char in square
+P276,0,stubble or ploughed soil; no new char in square
+P277,0,stubble or ploughed soil; no new char in square
+P278,0,stubble or ploughed soil; no new char in square
+P279,0,stubble or ploughed soil; no new char in square
+P280,9,haze post; dark mauve patch ambiguous
+P281,0,already dark char before; not new
+P282,0,stubble or ploughed soil; no new char in square
+P283,0,stubble or ploughed soil; no new char in square
+P284,0,stubble or ploughed soil; no new char in square
+P285,0,stubble or ploughed soil; no new char in square
+P286,0,stubble or ploughed soil; no new char in square
+P287,0,stubble or ploughed soil; no new char in square
+P288,0,stubble or ploughed soil; no new char in square
+P289,0,stubble or ploughed soil; no new char in square
+P290,0,stubble or ploughed soil; no new char in square
+P291,1,green crop before; dark charcoal-green patch after in SWIR
+P292,0,stubble or ploughed soil; no new char in square
+P293,9,milky haze on post date
+P294,0,stubble or ploughed soil; no new char in square
+P295,0,stubble or ploughed soil; no new char in square
+P296,0,stubble or ploughed soil; no new char in square
+P297,0,stubble or ploughed soil; no new char in square
+P298,0,stubble or ploughed soil; no new char in square
+P299,0,stubble or ploughed soil; no new char in square

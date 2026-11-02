@@ -1,0 +1,185 @@
+point_id,label,note
+B368,0,pale stubble/ploughed; no char
+B369,1,orange stubble to dark triangular char patch under square after
+B370,0,stubble/ploughed mix; no dark patch
+B371,0,dim grey-green patch after; low contrast; not clear char
+B372,0,dark patch already present before; no new change
+B373,0,pale stubble then ploughed; no char
+B374,0,stubble/ploughed; no char
+B375,1,hazy pale then dark grey-teal patch at square after; magenta before
+B376,0,stubble/ploughed; no char
+B377,9,settlement/mottled texture
+B378,1,magenta before; dark grey-green patch over square after
+B379,1,green before; very dark SWIR blob at square after
+B380,0,small dark speck near canal; field not charred
+B381,0,stubble/ploughed; dark cross feature pre-existing
+B382,1,hazy pale before; sharp dark grey rectangle at square after
+B383,0,crop to stubble; dark blob pre-existing beside square
+B384,0,ploughed/stubble; no char
+B385,0,pale stubble to ploughed; no char
+B386,0,dark patch present both dates
+B387,0,hazy stubble; no char
+B388,0,dark green crop both dates
+B389,9,square on edge of dark patch after
+B390,9,truncated chip
+B391,0,green crop to pale stubble
+B392,0,ploughed/green fields; no char
+B393,1,pale before; dark purple-grey band at square after
+B394,0,stubble; no char
+B395,0,crop to stubble; no char
+B396,0,stubble near village; no char
+B397,0,dark magenta both dates; no clear change
+B398,0,stubble; no char
+B399,0,stubble/ploughed; no char
+B400,0,crop/stubble to pale; no char
+B401,9,truncated chip
+B402,0,hazy before; green/magenta after; no char
+B403,0,ploughed; faint darker patch only
+B404,1,green/lavender before; dark purple-grey patch at square after
+B405,1,lavender stubble before; dark grey-purple patch over square after
+B406,1,pale peach before; dark charcoal blob at square after
+B407,1,magenta before; dark charcoal-green patch at square after
+B408,0,ploughed/stubble; no char
+B409,0,no char
+B410,1,green before; dark black patch at square after
+B411,0,crop to stubble; no char
+B412,9,dark patch adjacent both dates; edge ambiguity
+B413,9,small dark patch after with hazy true colour
+B414,9,mottled settlement texture
+B415,0,dark rectangle present both dates
+B416,0,stubble; dark patches pre-existing beside square
+B417,0,mottled fields; no clear char
+B418,0,hazy before; dark green fields after; no char
+B419,0,stubble; no char
+B420,0,crop/stubble; no char
+B421,9,dark green patch at square edge after; hazy before
+B422,0,pale lavender stubble; no char
+B423,9,square on diagonal canal/road
+B424,1,magenta before; dark grey-green patch over square after
+B425,0,stubble; no char
+B426,0,green crop both dates
+B427,1,green before; dark grey triangular patch at square after
+B428,0,stubble; no char
+B429,1,green before; black triangular char patch at square after
+B430,0,dark patch present both dates
+B431,0,green crop/stubble; no char
+B432,9,dark strip adjacent to square; edge
+B433,9,bright building speck and mixed dark patches
+B434,1,pale before; dark grey patch at square after
+B435,0,peach stubble strip; no char
+B436,9,hazy true colour after; ambiguous grey patch
+B437,0,stubble; no char
+B438,9,square on canal/diagonal line
+B439,0,stubble; no char
+B440,0,ploughed/green; no char
+B441,0,dark strip adjacent not under square
+B442,9,village/hazy mottled
+B443,0,dark patch present before
+B444,9,small dark patch at square edge after; hazy
+B445,0,dark patch below not under square
+B446,0,dark patch beside square both dates
+B447,0,pale to ploughed; no char
+B448,1,orange stubble before; large dark brown-purple patch at square after
+B449,0,green to tan; dark spot only adjacent
+B450,0,crop/stubble; no char
+B451,0,hazy before; tan after; no char
+B452,0,ploughed; dark spots beside square
+B453,0,thin dark line present before only
+B454,1,pale blue-lavender before; dark purple patch at square after
+B455,0,stubble; no char
+B456,0,dark patch beside square both dates
+B457,0,crop to hazy stubble; no char
+B458,1,green before; dark grey patch at square after
+B459,0,ploughed dark magenta field; not char
+B460,9,mottled settlement texture
+B461,0,ploughed magenta patch; not char
+B462,0,stubble/ploughed; no char
+B463,0,stubble; dark patch above not under square
+B464,0,crop/stubble; no char
+B465,0,stubble; no char
+B466,0,stubble; no char
+B467,9,settlement edge
+B468,0,hazy before; ploughed/green after; no char
+B469,1,hazy before; dark teal-black patch at square after
+B470,1,magenta before; darker purple-grey patch at square after
+B471,0,crop/stubble; no char
+B472,0,stubble to ploughed; no char
+B473,9,dark bar just below square; edge
+B474,1,pale before; dark triangular patch at square after
+B475,0,ploughed; no char
+B476,9,dark region adjacent to square after; edge
+B477,0,stubble; no char
+B478,0,ploughed; no char
+B479,0,crop to pale diagonal stubble
+B480,0,stubble/ploughed; no char
+B481,0,no char
+B482,0,no char
+B483,0,no char
+B484,9,village mottled
+B485,0,beige stubble; no char
+B486,0,dark strip both dates
+B487,0,hazy before; ploughed after; no char
+B488,0,crop/stubble; no char
+B489,0,ploughed; pale track line only
+B490,0,dark patch before; fainter after
+B491,9,settlement mottled
+B492,9,truncated chip
+B493,0,dark olive crop to pale; no char
+B494,0,stubble; no char
+B495,0,dark green crop after
+B496,0,dark spot pre-existing adjacent
+B497,9,small dark notch partly under square
+B498,0,ploughed dark magenta; not char
+B499,0,narrow green strips; no char
+B500,0,stubble to ploughed; no char
+B501,9,mottled settlement/orchard texture
+B502,0,field interior; no char
+B503,1,magenta before; dark charcoal patch at square after
+B504,0,fields near village; no char
+B505,0,stubble; no char
+B506,0,dark patch present both dates
+B507,1,lavender stubble before; dark purple-grey patch at square after
+B508,1,green/teal before; dark grey-purple patch at square after
+B509,1,dark patch extends and darkens under square after
+B510,0,stubble; no char
+B511,0,stubble to teal-magenta; no char
+B512,0,dark patch before only
+B513,0,dark patch present both dates
+B514,9,narrow stripe/field edge
+B515,0,dark patch below not under square
+B516,0,ploughed; no char
+B517,0,dark green crop beside square
+B518,9,mottled settlement
+B519,9,settlement edge
+B520,0,stubble; no char
+B521,9,square on narrow vegetated line crossing
+B522,0,stubble; no char
+B523,0,crop to stubble; no char
+B524,9,hazy after
+B525,9,mottled settlement
+B526,0,hazy before; ploughed after
+B527,0,hazy stubble; no char
+B528,0,hazy before; ploughed after
+B529,9,mottled settlement and haze
+B530,1,pale before; dark purple-grey patch at square after
+B531,0,small stubble spot among crops; unchanged
+B532,1,lavender/green before; dark charcoal patch over square after
+B533,0,green crop to pale hazy stubble
+B534,0,hazy before; no char
+B535,0,pale strip; no char
+B536,0,hazy before; no char
+B537,0,crop to ploughed; no char
+B538,0,ploughed; no char
+B539,0,dark patch present before
+B540,0,stubble; no char
+B541,0,dark patch present both dates
+B542,0,stubble; no char
+B543,9,square at field edge next to settlement
+B544,0,stubble/ploughed; no char
+B545,1,magenta before; dark charcoal patch at square after
+B546,9,hazy before; dark patch edge just below square
+B547,0,stubble/ploughed; no char
+B548,0,stubble to ploughed; no char
+B549,1,lavender before; dark grey-purple patch at square after
+B550,0,stubble; no char
+B551,9,square on canal line

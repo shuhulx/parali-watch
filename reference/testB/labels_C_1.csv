@@ -1,0 +1,81 @@
+point_id,label,note
+B000,0,stubble pre; tan/lavender post
+B007,0,mauve pre; dull grey-green post = emerging wheat
+B008,0,centre lavender/grey post; dark scar adjacent not centre
+B010,0,haze pre; tan/mauve post tilled
+B011,0,village texture unchanged
+B021,0,mauve tilled pre; dull green post = wheat
+B022,0,mauve tilled pre; dark grey-green post = wheat
+B024,0,mauve both; field edge
+B027,1,lavender stubble pre; dark grey post at centre
+B029,0,stubble pre; grey-lavender post; dark strip adjacent
+B033,0,mauve tilled post
+B034,1,lavender pre; dark char patch on box post
+B037,0,chip clipped; village/mixed texture unchanged
+B038,0,magenta tilled both; dark patch adjacent
+B040,0,lavender both
+B044,0,mauve both
+B045,0,mauve tilled pre; dark green post = wheat
+B046,0,grey-green both; no change
+B048,0,mauve both
+B049,1,lavender pre; dark grey patch at centre post
+B052,1,end of black scar strip post; boundary
+B059,0,mauve pre; dull green post = wheat
+B060,1,mauve-lavender pre; dark spot at centre post
+B065,0,mauve both; village edge
+B068,0,village unchanged
+B069,0,stubble pre; mauve tilled post; char above box
+B076,0,mauve tilled post
+B078,0,lavender-grey post; dark field adjacent
+B079,0,lavender/mauve; haze post
+B084,9,featureless uniform both dates
+B085,0,haze; unchanged grey-green
+B096,0,mauve pre; dull green post = wheat
+B104,0,mauve pre; dull grey-green post = wheat
+B107,0,mauve both
+B110,0,mauve both
+B111,0,mauve pre; grey-green post = wheat
+B121,0,mauve both
+B122,0,village edge mauve both
+B125,9,box at chip/scene edge; clipped
+B129,0,mauve both
+B131,1,grey-green pre; dark charcoal at centre post
+B132,0,mauve both
+B138,0,already darkish mauve pre; late Nov
+B139,0,grey-mauve post; char strip adjacent
+B143,0,mauve both; haze post
+B166,0,mauve pre; dull grey-green post = wheat
+B167,0,village texture
+B168,0,lavender-green both
+B170,0,village/pond unchanged
+B174,0,already dark pre
+B176,0,green both; cloud/haze patches
+B178,1,lavender stubble pre; dark grey within field post
+B180,0,dark mauve both
+B182,1,lavender pre; dark grey-purple post
+B183,0,already dark pre
+B188,0,mauve pre; dull green post = wheat
+B191,0,village texture
+B192,1,lavender stubble pre; dark grey post
+B194,0,village texture
+B195,0,already dark mauve pre
+B209,0,magenta both
+B213,0,mauve tilled pre; grey-green post
+B238,0,mauve pre; dull grey post = wheat
+B240,0,village texture
+B244,0,mauve both
+B249,0,village texture
+B251,0,mauve both
+B261,0,mauve both
+B275,1,lavender stubble pre; dark grey at centre post
+B277,0,lavender both
+B278,0,mauve-green both
+B294,1,lavender stubble pre; dark grey field post
+B299,0,village edge
+B300,0,mauve both near road
+B301,0,village texture
+B302,0,mauve near rail/canal line
+B303,9,centre on canal bank strip
+B304,0,village texture
+B318,1,lavender stubble pre; dark maroon post
+B319,1,green/lavender pre; dark charcoal post

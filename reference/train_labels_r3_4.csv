@@ -1,0 +1,81 @@
+point_id,label,note
+T920,9,canal edge small spot
+T921,9,haze small spot
+T922,0,no char under box
+T923,0,mottled tillage
+T924,1,dark band appears in post
+T925,0,unchanged
+T926,0,dark elsewhere
+T927,0,dark already in pre
+T928,0,small spot off box
+T929,9,box at field edge
+T930,0,unchanged
+T931,9,village/nodata
+T932,1,dark patch in post
+T933,0,dark in pre
+T934,9,mixed/cloud edge
+T935,0,unchanged
+T936,0,tillage
+T937,0,unchanged
+T938,1,darkens in both renderings
+T939,9,haze pre
+T940,1,dark patch post
+T941,1,dark patch post
+T942,0,weak
+T943,1,dark post
+T944,1,dark green-black post
+T945,0,unchanged
+T946,0,unchanged
+T947,9,haze pre
+T948,0,unchanged
+T949,1,dark post
+T950,0,dark off box
+T951,0,unchanged
+T952,1,dark post
+T953,0,unchanged
+T954,1,dark post
+T955,0,unchanged
+T956,0,unchanged
+T957,0,unchanged
+T958,1,dark post
+T959,1,dark post
+T960,9,village
+T961,0,unchanged
+T962,9,truncated edge
+T963,0,unchanged
+T964,1,dark post SWIR
+T965,0,dark in pre
+T966,0,unchanged
+T967,1,dark post
+T968,0,unchanged
+T969,9,haze pre
+T970,1,dark post at edge
+T971,1,dark post
+T972,0,unchanged
+T973,1,dark post
+T974,1,dark post
+T975,0,weak grey
+T976,1,dark post
+T977,1,dark post
+T978,0,weak
+T979,0,unchanged
+T980,0,unchanged
+T981,0,dark already in pre
+T982,0,unchanged
+T983,0,unchanged
+T984,9,haze pre
+T985,1,dark post
+T986,0,dark in pre
+T987,1,dark post
+T988,0,dark off box
+T989,0,unchanged
+T990,0,unchanged
+T991,9,haze pre
+T992,0,unchanged
+T993,0,unchanged
+T994,0,unchanged
+T995,0,unchanged
+T996,1,dark post
+T997,1,dark post
+T998,0,unchanged
+T999,9,haze pre

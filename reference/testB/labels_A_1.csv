@@ -1,0 +1,185 @@
+point_id,label,note
+B000,0,no dark char after; stubble or ploughed or crop
+B001,0,no dark char after; stubble or ploughed or crop
+B002,0,no dark char after; stubble or ploughed or crop
+B003,0,no dark char after; stubble or ploughed or crop
+B004,0,no dark char after; stubble or ploughed or crop
+B005,0,no dark char after; stubble or ploughed or crop
+B006,0,no dark char after; stubble or ploughed or crop
+B007,9,square at edge of dark patch in SWIR after
+B008,1,yellow-green crop before; dark charcoal under square after in SWIR
+B009,0,no dark char after; stubble or ploughed or crop
+B010,0,no dark char after; stubble or ploughed or crop
+B011,9,settlement
+B012,0,no dark char after; stubble or ploughed or crop
+B013,0,no dark char after; stubble or ploughed or crop
+B014,0,no dark char after; stubble or ploughed or crop
+B015,0,no dark char after; stubble or ploughed or crop
+B016,0,no dark char after; stubble or ploughed or crop
+B017,0,no dark char after; stubble or ploughed or crop
+B018,0,no dark char after; stubble or ploughed or crop
+B019,0,no dark char after; stubble or ploughed or crop
+B020,0,no dark char after; stubble or ploughed or crop
+B021,1,beige before; dark olive-black field after in both renderings
+B022,1,pale before; dark grey-black patch under square after
+B023,0,no dark char after; stubble or ploughed or crop
+B024,9,square on field edge or canal
+B025,0,no dark char after; stubble or ploughed or crop
+B026,0,no dark char after; stubble or ploughed or crop
+B027,0,no dark char after; stubble or ploughed or crop
+B028,0,no dark char after; stubble or ploughed or crop
+B029,0,no dark char after; stubble or ploughed or crop
+B030,0,no dark char after; stubble or ploughed or crop
+B031,0,no dark char after; stubble or ploughed or crop
+B032,0,no dark char after; stubble or ploughed or crop
+B033,1,small dark patch after in SWIR and true colour
+B034,9,haze after
+B035,0,no dark char after; stubble or ploughed or crop
+B036,0,no dark char after; stubble or ploughed or crop
+B037,9,truncated chip
+B038,9,dark patch beside square; straddles edge
+B039,1,dark SWIR patch at square after; brown field before
+B040,9,haze after
+B041,0,no dark char after; stubble or ploughed or crop
+B042,0,no dark char after; stubble or ploughed or crop
+B043,0,no dark char after; stubble or ploughed or crop
+B044,9,haze after
+B045,9,haze before
+B046,9,haze after
+B047,0,no dark char after; stubble or ploughed or crop
+B048,0,no dark char after; stubble or ploughed or crop
+B049,1,dark SWIR patch at square after; stubble before
+B050,1,yellow-green before; charcoal under square after
+B051,0,no dark char after; stubble or ploughed or crop
+B052,9,dark bar at square edge; ambiguous
+B053,0,no dark char after; stubble or ploughed or crop
+B054,0,no dark char after; stubble or ploughed or crop
+B055,0,no dark char after; stubble or ploughed or crop
+B056,0,no dark char after; stubble or ploughed or crop
+B057,0,no dark char after; stubble or ploughed or crop
+B058,0,no dark char after; stubble or ploughed or crop
+B059,0,no dark char after; stubble or ploughed or crop
+B060,1,dark brown patch under square after
+B061,0,no dark char after; stubble or ploughed or crop
+B062,1,pale before; dark grey-black patch at square after
+B063,0,no dark char after; stubble or ploughed or crop
+B064,0,no dark char after; stubble or ploughed or crop
+B065,0,no dark char after; stubble or ploughed or crop
+B066,0,no dark char after; stubble or ploughed or crop
+B067,0,no dark char after; stubble or ploughed or crop
+B068,9,settlement
+B069,9,dark bars adjacent; square at edge
+B070,0,no dark char after; stubble or ploughed or crop
+B071,0,no dark char after; stubble or ploughed or crop
+B072,0,no dark char after; stubble or ploughed or crop
+B073,0,no dark char after; stubble or ploughed or crop
+B074,0,no dark char after; stubble or ploughed or crop
+B075,0,no dark char after; stubble or ploughed or crop
+B076,1,pale straw before; dark grey-brown field after
+B077,0,no dark char after; stubble or ploughed or crop
+B078,9,haze after
+B079,9,haze after
+B080,1,mauve before; dark grey SWIR and olive-dark true after
+B081,0,no dark char after; stubble or ploughed or crop
+B082,0,no dark char after; stubble or ploughed or crop
+B083,0,no dark char after; stubble or ploughed or crop
+B084,9,uniform haze or featureless
+B085,9,haze
+B086,0,no dark char after; stubble or ploughed or crop
+B087,0,no dark char after; stubble or ploughed or crop
+B088,0,no dark char after; stubble or ploughed or crop
+B089,0,no dark char after; stubble or ploughed or crop
+B090,0,no dark char after; stubble or ploughed or crop
+B091,0,no dark char after; stubble or ploughed or crop
+B092,0,no dark char after; stubble or ploughed or crop
+B093,1,dark green-black SWIR blob at square after
+B094,0,no dark char after; stubble or ploughed or crop
+B095,0,no dark char after; stubble or ploughed or crop
+B096,9,haze before
+B097,0,no dark char after; stubble or ploughed or crop
+B098,0,no dark char after; stubble or ploughed or crop
+B099,0,no dark char after; stubble or ploughed or crop
+B100,0,no dark char after; stubble or ploughed or crop
+B101,0,no dark char after; stubble or ploughed or crop
+B102,0,no dark char after; stubble or ploughed or crop
+B103,0,no dark char after; stubble or ploughed or crop
+B104,9,truncated chip
+B105,0,no dark char after; stubble or ploughed or crop
+B106,0,no dark char after; stubble or ploughed or crop
+B107,9,haze before
+B108,0,no dark char after; stubble or ploughed or crop
+B109,0,no dark char after; stubble or ploughed or crop
+B110,9,haze before
+B111,9,haze before
+B112,0,no dark char after; stubble or ploughed or crop
+B113,0,no dark char after; stubble or ploughed or crop
+B114,0,no dark char after; stubble or ploughed or crop
+B115,1,pale stubble before; dark charcoal under square after
+B116,0,no dark char after; stubble or ploughed or crop
+B117,0,no dark char after; stubble or ploughed or crop
+B118,0,no dark char after; stubble or ploughed or crop
+B119,0,no dark char after; stubble or ploughed or crop
+B120,0,no dark char after; stubble or ploughed or crop
+B121,9,haze before
+B122,9,settlement
+B123,0,no dark char after; stubble or ploughed or crop
+B124,0,no dark char after; stubble or ploughed or crop
+B125,9,truncated chip
+B126,0,no dark char after; stubble or ploughed or crop
+B127,0,no dark char after; stubble or ploughed or crop
+B128,0,no dark char after; stubble or ploughed or crop
+B129,9,haze before
+B130,0,no dark char after; stubble or ploughed or crop
+B131,0,no dark char after; stubble or ploughed or crop
+B132,9,haze before
+B133,0,no dark char after; stubble or ploughed or crop
+B134,0,no dark char after; stubble or ploughed or crop
+B135,0,no dark char after; stubble or ploughed or crop
+B136,0,no dark char after; stubble or ploughed or crop
+B137,0,no dark char after; stubble or ploughed or crop
+B138,9,haze before
+B139,0,no dark char after; stubble or ploughed or crop
+B140,0,no dark char after; stubble or ploughed or crop
+B141,0,no dark char after; stubble or ploughed or crop
+B142,0,no dark char after; stubble or ploughed or crop
+B143,0,no dark char after; stubble or ploughed or crop
+B144,0,no dark char after; stubble or ploughed or crop
+B145,0,no dark char after; stubble or ploughed or crop
+B146,0,no dark char after; stubble or ploughed or crop
+B147,0,no dark char after; stubble or ploughed or crop
+B148,0,no dark char after; stubble or ploughed or crop
+B149,0,no dark char after; stubble or ploughed or crop
+B150,0,no dark char after; stubble or ploughed or crop
+B151,0,no dark char after; stubble or ploughed or crop
+B152,0,no dark char after; stubble or ploughed or crop
+B153,0,no dark char after; stubble or ploughed or crop
+B154,0,no dark char after; stubble or ploughed or crop
+B155,0,no dark char after; stubble or ploughed or crop
+B156,0,no dark char after; stubble or ploughed or crop
+B157,0,no dark char after; stubble or ploughed or crop
+B158,0,no dark char after; stubble or ploughed or crop
+B159,0,no dark char after; stubble or ploughed or crop
+B160,0,no dark char after; stubble or ploughed or crop
+B161,0,no dark char after; stubble or ploughed or crop
+B162,0,no dark char after; stubble or ploughed or crop
+B163,0,no dark char after; stubble or ploughed or crop
+B164,0,no dark char after; stubble or ploughed or crop
+B165,0,no dark char after; stubble or ploughed or crop
+B166,9,haze before
+B167,9,settlement
+B168,0,no dark char after; stubble or ploughed or crop
+B169,0,no dark char after; stubble or ploughed or crop
+B170,9,settlement or dark ring
+B171,0,no dark char after; stubble or ploughed or crop
+B172,0,no dark char after; stubble or ploughed or crop
+B173,1,pale stubble before; dark charcoal at square after
+B174,1,dark grey-green patch at square after
+B175,0,no dark char after; stubble or ploughed or crop
+B176,9,haze after
+B177,0,no dark char after; stubble or ploughed or crop
+B178,1,beige before; dark SWIR blob over square after
+B179,0,no dark char after; stubble or ploughed or crop
+B180,0,no dark char after; stubble or ploughed or crop
+B181,0,no dark char after; stubble or ploughed or crop
+B182,0,no dark char after; stubble or ploughed or crop
+B183,1,small dark SWIR blob at square after
