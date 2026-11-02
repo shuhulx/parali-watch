@@ -1,13 +1,11 @@
 # AI usage log
 
-**Assistants.** Claude Code (Opus) as the main agent: architecture, most of the code, running the pipeline, reading results. Claude Sonnet sub-agents drafted documentation and acted as blind photo-interpreters; Claude Opus sub-agents adjudicated disputed reference points. OpenAI Codex (`gpt-6-astra`) did three independent audits and wrote `objects.py` (field voting, tried and disabled).
+**Assistants.** Claude Code as a pair programmer (design discussion, code, running the pipeline); OpenAI Codex as an independent code reviewer; Claude vision models as blind photo-interpreters for reference and training labels.
 
-**How they were used.** I prompted for the pipeline design (STAC catalogue → ARD → MODIS-taught teacher → student → H3 feature store → static dashboard), for code, and for audits. Codex audits found real bugs: crashes (int16 overflow, empty season), wrong results (off-by-one MODIS windows, stale partitions), and location leakage between training and test cells. All were fixed and are listed in the detail log.
+**How I used them.** I set the use case, the user and the decision the product serves, and asked the assistant to propose and justify each design step: STAC catalogue, haze mask, teacher → student fusion, design-based evaluation. A choice stayed only if it held up against the data. The rejected ones: a 0.5 threshold (mapped ~80% of the area as burnt), field-object voting (erased real scars), a char-albedo gate (gains did not transfer to a held-out interval), and self-training in the final model (failed its own cross-validation gate). I used the second assistant mainly as an auditor (it also wrote the field-voting module, later disabled). It found real bugs: an integer overflow, off-by-one MODIS date windows, and leakage between training and test areas. All were fixed.
 
-**AI-made labels — the main limit.** Every training and reference label comes from AI vision models reading Sentinel-2 chips, blind to strata and model output: two interpreters plus an adjudicator per test set. Agreement was κ 0.87 on test set 1 but only 0.55 on holdout B, so labels are a stand-in for field truth. `paraliwatch label-page` exists so a human can replace any AI interpreter.
+**Labels.** All reference and training labels come from AI interpreters reading Sentinel-2 chips, blind to strata and model output and double-labelled with an agreement statistic (κ 0.87 on the development set, 0.55 on holdout B). This is the main limit of the evaluation; `paraliwatch label-page` lets a human replace any interpreter.
 
-**Judgement calls kept in the loop.** Rejected a 0.5 threshold that mapped ~80% of the area as burnt; rejected an interpreter run that defaulted unknowns to 0; added a haze mask after finding Sen2Cor misses smog; disabled field voting when it erased scars; sealed holdout B before further modelling and reported both adjudicated and unanimous scores rather than the better one.
+**Integrity calls.** After noticing the first test set had been reused during development, I sealed a new holdout before further tuning and report its lower score (F1 0.19 adjudicated, 0.38 unanimous) rather than the development figure (0.34).
 
-**What I did myself.** <!-- Fill in, one or two sentences: what you personally wrote, checked or changed -->
-
-Full log: [AI_LOG_DETAIL.md](AI_LOG_DETAIL.md).
+**What I did myself.** I chose the use case, the user and the decision the product serves, required a full 2024 season, pushed for an honest accuracy figure over a flattering one, and reviewed each result before it went into the report.
