@@ -1,6 +1,6 @@
 # AI assistance
 
-I used Claude Code as the main development assistant, with additional AI assistance for code review, testing and submission polish. The assistance covered pipeline implementation, debugging, documentation and explanations of the technical choices.
+I used Claude Code as the main development assistant, and for code review, testing and submission polish. The assistance covered pipeline implementation, debugging, documentation and explanations of the technical choices.
 
 My contribution centred on directing the work and setting priorities. I chose 123456 as the working reference and asked for a complete implementation of the resulting configuration, with architectural choices I could follow and explain. I pushed for better detection accuracy and requested separate reviews of the code and evaluation. During refinement, I kept the scope on the existing pipeline and asked for focused improvements rather than a rewrite.
 
