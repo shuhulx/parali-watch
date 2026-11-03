@@ -640,6 +640,8 @@ def run(settings: Settings, cat: LocalCatalog, grid: Grid) -> dict:
     fz = settings["fusion"]
     s0, s1 = (d.isoformat() for d in settings.season)
     ard_items = [i for i in cat.items("ard-s2") if s0 <= i.properties["s2:acquisition_date"] <= s1]
+    if len(ard_items) < 2:
+        raise RuntimeError("Fusion needs at least two current Sentinel-2 ARD scenes in the configured season.")
     scenes = [
         (date.fromisoformat(i.properties["s2:acquisition_date"]), Path(i.assets["reflectance"].get_absolute_href()))
         for i in ard_items

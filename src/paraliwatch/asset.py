@@ -124,15 +124,13 @@ def _fire_cells(settings: Settings, grid: Grid, weeks: list[date]) -> dict:
 
 
 def _headline(path: Path) -> dict | None:
-    """The page shows the cleanest test set: holdout B (scored once) when labelled, else test set 1."""
+    """Prefer holdout B; the legacy receipt only compares summary diagnostics."""
     if not path.exists():
         return None
     ev = json.loads(path.read_text())
     hb = ev.get("holdout_b") or {}
     if "pooled" in hb:
-        once = hb.get("scored_once")
-        label = "scored once" if once else "re-scored: the model changed after its first scoring"
-        return {**hb, "set": f"holdout B, sealed before the final model, {label}"}
+        return {**hb, "set": "holdout B reference set"}
     return {**ev, "set": "test set 1"}
 
 

@@ -38,7 +38,7 @@ The intended user is a district nodal officer or PPCB field coordinator in the N
 | Domain | D5 - Burn scars / fire-affected area |
 | Task | T4 - Multi-sensor fusion |
 
-`uv run --frozen paraliwatch codes 123456` reproduces the codes from the reference used for this project. Changing just this number does not adapt the AOI, sensors or model to another assignment.
+`uv run --frozen paraliwatch codes 123456` reproduces the codes from the chosen reference, under the instructor's email permission to choose any number. Changing just this number does not adapt the AOI, sensors or model to another assignment.
 
 ## Reproduce the pipeline
 
@@ -58,7 +58,7 @@ make lint       # ruff
 make clean      # remove derived data; keep raw MODIS and grid caches
 ```
 
-The frozen sample and label CSVs under `reference/` are inputs. Keep them when reproducing the reported evaluation. A cold run cannot reproduce the retired v1 map, which is not committed; unavailable baselines are identified in the evaluation. Reported v1 results are historical, not an output promised by `make run`.
+The frozen sample and label CSVs under `reference/` are inputs. Keep them when reproducing the reported evaluation. A failed scene build stops the run before fusion and preserves completed scenes for retry. Evaluation requires the final and teacher prediction rasters; it also exports the unanimous-reference comparison separately. A cold run cannot reproduce the retired v1 map, which is not committed; unavailable baselines are identified in the evaluation. Reported v1 results are historical, not an output promised by `make run`.
 
 ## From data to decision
 
@@ -81,7 +81,7 @@ MODIS supplies weak training labels, fire features and approximate timing. Senti
 
 ## What the results support
 
-The v3 map contains **9,721.8 ha** classified as burnt, with **9.2%** corroborated by MODIS. This is mapped area, not a validated estimate of actual seasonal burnt area. Late-November estimates are particularly uncertain because tillage and emerging wheat can resemble burn scars.
+Across the **1,330 km² snapped analysis grid** (including padding around the requested box), the v3 map contains **9,721.8 ha** classified as burnt, with **9.2%** corroborated by MODIS. This is mapped area, not a validated estimate of actual seasonal burnt area. Late-November estimates are particularly uncertain because tillage and emerging wheat can resemble burn scars.
 
 The main evaluation is **holdout B**: 552 sampled points on three intervals, with 549 usable adjudicated labels. Its 1 km cells were excluded from training and earlier test sets. All reference labels were made by AI vision interpreters, not field teams.
 
@@ -93,7 +93,7 @@ The main evaluation is **holdout B**: 552 sampled points on three intervals, wit
 | MODIS active fire | 0.005 | 0.006 | 0.005 |
 | MCD64A1 | 0 | 0 | 0 |
 
-On the easier unanimous-label subset, student F1 is 0.378 [0.234, 0.506]. That is a different reference cohort, not an upper confidence bound on the headline. Interpreter agreement is modest (kappa 0.55), and late-November F1 is 0.08. The earlier test set was reused during development and is labelled as a development set. Overall accuracy is about 98% even for methods that map no burns, so it is not a useful headline.
+On the easier unanimous-label subset, student F1 is 0.378 [0.239, 0.510]. That is a different reference cohort, not an upper confidence bound on the headline. Interpreter agreement is modest (kappa 0.55), and late-November F1 is 0.08. The earlier test set was reused during development and is labelled as a development set. Overall accuracy is about 98% even for methods that map no burns, so it is not a useful headline.
 
 These results support further testing as a verification aid. They do not support enforcement against individual farmers. Human reference labels, a stronger late-season classifier and an evaluation limited to observations available at each decision date are needed before operational use.
 

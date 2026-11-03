@@ -39,7 +39,7 @@ REF = Path("reference")
 SEED = 7
 STRATA = {1: "mapped burn", 2: "teacher-only burn", 3: "other change", 4: "stable"}
 METHODS = {
-    "fusion": "S2 x MODIS student + field voting (final)",
+    "fusion": "S2 x MODIS final map (field voting only if enabled)",
     "fusion_pixel": "S2 x MODIS student, per pixel",
     "fusion_teacher": "MODIS-taught S2 teacher",
     "fusion_v1": "v1 teacher (NBR-only candidates)",
@@ -49,6 +49,13 @@ METHODS = {
     "mcd64": "MODIS MCD64A1 burned area",
 }
 DNBR_BASELINE = 0.27  # Key & Benson (2006) low/moderate severity break
+RASTER_METHODS = {
+    "fusion": "burn_season.tif",
+    "fusion_teacher": "burn_season_teacher.tif",
+    "fusion_pixel": "burn_season_pixel.tif",
+    "fusion_v1": "burn_season_v1.tif",
+}
+REQUIRED_RASTERS = {"burn_season.tif", "burn_season_teacher.tif"}
 
 
 def _scene_paths(settings: Settings) -> dict[date, Path]:
@@ -74,6 +81,8 @@ def _layers(settings: Settings, grid: Grid, pre: date, post: date) -> dict[str, 
     def burnt_in(name: str) -> np.ndarray:
         path = settings.path("products", name)
         if not path.exists():
+            if name in REQUIRED_RASTERS:
+                raise FileNotFoundError(f"Required prediction is missing: {path}. Run the fusion stage first.")
             return np.zeros(grid.shape, bool)
         with rasterio.open(path) as src:
             burn_day = src.read(1).astype(np.int32)
@@ -314,27 +323,29 @@ def run(settings: Settings, grid: Grid) -> dict:
             render_chips(settings, grid, ref)
         result["holdout_b"] = score(settings, grid, ref)
         if "pooled" in result["holdout_b"]:
-            result["holdout_b"]["scored_once"] = _receipt(settings, ref, result["holdout_b"])
+            result["holdout_b"]["diagnostics_match_receipt"] = _receipt(settings, ref, result["holdout_b"])
     Path(settings.path("products", "evaluation.json")).write_text(json.dumps(result, indent=2))
     return result
 
 
 def model_fingerprint(model: dict) -> str:
+    """Legacy hash of summary diagnostics, not fitted model weights or predictions."""
     from .catalog import params_hash
 
     return params_hash({k: v for k, v in model.items() if k != "built"})
 
 
 def _receipt(settings: Settings, ref: Path, result: dict) -> bool:
-    """A holdout is "scored once" only for the model that first scored it.
+    """Compare summary diagnostics with the historical receipt.
 
-    The first scoring writes ``scoring_receipt.json`` (model fingerprint + headline F1). Any later
-    evaluation with a different model still reports numbers, but loses the scored-once claim.
+    The legacy ``model_fingerprint`` field never hashed fitted weights, predictions, labels or
+    the sample. A match cannot prove that evaluation happened once or that these inputs are unchanged.
     """
     path = ref / "scoring_receipt.json"
     fp = model_fingerprint(json.loads(settings.path("products", "model.json").read_text()))
     if not path.exists():
-        path.write_text(json.dumps({"model_fingerprint": fp, "first_scored": date.today().isoformat(),
+        path.write_text(json.dumps({"model_fingerprint": fp, "fingerprint_scope": "summary_diagnostics",
+                                    "first_scored": date.today().isoformat(),
                                     "f1": result["pooled"]["fusion"]["f1"]}, indent=2))  # fmt: skip
         return True
     return json.loads(path.read_text())["model_fingerprint"] == fp
@@ -354,9 +365,11 @@ def score(settings: Settings, grid: Grid, ref: Path = REF) -> dict:
         return {"status": "awaiting labels", "sheets": str(ref / "chips"), "points": len(df)}
 
     A, B = _read_labels(la), _read_labels(lb)
-    # The retired v1 raster is optional and is not rebuilt on a fresh clone.
-    # A missing prediction is unavailable, not a classifier that predicts no burns.
-    unavailable = [] if settings.path("products", "burn_season_v1.tif").exists() else ["fusion_v1"]
+    for name in REQUIRED_RASTERS:
+        if not settings.path("products", name).exists():
+            raise FileNotFoundError(f"Required prediction is missing: {name}. Run the fusion stage first.")
+    # Retired v1 and the student-only map can be absent. Missing predictions are not all-negative maps.
+    unavailable = [m for m, name in RASTER_METHODS.items() if not settings.path("products", name).exists()]
     methods = [m for m in METHODS if m not in unavailable]
     df["label_A"], df["label_B"] = df["point_id"].map(A), df["point_id"].map(B)
     both = df[(df["label_A"].isin([0, 1])) & (df["label_B"].isin([0, 1]))]
@@ -364,6 +377,7 @@ def score(settings: Settings, grid: Grid, ref: Path = REF) -> dict:
     agreed = both[both["label_A"] == both["label_B"]].copy()
     agreed["ref"] = agreed["label_A"].astype(bool)
     agreed["ref_source"] = "A=B"
+    unanimous = agreed.copy()
     # Blind adjudication: a third interpreter (C) sees only the disputed/unclear points.
     n_adjudicated = 0
     if (ref / "labels_C.csv").exists():
@@ -383,18 +397,15 @@ def score(settings: Settings, grid: Grid, ref: Path = REF) -> dict:
         alt["ref"] = alt[f"label_{who}"].astype(bool)
         sens[who] = alt
 
-    # Every method's decision at every point.
-    for _i, g in agreed.groupby("interval"):
+    # Read the full-resolution layers once per interval, then score every reference cohort.
+    frames = [agreed, unanimous, *sens.values()]
+    for interval, g in df.groupby("interval"):
         L = _layers(settings, grid, g["pre"].iloc[0].date(), g["post"].iloc[0].date())
-        for m in methods:
-            agreed.loc[g.index, m] = L[m][g["row"].to_numpy(), g["col"].to_numpy()]
-    for m in methods:
-        agreed[m] = agreed[m].astype(bool)
-    for frame in sens.values():
-        for _i, g in frame.groupby("interval"):
-            L = _layers(settings, grid, g["pre"].iloc[0].date(), g["post"].iloc[0].date())
+        for frame in frames:
+            sub = frame[frame["interval"] == interval]
             for m in methods:
-                frame.loc[g.index, m] = L[m][g["row"].to_numpy(), g["col"].to_numpy()]
+                frame.loc[sub.index, m] = L[m][sub["row"].to_numpy(), sub["col"].to_numpy()]
+    for frame in frames:
         for m in methods:
             frame[m] = frame[m].astype(bool)
 
@@ -411,6 +422,10 @@ def score(settings: Settings, grid: Grid, ref: Path = REF) -> dict:
             for a, b in df.groupby("interval")[["pre", "post"]].first().itertuples(index=False, name=None)
         ],
         "pooled": {m: _estimate(agreed, m) for m in methods},
+        "unanimous_reference": {
+            "n_points": int(len(unanimous)), "n_burn": int(unanimous["ref"].sum()),
+            "pooled": {m: _estimate(unanimous, m) for m in methods},
+        },
         "by_interval": {str(i): {m: _estimate(g, m) for m in methods} for i, g in agreed.groupby("interval")},
         "sensitivity_disputes_as_A": {m: _estimate(sens["A"], m, n_boot=300) for m in methods},
         "sensitivity_disputes_as_B": {m: _estimate(sens["B"], m, n_boot=300) for m in methods},

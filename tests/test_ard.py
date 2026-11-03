@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from paraliwatch.ard import SHADOW_CASTER_M, s2_valid_mask
 
@@ -43,3 +44,36 @@ def test_smog_haze_is_masked_but_clear_field_is_kept(tmp_path):
         dst.write(dn.astype("uint16"))
     _, valid = read_s2_ard(p)
     assert valid.tolist() == [[True, False]]
+
+
+def test_scene_failure_stops_the_pipeline_but_keeps_completed_ard(tmp_path, monkeypatch):
+    from datetime import datetime, timezone
+    from types import SimpleNamespace
+
+    import pystac
+
+    from paraliwatch import ard
+    from paraliwatch.catalog import LocalCatalog
+    from paraliwatch.config import Settings
+
+    settings = Settings(raw={"paths": {"data": "data"}}, root=tmp_path)
+    cat = LocalCatalog(tmp_path / "catalog")
+    for name in ("good", "failed"):
+        cat.add("source-s2", pystac.Item(
+            name, {"type": "Point", "coordinates": [76.2, 30.5]}, [76.2, 30.5, 76.2, 30.5],
+            datetime(2024, 10, 1, tzinfo=timezone.utc), {},
+        ))
+
+    def build(item, grid, out):
+        if item.id == "failed":
+            raise OSError("simulated network failure")
+        out.write_bytes(b"completed scene")
+        return {"valid_fraction": 1.0}
+
+    monkeypatch.setattr(ard, "build_s2_ard", build)
+    settings.raw["aoi"] = {"bbox": [76.1, 30.36, 76.45, 30.69]}
+    with pytest.raises(RuntimeError, match="stopping before fusion"):
+        ard.run(settings, cat, SimpleNamespace(signature="test-grid"), workers=1)
+    saved = LocalCatalog(cat.root)
+    assert saved.get("ard-s2", "ard-good") is not None
+    assert saved.get("ard-s2", "ard-failed") is None
