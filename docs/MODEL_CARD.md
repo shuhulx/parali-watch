@@ -4,7 +4,7 @@ Reference 123456 → R1 Punjab Ludhiana–Patiala · S4 MODIS · D5 Burn scars �
 
 ## Summary
 
-A two-stage teacher → student model that flags 20 m pixels burnt between two clear Sentinel-2 observations.
+A two-stage teacher → student model that flags suspected burn scars at 20 m between clear Sentinel-2 observations. This submission is a retrospective 2024 replay. The student uses the next clear observation (`b12_next`, `nbr_next`, `next_gap`), which may fall after the reported week; it has not been validated as a Monday now-cast.
 
 - **Teacher:** logistic regression on Sentinel-2 features, trained on weak labels from MODIS active fires. Good at ranking, biased at its decision boundary.
 - **Student:** gradient-boosted trees (`HistGradientBoosting`) on Sentinel-2, temporal and MODIS features, trained on photo-interpreted labels. This is the final model.
@@ -36,7 +36,7 @@ MODIS supplies the teacher's training signal, the student's fire features and th
 | `burn_season.tif` | Final (student) map, five bands (below) |
 | `burn_season_teacher.tif` | Teacher map, same layout |
 | `burn_season_pixel.tif` | Student map without field-object voting (identical to the final map while voting is disabled) |
-| `burn_season_v1.tif` | v1 map kept for comparison |
+| `burn_season_v1.tif` | Optional retired v1 comparison; not committed or rebuilt by the current pipeline |
 | `model.json` | Teacher coefficients, thresholds, label counts, CV scores |
 | `model.joblib` | Fitted student |
 
@@ -58,7 +58,7 @@ H3 feature store (`data/features`, GeoParquet partitioned by ISO week, H3 res 8,
 2. **Teacher.** Weak labels (MODIS weak labels from sealed-test 1 km cells are excluded from fitting the teacher and its threshold): positive = MODIS fire (class ≥ 7) in the pixel's own 1 km cell during the interval; negative = no fire within ±2 cells and ±2 days, and the cell was observed (cloud is never a negative). Balanced logistic regression (up to 100,000 per class) on the 18 Sentinel-2 features.
 3. **Gold labels.** Photo-interpreted transitions (below), matched to candidates on the exact (pixel, pre, post) triple. Recycled test-A labels map to a transition only when exactly one transition lies wholly inside the labelled interval. Round 3 is active learning (`fusion.active_sample`): 240 transitions closest to the student threshold in logit space (at most one per 1 km cell) plus 80 random mapped-burn audit points.
 4. **Student.** Gradient-boosted trees on teacher + temporal + MODIS features. Because the gold labels no longer come from MODIS, MODIS can enter as features without leaking its own label.
-5. **Threshold.** The sample over-represents teacher-score bins differently from the population, so each label carries a design weight (teacher-score bin share ÷ labels in that bin). The student threshold (0.25) maximises population-weighted F1 out of fold. Active-learning labels are not a probability sample, so they train in every fold but are never scored: OOF F1, the threshold and the self-training gate use the 600 probability-sampled labels only (design weight 0 for AL rows). The teacher threshold is Neyman–Pearson (5% false-alarm cap on MODIS-quiet changes).
+5. **Threshold.** The sample over-represents teacher-score bins differently from the population, so each label carries a design weight (teacher-score bin share ÷ labels in that bin). The student threshold (0.25) maximises population-weighted F1 out of fold. Active-learning labels are not a probability sample, so they train only outside the held-out spatial blocks and are never scored: OOF F1, the threshold and the self-training gate use the 600 probability-sampled labels only (design weight 0 for AL rows). The teacher threshold is Neyman–Pearson (5% false-alarm cap on MODIS-quiet changes).
 6. **Validation.** Spatially nested cross-validation over 3 km blocks, with the teacher refit inside each fold. Pseudo-labels are re-derived per fold with the fold teacher and kept only where it agrees.
 7. **Self-training.** Up to 500 pseudo-labels per class at weight 0.1, taken where the teacher is confident and MODIS agrees, excluded at 1 km-cell level from gold-label and sealed-test cells (the sealed sets now touch all 156 3 km blocks, so block-level exclusion would leave nothing). Trialled with 510 pseudo-labels: nested-CV F1 0.581 < 0.592 without, so the gate rejected it (v2 had adopted it).
 8. **Attribution.** A pixel's burn is its first transition above threshold. If a MODIS fire lies in the interval, the burn is dated to the last such fire and flagged confirmed; otherwise the Sentinel-2 date is kept.
@@ -87,7 +87,7 @@ Any gold label, weak label, pseudo-label or active-learning sample inside a 1 km
 | MCD64A1 ha | 0 | 0 | 43 | 1223 | 451 | 237 | 386 | 43 | 21 | 0 | 0 |
 | MODIS fire cell-days | 0 | 0 | 0 | 2 | 5 | 19 | 57 | 25 | 5 | 13 | 2 |
 
-**Late-season caveat.** The W47–W48 Sentinel-2-only area (about 1,300 ha/week) coincides with the weakest holdout-B interval (late November, F1 0.08). It is likely partly commission from tilled or emerging-wheat fields; treat late-season area as an upper bound.
+**Late-season caveat.** The W47–W48 Sentinel-2-only area (about 1,300 ha/week) coincides with the weakest holdout-B interval (late November, F1 0.08). It is likely partly commission from tilled or emerging-wheat fields; treat late-season mapped area as potentially inflated, not as a statistical upper bound.
 
 **Holdout B, the headline (`evaluation.json`, key `holdout_b`).** Drawn once from the v2 maps (`reference/testB/`, seed and date in `sample_meta.json`) and sealed before any further model development; scored once, on the final v3 model. 552 points on three new intervals: 2024-10-13→10-23 (early), 2024-10-30→11-07 (peak), 2024-11-19→11-29 (late). Per interval: mapped burn 60 / teacher-only burn 40 / other change 60 / stable 24 (other change is over-allocated because missed burns there dominate the recall interval). 1 km cells are disjoint from every training point and from earlier test sets; strata and population counts were frozen at draw time. Interpreters A and B (Cohen's κ 0.551 on 427 points where both were confident) plus blind adjudicator C for 158 disputed or unclear points (155 resolved); 549 points used, 67 burns. Stratum-weighted (Olofsson et al. 2014); estimate [95% bootstrap CI].
 
@@ -106,21 +106,21 @@ Student overall accuracy 0.980.
 
 *Dispute sensitivity:* all disputes resolved as A 0.374 [0.245, 0.489]; as B 0.215 [0.130, 0.379]. *By interval (adjudicated):* early 0.322 [0.148, 0.625], peak 0.182 [0.054, 0.458], late November 0.083 [0.039, 0.194].
 
-**Error structure.** Omission dominates (weighted omission 1.38% of area vs commission 0.63%). It concentrates in the "other change" stratum, where each burn point carries about 0.3% of the area, especially in the late interval (6 of 60 points burnt, mostly adjudicator-sourced). The late interval is also where A and B split: A read dull grey-green patches after tillage as emerging wheat, B as char. Adjudicator C calls burns on 28% of disputed points vs 6% on A=B points, so the headline is sensitive to the adjudicator; hence the bracket 0.19–0.38.
+**Error structure.** Omission dominates (weighted omission 1.38% of area vs commission 0.63%). It concentrates in the "other change" stratum, where each burn point carries about 0.3% of the area, especially in the late interval (6 of 60 points burnt, mostly adjudicator-sourced). The late interval is also where A and B split: A read dull grey-green patches after tillage as emerging wheat, B as char. Adjudicator C calls burns on 28% of disputed points vs 6% on A=B points, so the headline is sensitive to the adjudicator; the adjudicated and unanimous-subset figures describe different reference cohorts, not bounds on the true F1.
 
 **Development set (test set 1).** 360 points, two intervals (2024-10-25→11-04, 2024-11-07→11-19), 70/50/40/20 per interval, κ 0.866. It was scored four times during development, so it is a development set, not a holdout. v3 student F1 0.339 [0.149, 0.624] (precision 0.473, recall 0.264), unanimous 0.427 [0.255, 0.580]; teacher 0.126; v1 0.084. (v2 history: 0.280 adjudicated, 0.258 unanimous.) The drop to 0.19 on holdout B is the expected price of reuse plus harder new intervals. Holdout B's interval is also tighter (width 0.19 vs 0.46–0.48), which was the point of drawing it.
 
 **Leakage check and known approximations.** A Codex (`gpt-6-astra`) verification of v3 found no holdout-B label leakage: holdout-B locations only feed exclusion masks, no holdout-B cell overlaps training, test A or test set 1, and the frozen v2 strata remain valid for scoring v3 because the stored stratum sizes N_h are used. Known approximations, not fixed:
 
 - Design weights re-bin the scored labels by the retrained teacher's score, so they approximate (not reproduce) inclusion probabilities across cohorts with different designs (round 2 haze-free only; test-A agreement filter). OOF F1 and the threshold may be biased.
-- The active-learning batch was chosen by a model fit on all labels, and the threshold maximises the same OOF F1 that is reported, so the student CV F1 (0.592) is mildly optimistic. Holdout B is the unbiased number.
+- The active-learning batch was chosen by a model fit on all labels, and the threshold maximises the same OOF F1 that is reported, so the student CV F1 (0.592) is mildly optimistic. Holdout B is the held-out estimate against AI-interpreted reference labels.
 - The A/B dispute-sensitivity analysis on test set 1 uses a slightly different cohort than its adjudicated figure.
 
 "Scored once" is enforced: `reference/testB/scoring_receipt.json` stores the fingerprint of the model that first scored holdout B; any later evaluation with a different model loses the claim and the dashboard says "re-scored".
 
 **Overall accuracy is not informative.** On holdout B it is 0.976–0.984 for the student, teacher, v1 and MCD64A1 because most of the area is unburnt (MCD64A1 maps nothing and scores 0.984). Use precision, recall and F1.
 
-**Bottom line.** F1 0.9 is not supported. On a clean holdout the student is 0.19 (adjudicated) to 0.38 (unanimous), about 2× the teacher and far above the MODIS products and dNBR. v1 is comparable on adjudicated holdout B but with a much wider interval, and collapses to 0.015 on the unanimous subset. The binding constraint is training and reference label quality.
+**Interpretation.** The adjudicated holdout F1 is 0.190 [0.117, 0.306]. The unanimous-subset score of 0.378 uses fewer, easier reference points and is not an upper confidence bound. The student improves on the teacher, but omissions and uncertain labels prevent an operational accuracy claim.
 
 **Caveat on the reference.** All interpreters are AI vision models (Claude Sonnet sub-agents for A and B, Claude Opus for C) reading 20 m SWIR/visible chip sheets, blind to strata and model output. A first interpreter run was rejected for defaulting unlabelled points to 0. These labels are a transparent, reproducible stand-in, not field truth. `paraliwatch label-page reference/testB` writes a self-contained `label.html`: the same four chips per point at native 20 m pixels, keys 1/0/9, notes, browser autosave, and an export to `labels_<name>.csv` in the pipeline's format, so a human set slots in as interpreter A, B or C (no model output is embedded). `paraliwatch evaluate` then recomputes everything. `reference/scored_points.csv` has one row per point with `ref_source` (`A=B` unanimous, `C` adjudicated).
 
@@ -138,9 +138,10 @@ Student overall accuracy 0.980.
 
 ## Limitations and failure modes
 
+- **Retrospective timing.** Next-clear-view features and full-season model fitting can revise earlier weeks. A strict information cutoff and a separate as-of-date evaluation are required for a live service.
 - **Low recall.** Holdout B recall is about 0.15 (unanimous subset 0.72 at precision 0.26); many burns are missed, mostly in the "other change" stratum.
 - **Small, AI-made label set.** 189 gold burn labels and AI-interpreted test sets; holdout B κ was only 0.55, and adjudicated F1 CI is 0.12–0.31.
-- **Late-season commission.** Late-November tilled or emerging-wheat fields; W47–W48 area is an upper bound.
+- **Late-season commission.** Late-November tilled or emerging-wheat fields; W47–W48 mapped area may be inflated.
 - **Tillage confusion.** Farmers till within days of burning, so MODIS-fire cells contain tillage; the teacher learned "large NBR drop". The student reduces this but does not remove it.
 - **Smog gaps.** Sentinel-2 was blind about Nov 9–17. Burns in the gap surface on the first clear scene (Nov 19). Confirmed ones are re-dated by MODIS; Sentinel-2-only ones cannot be. HOT masks hazy pixels but cannot recover them.
 - **Burn-then-till inside a gap.** The scar may be gone before Sentinel-2 returns.

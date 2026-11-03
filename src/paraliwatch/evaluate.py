@@ -354,6 +354,10 @@ def score(settings: Settings, grid: Grid, ref: Path = REF) -> dict:
         return {"status": "awaiting labels", "sheets": str(ref / "chips"), "points": len(df)}
 
     A, B = _read_labels(la), _read_labels(lb)
+    # The retired v1 raster is optional and is not rebuilt on a fresh clone.
+    # A missing prediction is unavailable, not a classifier that predicts no burns.
+    unavailable = [] if settings.path("products", "burn_season_v1.tif").exists() else ["fusion_v1"]
+    methods = [m for m in METHODS if m not in unavailable]
     df["label_A"], df["label_B"] = df["point_id"].map(A), df["point_id"].map(B)
     both = df[(df["label_A"].isin([0, 1])) & (df["label_B"].isin([0, 1]))]
     k = kappa(both["label_A"].to_numpy(), both["label_B"].to_numpy())
@@ -382,19 +386,20 @@ def score(settings: Settings, grid: Grid, ref: Path = REF) -> dict:
     # Every method's decision at every point.
     for _i, g in agreed.groupby("interval"):
         L = _layers(settings, grid, g["pre"].iloc[0].date(), g["post"].iloc[0].date())
-        for m in METHODS:
+        for m in methods:
             agreed.loc[g.index, m] = L[m][g["row"].to_numpy(), g["col"].to_numpy()]
-    for m in METHODS:
+    for m in methods:
         agreed[m] = agreed[m].astype(bool)
     for frame in sens.values():
         for _i, g in frame.groupby("interval"):
             L = _layers(settings, grid, g["pre"].iloc[0].date(), g["post"].iloc[0].date())
-            for m in METHODS:
+            for m in methods:
                 frame.loc[g.index, m] = L[m][g["row"].to_numpy(), g["col"].to_numpy()]
-        for m in METHODS:
+        for m in methods:
             frame[m] = frame[m].astype(bool)
 
     result = {
+        "unavailable_methods": unavailable,
         "n_points": int(len(df)),
         "n_both_confident": int(len(both)),
         "n_agreed": int(len(agreed)),
@@ -405,10 +410,10 @@ def score(settings: Settings, grid: Grid, ref: Path = REF) -> dict:
             [str(pd.Timestamp(a).date()), str(pd.Timestamp(b).date())]
             for a, b in df.groupby("interval")[["pre", "post"]].first().itertuples(index=False, name=None)
         ],
-        "pooled": {m: _estimate(agreed, m) for m in METHODS},
-        "by_interval": {str(i): {m: _estimate(g, m) for m in METHODS} for i, g in agreed.groupby("interval")},
-        "sensitivity_disputes_as_A": {m: _estimate(sens["A"], m, n_boot=300) for m in METHODS},
-        "sensitivity_disputes_as_B": {m: _estimate(sens["B"], m, n_boot=300) for m in METHODS},
+        "pooled": {m: _estimate(agreed, m) for m in methods},
+        "by_interval": {str(i): {m: _estimate(g, m) for m in methods} for i, g in agreed.groupby("interval")},
+        "sensitivity_disputes_as_A": {m: _estimate(sens["A"], m, n_boot=300) for m in methods},
+        "sensitivity_disputes_as_B": {m: _estimate(sens["B"], m, n_boot=300) for m in methods},
         "per_stratum_agreed_n": {
             f"{k[0]}-{STRATA[k[1]]}": int(v) for k, v in agreed.groupby(["interval", "stratum"]).size().items()
         },

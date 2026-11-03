@@ -203,10 +203,11 @@ def build(settings: Settings, cat: LocalCatalog, grid: Grid) -> Path:
         "as_of": settings.raw.get("asset", {}).get("default_week"),
         "codes": settings.codes.describe(),
         "version": __version__,
+        "season": [d.isoformat() for d in settings.season],
     }
     env = Environment(loader=FileSystemLoader(Path(__file__).parent / "templates"), autoescape=False)
     html = env.get_template("index.html.j2").render(
-        data=json.dumps(data, separators=(",", ":")), aoi_name=settings["aoi"]["name"]
+        data=data, aoi_name=settings["aoi"]["name"]
     )
     out = site / "index.html"
     out.write_text(html)

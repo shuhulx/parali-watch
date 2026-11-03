@@ -1,6 +1,7 @@
 # ParaliWatch run configuration — one file describes one season over one AOI.
-# Re-running the pipeline with this file is idempotent; extending `season.end`
-# (or running mid-season) only processes scenes the catalogue has not seen.
+# Re-running reuses current ingestion/ARD; fusion and downstream stages rebuild.
+# This is a fixed historical season, not a rolling live feed. The student uses
+# later clear observations, so weekly results can change when scenes are added.
 
 reference_number: 123456          # -> R1 S4 D5 T4 (see `paraliwatch codes`)
 

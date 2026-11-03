@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ParaliWatch — stubble-burn now-cast</title>
-<meta name="description" content="Weekly field-scale stubble-burn now-cast for the Ludhiana–Patiala belt, fusing MODIS fire detections with Sentinel-2.">
+<link rel="icon" href="data:,">
+<title>ParaliWatch — weekly burn-scar map</title>
+<meta name="description" content="A 2024 retrospective of weekly burn-scar estimates for the Ludhiana–Patiala belt, using MODIS and Sentinel-2.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -27,6 +28,10 @@ header .sub{color:var(--muted);font-size:13px}
 .weeks button.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
 .weeks button .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--burn);margin-left:5px;vertical-align:middle}
 main{display:grid;grid-template-columns:380px 1fr;gap:16px;padding:16px 20px}
+main>section,.grid2>div{min-width:0}
+.tablewrap{overflow-x:auto}
+.context{margin:12px 20px 0;padding:10px 12px;border-left:3px solid var(--warn);background:var(--panel);font-size:13px}
+button:focus-visible,tr.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 @media (max-width:900px){main{grid-template-columns:1fr}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
 .card h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px;font-weight:600}
@@ -62,20 +67,24 @@ footer{padding:4px 20px 30px;color:var(--muted);font-size:12px}
 <body>
 <header>
   <h1>ParaliWatch</h1>
-  <div class="sub">Stubble-burn now-cast · {{ aoi_name }} · for district nodal officers deciding where field teams go this week</div>
+  <div class="sub">Weekly burn-scar estimates · {{ aoi_name | e }} · Shuhul Razdan</div>
 </header>
-<div class="weeks" id="weeks"><span>Week</span></div>
+<div class="context"><b>2024 season replay · {{ data.season[0] }} to {{ data.season[1] }}</b><br>
+  A prototype for planning verification visits. The model uses later clear observations, so these are retrospective estimates, not what was known on each Monday.
+  “MODIS-confirmed” means a nearby fire detection within the observation interval; it does not verify an individual field.</div>
+<noscript><p class="context">Enable JavaScript to view the map, weekly estimates and cluster list.</p></noscript>
+<div class="weeks" id="weeks" role="group" aria-label="Select a week in the 2024 season"><span>Week</span></div>
 <main>
   <section>
-    <div class="card" id="nowcast"></div>
+    <div class="card" id="nowcast" aria-live="polite"></div>
     <div class="card" id="blindcard" style="display:none">
       <h2>Blind spots — MODIS sees fire, Sentinel-2 can’t see the ground</h2>
-      <table id="blind"><thead><tr><th>Nearest villages</th><th class="n">Fire cell-days</th><th class="n">S2 view</th></tr></thead><tbody></tbody></table>
+      <div class="tablewrap"><table id="blind"><thead><tr><th>Nearest villages</th><th class="n">Fire cell-days</th><th class="n">S2 view</th></tr></thead><tbody></tbody></table></div>
       <div class="muted" style="font-size:12px;margin-top:6px">An optical-only map drops these silently. Send a team to verify on the ground.</div>
     </div>
     <div class="card">
-      <h2>Dispatch list — top village clusters this week</h2>
-      <table id="dispatch"><thead><tr><th>#</th><th>Nearest villages</th><th class="n">Burnt ha</th><th class="n">vs last wk</th><th>Evidence</th></tr></thead><tbody></tbody></table>
+      <h2>Verification list — top clusters in the selected week</h2>
+      <div class="tablewrap"><table id="dispatch"><thead><tr><th>#</th><th>Nearest villages</th><th class="n">Mapped ha</th><th class="n">vs last wk</th><th>Evidence</th></tr></thead><tbody></tbody></table></div>
       <div class="muted" style="font-size:12px;margin-top:6px">Clusters are H3 res-7 cells (~5 km²). Click a row to zoom; “map” opens directions.</div>
     </div>
   </section>
@@ -88,18 +97,21 @@ footer{padding:4px 20px 30px;color:var(--muted);font-size:12px}
       <span><i class="sw" style="background:linear-gradient(90deg,#fde0c5,#e85d04,#6a040f)"></i>Cluster burnt ha</span>
     </div>
     <div class="grid2" style="margin-top:16px">
-      <div class="card"><h2>Season so far</h2><div class="chartwrap"><canvas id="season"></canvas></div></div>
+      <div class="card"><h2>2024 season overview</h2><div class="chartwrap"><canvas id="season" role="img" aria-label="Weekly mapped hectares and MODIS fire detections"></canvas></div></div>
       <div class="card" id="trust"><h2>How far to trust this</h2></div>
     </div>
   </section>
 </main>
 <footer id="foot"></footer>
 <script>
-const D = {{ data }};
+const D = {{ data | tojson }};
+const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = (x, d=0) => (x ?? 0).toLocaleString('en-IN', {maximumFractionDigits:d, minimumFractionDigits:d});
 const weekIdx = Object.fromEntries(D.weeks.map((w,i)=>[w.week,i]));
 const peak = D.weeks.reduce((a,b)=> b.burnt_ha > a.burnt_ha ? b : a);
-let current = (location.hash.slice(1) in weekIdx) ? location.hash.slice(1) : (D.as_of || peak.week);
+const defaultWeek = Object.hasOwn(weekIdx, D.as_of) ? D.as_of : peak.week;
+let current = Object.hasOwn(weekIdx, location.hash.slice(1)) ? location.hash.slice(1)
+  : defaultWeek;
 
 // ---------- map ----------
 const map = L.map('map', {zoomSnap:.25, attributionControl:true});
@@ -123,7 +135,7 @@ function drawMap(wk){
     const hx = D.hexes[r.h], c = ramp(r.b);
     const poly = L.polygon(hx.ring, {weight: r.e==='modis-only'?1.5:.6, color: r.e==='modis-only'?'#7b2cbf':'#8a857a',
       dashArray: r.e==='modis-only'?'3 3':null, fillColor:c||'#000', fillOpacity:c?.38:0});
-    poly.bindTooltip(`<b>${hx.places.join(' · ')||r.h}</b><br>${fmt(r.b,1)} ha newly burnt (${fmt(r.c,1)} MODIS-confirmed)<br>`+
+    poly.bindTooltip(`<b>${esc(hx.places.join(' · ')||r.h)}</b><br>${fmt(r.b,1)} ha mapped (${fmt(r.c,1)} MODIS-confirmed)<br>`+
       `MODIS fire cell-days: ${fmt(r.f,1)} · S2 clear view: ${fmt(r.s*100)}%<br>MCD64A1 (MODIS product): ${fmt(r.m,1)} ha`, {sticky:true});
     poly.addTo(hexLayer);
   }
@@ -138,7 +150,7 @@ function drawPanels(wk){
   const pct = P && P.burnt_ha > 0 ? Math.round(100*dd/P.burnt_ha) : null;
   const conf = W.burnt_ha > 0 ? Math.round(100*W.confirmed_ha/W.burnt_ha) : 0;
   let html = `<h2>Week ${wk.split('-W')[1]} · ${new Date(W.start).toLocaleDateString('en-IN',{day:'numeric',month:'short'})} – ${new Date(W.end).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})}</h2>
-    <div class="big">${fmt(W.burnt_ha)} <small>ha newly burnt</small></div>
+    <div class="big">${fmt(W.burnt_ha)} <small>ha mapped as burnt</small></div>
     ${dd!==null ? `<div class="delta ${dd>0?'up':'down'}">${dd>0?'▲':'▼'} ${fmt(Math.abs(dd))} ha${pct!==null?` (${pct>0?'+':''}${pct}%)`:''} vs previous week</div>`:''}
     <div class="kv">
       <div>MODIS-confirmed share</div><div>${conf}%</div>
@@ -146,26 +158,39 @@ function drawPanels(wk){
       <div>MODIS fire cell-days</div><div>${fmt(W.fire_cell_days)}</div>
       <div>MODIS MCD64A1 product says</div><div>${fmt(W.mcd64_ha)} ha</div>
     </div>`;
-  if (W.s2_seen < 0.6) html += `<div class="banner warn"><b>Sentinel-2 mostly blind this week</b> (smoke/cloud: ${fmt(100-W.s2_seen*100)}% of the AOI unseen). The burnt area is a <b>lower bound</b>; fields burnt now will be counted when the sky clears. Use the purple MODIS fire cells to direct teams this week.</div>`;
+  if (W.s2_seen < 0.6) html += `<div class="banner warn"><b>Sentinel-2 mostly blind this week</b> (smoke/cloud: ${fmt(100-W.s2_seen*100)}% of the AOI unseen). Burns may be missed or assigned to a later clear view. False detections also occur, so this is not a lower bound. The purple MODIS cells show where field checks would be useful.</div>`;
   else if (W.long_gap_ha > 0.2*W.burnt_ha && W.burnt_ha>0) html += `<div class="banner info">${fmt(100*W.long_gap_ha/W.burnt_ha)}% of this week's area was first seen after a gap of more than 20 days — the burn may be older than this week.</div>`;
+  if (['2024-W47','2024-W48'].includes(wk)) html += '<div class="banner warn"><b>Late-season estimates are less reliable.</b> Late-November holdout F1 was 0.08. Tilled soil and emerging wheat can be mistaken for char; mapped hectares may be inflated.</div>';
   document.getElementById('nowcast').innerHTML = html;
 
   const rows = (D.per_week[wk]||[]).filter(r=>r.b>0).slice(0,8);
   document.querySelector('#dispatch tbody').innerHTML = rows.length ? rows.map((r,k)=>{
     const hx = D.hexes[r.h];
-    return `<tr class="pick" data-h="${r.h}"><td>${k+1}</td><td>${hx.places.join(', ')||r.h}
+    return `<tr class="pick" tabindex="0" role="button" aria-label="Zoom to ${esc(hx.places.join(', ')||r.h)}" data-h="${r.h}"><td>${k+1}</td><td>${esc(hx.places.join(', ')||r.h)}
       <a href="https://www.google.com/maps/dir/?api=1&destination=${hx.centre[0]},${hx.centre[1]}" target="_blank" rel="noopener" onclick="event.stopPropagation()">map</a></td>
       <td class="n">${fmt(r.b,1)}</td><td class="n">${r.d>0?'+':''}${fmt(r.d,1)}</td>
       <td><span class="badge b-${r.e}">${r.e.replace('-',' ')}</span></td></tr>`}).join('')
     : `<tr><td colspan="5" class="muted">No new burns detected this week.</td></tr>`;
   const blind = (D.per_week[wk]||[]).filter(r=>r.x>0.25).sort((a,b)=>b.x-a.x).slice(0,5);
   document.getElementById('blindcard').style.display = blind.length ? '' : 'none';
-  document.querySelector('#blind tbody').innerHTML = blind.map(r=>`<tr class="pick" data-h="${r.h}"><td>${D.hexes[r.h].places.join(', ')}</td><td class="n">${fmt(r.f,1)}</td><td class="n">${fmt(r.s*100)}%</td></tr>`).join('');
-  document.querySelectorAll('#dispatch tr.pick, #blind tr.pick').forEach(tr=>tr.onclick=()=>map.setView(D.hexes[tr.dataset.h].centre, 13));
-  document.querySelectorAll('.weeks button').forEach(b=>b.classList.toggle('on', b.dataset.w===wk));
+  document.querySelector('#blind tbody').innerHTML = blind.map(r=>`<tr class="pick" tabindex="0" role="button" aria-label="Zoom to ${esc(D.hexes[r.h].places.join(', ')||r.h)}" data-h="${r.h}"><td>${esc(D.hexes[r.h].places.join(', ')||r.h)}</td><td class="n">${fmt(r.f,1)}</td><td class="n">${fmt(r.s*100)}%</td></tr>`).join('');
+  document.querySelectorAll('#dispatch tr.pick, #blind tr.pick').forEach(tr=>{
+    tr.onclick=()=>map.setView(D.hexes[tr.dataset.h].centre, 13);
+    tr.onkeydown=event=>{if(event.target===tr && (event.key==='Enter'||event.key===' ')){event.preventDefault();tr.click();}};
+  });
+  document.querySelectorAll('.weeks button').forEach(b=>{
+    b.classList.toggle('on', b.dataset.w===wk); b.setAttribute('aria-pressed', b.dataset.w===wk);
+  });
 }
 
-function select(wk){ current = wk; history.replaceState(null,'','#'+wk); drawPanels(wk); drawMap(wk); chart.update(); }
+function select(wk){
+  if (!Object.hasOwn(weekIdx, wk)) return;
+  current = wk; history.replaceState(null,'','#'+wk); drawPanels(wk); drawMap(wk); chart.update();
+}
+window.addEventListener('hashchange', () => {
+  const wk = location.hash.slice(1);
+  select(Object.hasOwn(weekIdx, wk) ? wk : defaultWeek);
+});
 
 const bar = document.getElementById('weeks');
 for (const W of D.weeks){
@@ -202,9 +227,9 @@ const chart = new Chart(document.getElementById('season'), {
   if (E){
     const names = {fusion:'S2 × MODIS student (this)', fusion_teacher:'MODIS-taught teacher', s2_dnbr:'Sentinel-2 dNBR only', modis_af:'MODIS active fire cell', mcd64:'MODIS MCD64A1'};
     const ci = a => `${Math.round(a[0]*100)}<span class="muted" style="font-size:10.5px"> ${Math.round(a[1]*100)}–${Math.round(a[2]*100)}</span>`;
-    h += `<table class="evaltable"><thead><tr><th>Method</th><th class="n">Precision</th><th class="n">Recall</th><th class="n">F1</th></tr></thead><tbody>`+
+    h += `<div class="tablewrap"><table class="evaltable"><thead><tr><th>Method</th><th class="n">Precision</th><th class="n">Recall</th><th class="n">F1</th></tr></thead><tbody>`+
       Object.entries(names).map(([k,v])=>`<tr class="${k==='fusion'?'me':''}"><td>${v}</td><td class="n">${ci(E.pooled[k].precision)}</td><td class="n">${ci(E.pooled[k].recall)}</td><td class="n">${ci(E.pooled[k].f1)}</td></tr>`).join('')+
-      `</tbody></table><div class="muted" style="font-size:11.5px;margin-top:6px">% with 95% CI · ${E.set} · ${E.n_agreed} photo-interpreted reference points, 2 blind interpreters (κ = ${E.cohens_kappa}) + blind adjudicator, stratum-weighted. Intervals: ${E.intervals.map(i=>i.join(' → ')).join('; ')}.</div>`;
+      `</tbody></table></div><div class="muted" style="font-size:11.5px;margin-top:6px">% with 95% CI · ${E.set} · ${E.n_agreed} photo-interpreted reference points, 2 blind interpreters (κ = ${E.cohens_kappa}) + blind adjudicator, stratum-weighted. Intervals: ${E.intervals.map(i=>i.join(' → ')).join('; ')}.</div>`;
   } else h += '<div class="muted">Evaluation pending.</div>';
   h += `<div style="font-size:12.5px;margin-top:10px"><b>Do not use it to</b> fine an individual farmer: a 20 m pixel is evidence for a field visit, not proof. Recently tilled soil can look like char; fields burnt and tilled inside a cloudy gap are missed. ${M.student_oof_auc ? `Student spatial-CV AUC ${M.student_oof_auc} on ${M.n_labelled} labelled transitions.` : `Weak-label spatial-CV AUC ${M.weak_label_auc_spatial_cv[0]}.`} Reference labels are AI photo-interpretation, not field truth.</div>`;
   el.innerHTML = h;

@@ -1,7 +1,7 @@
 [project]
 name = "paraliwatch"
 version = "0.1.0"
-description = "Add your description here"
+description = "Weekly burn-scar mapping for Punjab using MODIS and Sentinel-2"
 readme = "README.md"
 authors = [
     { name = "Shuhul Razdan", email = "shuhul.aiml@gmail.com" }

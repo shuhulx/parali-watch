@@ -1,17 +1,21 @@
-# Weekly now-cast refresh during the burning season (Mon 02:30 UTC = 08:00 IST).
-# The data/ cache (STAC catalogue + ARD) is restored between runs, so each run only
-# ingests scenes the catalogue has not seen, then republishes site/ to GitHub Pages.
-name: weekly-refresh
+# Publish the fixed 2024 demonstration on demand; it is not a live weekly feed.
+name: publish-demo
 on:
-  schedule:
-    - cron: "30 2 * 10,11 1"
   workflow_dispatch:
+    inputs:
+      rebuild:
+        description: Rebuild the fixed 2024 season before publishing
+        type: boolean
+        default: false
 permissions:
   contents: read
   pages: write
   id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
-  refresh:
+  publish:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     environment:
@@ -20,13 +24,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
+        if: inputs.rebuild
       - uses: actions/cache@v4
+        if: inputs.rebuild
         with:
           path: data
-          key: paraliwatch-data-${{ github.run_id }}
-          restore-keys: paraliwatch-data-
-      - run: uv sync --frozen
-      - run: uv run paraliwatch run -c config/punjab_2024.yaml
+          key: paraliwatch-data-${{ runner.os }}-${{ hashFiles('uv.lock', 'config/punjab_2024.yaml', 'src/paraliwatch/ard.py') }}-${{ github.run_id }}
+          restore-keys: |
+            paraliwatch-data-${{ runner.os }}-${{ hashFiles('uv.lock', 'config/punjab_2024.yaml', 'src/paraliwatch/ard.py') }}-
+      - run: make run
+        if: inputs.rebuild
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

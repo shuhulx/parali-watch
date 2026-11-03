@@ -11,7 +11,7 @@ Pipeline: `ingest -> ard -> fuse -> features -> evaluate -> asset` (`cli.py:run`
 - **Idempotent refresh.** `is_current` is true only if the hash matches and every asset file exists. `ard.py:run` builds only scenes where it is false.
 - **Invalidation.** Changing a parameter changes the hash, so exactly the products it touches are rebuilt.
 - **Lineage.** Any burn pixel traces back to scene IDs.
-- `ingest.py:discover` stores metadata only. Pixels are fetched later, so a refresh costs O(new scenes).
+- `ingest.py:discover` stores metadata only. Pixels are fetched later. Ingestion and ARD reuse current scenes; downstream stages still rebuild.
 
 ## (b) One canonical grid
 
@@ -36,7 +36,7 @@ Pipeline: `ingest -> ard -> fuse -> features -> evaluate -> asset` (`cli.py:run`
 
 1. `fold` streams scenes in date order, keeping each pixel's last clear observation. Each clear-to-clear transition with an NBR drop above `change_min_dnbr` **or** a SWIR-1 darkening above `change_min_dswir` is a candidate. Memory is one previous scene plus transitions; a new scene adds one step.
 2. `weak_labels`: positive = MODIS fire in the pixel's own cell during the interval; negative = no fire within +/-2 cells and +/-2 days, and the cell was observed; else unlabelled.
-3. `fit`: balanced logistic regression on Sentinel-2 features only (`FEATURES`, now including 5×5 local context). This is the *teacher*; section (k) adds the student that produces the final map. MODIS is kept out of the features so the model cannot read its own label. Validation is spatial `GroupKFold` over 1 km cells, so neighbouring pixels never straddle train and test.
+3. `fit`: balanced logistic regression on Sentinel-2 features only (`FEATURES`, now including 5×5 local context). This is the *teacher*; section (k) adds the student that produces the final map. MODIS is kept out of the features so the model cannot read its own label. Validation is spatial `GroupKFold` over 1 km cells, so pixels from the same 1 km cell never straddle train and test; adjacent cells may still be neighbours.
 4. The first transition over threshold (teacher: Neyman–Pearson; final: student threshold, see (k)) is the pixel's burn, reported in the week Sentinel-2 observed it. Evidence is `2` MODIS-confirmed, `1` S2-only, +10 if the gap exceeds `max_gap_days`.
 5. `FireIndex` holds cumulative sums over days (`_cum`), so "any fire in cell c between days a and b" is two array reads, O(1) per transition.
 
@@ -49,7 +49,7 @@ Labels are noisy by construction (a burning 1 km cell also holds unburnt fields)
 - **H3 res 8** (~0.74 km2, roughly a village's fields) is the join key. `hex_index` assigns each pixel to a hex once (cached in `data/cache`); every 20 m, 500 m and 1 km layer then aggregates with `bincount`.
 - **Exact roll-up to res 7** via `h3.cell_to_parent`, used for the dispatch list. Columns are additive (hectares, fire cell-days), so sums at res 7 are exact.
 - **GeoParquet, hive-partitioned by ISO week** (`week=2024-W43/`). A refresh rewrites only the weeks it computes.
-- **Atomic swap.** Each week is written to `.tmp-<week>` and renamed over the partition, so readers never see a half-written week.
+- **Partition replacement.** Each week is written to `.tmp-<week>`, then the old partition is removed and the new one renamed. This avoids partial files but has a brief missing-partition window; concurrent readers are not supported.
 - **DuckDB views** `hex_week` and `hex_season` (`connect`) make the data queryable with `paraliwatch query`.
 - `s2_seen_frac` and `s2_clear_scenes` are stored so the dashboard can say how much of a hex Sentinel-2 actually saw.
 
@@ -63,13 +63,15 @@ Labels are noisy by construction (a burning 1 km cell also holds unburnt fields)
 
 ## (h) Static dashboard
 
-`asset.py:build` renders one `site/index.html` from SQL over the feature store, with weekly PNG overlays and MODIS cells for the scale contrast. A phone opens one file; no server to keep alive; hostable on any static host. `_evidence` assigns confirmed / s2-only / modis-only / none per cluster.
+`asset.py:build` renders one `site/index.html` from SQL over the feature store, with weekly PNG overlays and MODIS cells for the scale contrast. A browser loads the generated HTML and PNG overlays; no server to keep alive; hostable on any static host. `_evidence` assigns confirmed / s2-only / modis-only / none per cluster.
 
-## Weekly refresh
+## Re-running the configured season
+
+The supplied configuration is fixed to September-November 2024. The GitHub workflow is manual and can publish the committed demo without retraining. It does not provide a live weekly service. The student uses a later clear view for char-persistence features, so earlier weeks can change as scenes arrive. A live version needs a strict information cutoff and a separate temporal evaluation.
 
 ```mermaid
 sequenceDiagram
-    participant U as Cron / officer
+    participant U as Operator
     participant I as ingest
     participant C as STAC catalogue
     participant A as ard
@@ -82,7 +84,7 @@ sequenceDiagram
     C-->>A: new scenes only
     A->>C: add derived items (derived_from, params)
     F->>C: read ARD, fit, write burn-season
-    S->>S: rewrite week partitions atomically
+    S->>S: replace week partitions
     W->>S: SQL (hex_week)
     W-->>U: site/index.html
 ```
@@ -91,7 +93,7 @@ Cost: ingest and ARD are O(new scenes). Fusion re-reads the compact ARD files an
 
 ## (i) What I would do for production
 
-- **VIIRS 375 m active fire** (VNP14IMG). MODIS Terra and Aqua are end-of-life, so the supervisory signal needs a successor with finer pixels.
+- **VIIRS 375 m active fire** (VNP14IMG). A finer active-fire signal is worth testing for small fields.
 - **Sentinel-1** SAR for smog weeks when Sentinel-2 is blind.
 - **Field-boundary polygons** so detections aggregate to fields, not hexes. A first attempt (pixel voting over segments, `objects.py`) failed, see (k).
 - **More and human-made labels**, the binding constraint on accuracy (the label desk exists for this).
@@ -129,13 +131,13 @@ flowchart LR
 2. **Teacher.** As in (e), plus 5×5 local-context features. Spatial-CV AUC against weak labels 0.746. Outputs `burn_season_teacher.tif`.
 3. **Gold labels.** Transitions drawn stratified over teacher-score bins, photo-interpreted by AI vision models: 222 (round 1) + 282 (round 2, haze-free scene pairs only) + 96 recycled from a retired test set = 600 probability-sampled labels; round 3 (v3) adds 262 active-learning labels (`fusion.active_sample`: 240 transitions closest to the student threshold in logit space, at most one per 1 km cell, plus 80 random mapped-burn audits). Total 862, 189 burns. A recycled label maps to a transition only when exactly one transition lies wholly inside the labelled interval. Labels match transitions on the exact (pixel, pre, post) triple. Any label in a 1 km cell holding a sealed test point (test set 1 or holdout B) is dropped, and MODIS weak labels from sealed cells are excluded from fitting the teacher and its threshold.
 4. **Student.** `HistGradientBoosting` on S2 features, temporal features (`b12_next`, `nbr_next`, `next_gap`: char persistence in the next clear view; `hot_pre`, `hot_post`) and MODIS features (`modis_own`, `modis_near`, `modis_high`, `modis_frp_max`, `modis_seen_frac`, `teacher_p`). MODIS can be a feature now because the labels no longer derive from it.
-5. **Threshold and CV.** Each label gets a design weight (teacher-score bin share ÷ labels in that bin); the threshold maximises population-weighted F1. Validation is spatially nested: 3 km blocks, teacher refit inside each fold. Active-learning rows are not a probability sample, so they train in every fold but are never scored (`scored` mask in `_student`, design weight 0): OOF F1, threshold and the self-training gate use the 600 scored labels. Because the AL batch was chosen by a model fit on all labels and the threshold maximises the reported OOF F1, the CV figure is mildly optimistic; holdout B is the unbiased number. If a run dies after round-3 sampling, the trigger re-renders the chips. Student AUC 0.899, population-weighted F1 0.592, threshold 0.25 (v2: 0.559 / 0.23; before active learning 0.573). Design weights are a teacher-score-bin approximation across cohorts with different sampling designs (known approximation).
+5. **Threshold and CV.** Each label gets a design weight (teacher-score bin share ÷ labels in that bin); the threshold maximises population-weighted F1. Validation is spatially nested: 3 km blocks, teacher refit inside each fold. Active-learning rows are not a probability sample, so they train outside each held-out spatial block but are never scored (`scored` mask in `_student`, design weight 0): OOF F1, threshold and the self-training gate use the 600 scored labels. Because the AL batch was chosen by a model fit on all labels and the threshold maximises the reported OOF F1, the CV figure is mildly optimistic; holdout B is the held-out estimate against AI-interpreted reference labels. If a run dies after round-3 sampling, the trigger re-renders the chips. Student AUC 0.899, population-weighted F1 0.592, threshold 0.25 (v2: 0.559 / 0.23; before active learning 0.573). Design weights are a teacher-score-bin approximation across cohorts with different sampling designs (known approximation).
 6. **Self-training.** Up to 500 pseudo-labels per class at weight 0.1 (teacher-confident, MODIS-consistent). The pool is excluded at 1 km-cell level (gold and sealed cells), not 3 km blocks, because the sealed sets now touch all 156 blocks. In nested CV pseudo-labels are dropped from held-out blocks, re-derived per fold with the fold teacher and kept only where it agrees. `fusion.py` adopts it only on a real CV gain. v2 adopted it (0.548 → 0.559); in v3 it lost (510 pseudo-labels, 0.581 < 0.592), so it is rejected.
 7. **Outputs.** `burn_season_pixel.tif` is the student map; `burn_season.tif` is the same file while `field_voting` is false.
 
 **Tried and rejected.** *Field-object voting* (`objects.py`, written by Codex): segments are about 50 px but burn pixels cover about 5% of a segment, so voting erased scars; disabled in config. *Char-albedo gate* (v1): no gain on the held-out interval.
 
-**External review.** Codex (model `gpt-6-astra`) reviewed the pipeline. Its ten recommendations were all implemented; one part was not (below the table):
+**External review.** Codex (model `gpt-6-astra`) reviewed the pipeline. The recommendations and outcomes are recorded below; stable-stratum expansion remains future evaluation work:
 
 | # | Recommendation | Status |
 |---|----------------|--------|
@@ -152,4 +154,4 @@ flowchart LR
 
 Not done: enlarging the stable strata. The stratification map that recommendation referred to had already been superseded.
 
-**Result.** Holdout B (sealed, scored once) F1 0.190 [0.117, 0.306] adjudicated, 0.378 [0.234, 0.506] unanimous, dispute bracket 0.215–0.374; teacher 0.084, v1 0.178 (0.015 unanimous). Interpreter κ was 0.55, so the adjudicator moves the headline. On the development set (test set 1, scored four times) v3 reaches 0.339. F1 0.9 is not supported; the binding constraint is label quality. Late-season Sentinel-2-only area coincides with the weakest interval (late November, F1 0.08) and is an upper bound. See `docs/MODEL_CARD.md`.
+**Result.** Holdout B (sealed, scored once) F1 0.190 [0.117, 0.306] adjudicated, 0.378 [0.234, 0.506] unanimous, dispute-sensitivity estimates 0.215 and 0.374; teacher 0.084, v1 0.178 (0.015 unanimous). Interpreter κ was 0.55, so the adjudicator moves the headline. On the development set (test set 1, scored four times) v3 reaches 0.339. The adjudicated holdout F1 is 0.190; the binding constraint is label quality. Late-season Sentinel-2-only area coincides with the weakest interval (late November, F1 0.08) and may be inflated. See `docs/MODEL_CARD.md`.
