@@ -11,7 +11,7 @@ Pipeline: `ingest -> ard -> fuse -> features -> evaluate -> asset` (`cli.py:run`
 - **Idempotent refresh.** `is_current` is true only if the hash matches and every asset file exists. `ard.py:run` builds only scenes where it is false.
 - **Invalidation.** Changing a parameter changes the hash, so exactly the products it touches are rebuilt.
 - **Lineage.** Any burn pixel traces back to scene IDs.
-- **Scene failures.** If any Sentinel-2 ARD build fails, the command stops before fusion and keeps completed scenes for the next retry. Required final/teacher prediction rasters must exist before evaluation; optional missing baselines are marked unavailable.
+- **Scene failures.** Failed Sentinel-2 builds are logged and counted while processing continues with available scenes. Completed scenes are kept for retry. A partial run has reduced coverage and can fail evaluation if a required reference-date scene is unavailable. Required final/teacher prediction rasters must exist before evaluation; optional missing baselines are marked unavailable.
 - `ingest.py:discover` stores metadata only. Pixels are fetched later. Ingestion and ARD reuse current scenes; downstream stages still rebuild.
 
 ## (b) One canonical grid

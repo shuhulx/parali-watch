@@ -58,7 +58,7 @@ make lint       # ruff
 make clean      # remove derived data; keep raw MODIS and grid caches
 ```
 
-The frozen sample and label CSVs under `reference/` are inputs. Keep them when reproducing the reported evaluation. A failed scene build stops the run before fusion and preserves completed scenes for retry. Evaluation requires the final and teacher prediction rasters; it also exports the unanimous-reference comparison separately. A cold run cannot reproduce the retired v1 map, which is not committed; unavailable baselines are identified in the evaluation. Reported v1 results are historical, not an output promised by `make run`.
+The frozen sample and label CSVs under `reference/` are inputs. Keep them when reproducing the reported evaluation. Failed Sentinel-2 scene builds are logged and counted; processing continues with available scenes, and completed scenes are cached for retry. Partial runs have reduced coverage and may not reproduce the reported results. Evaluation still needs its reference-date imagery and the final and teacher prediction rasters; it also exports the unanimous-reference comparison separately. A cold run cannot reproduce the retired v1 map, which is not committed; unavailable baselines are identified in the evaluation. Reported v1 results are historical, not an output promised by `make run`.
 
 ## From data to decision
 

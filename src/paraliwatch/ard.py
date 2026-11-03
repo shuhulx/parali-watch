@@ -239,12 +239,6 @@ def run(settings: Settings, cat: LocalCatalog, grid: Grid, workers: int = 4) -> 
             done["s2_built"] += 1
             cat.save()
 
-    if done["s2_failed"]:
-        raise RuntimeError(
-            f"{done['s2_failed']} Sentinel-2 scene(s) failed ARD; stopping before fusion. "
-            "Completed scenes are retained. Rerun the same command to retry the missing scenes."
-        )
-
     # MODIS layers are tiny: rebuild whenever the set of source items changes.
     start, end = settings.season
     fire_items = cat.items("source-modis-fire")

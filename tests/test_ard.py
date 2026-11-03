@@ -1,5 +1,4 @@
 import numpy as np
-import pytest
 
 from paraliwatch.ard import SHADOW_CASTER_M, s2_valid_mask
 
@@ -46,7 +45,7 @@ def test_smog_haze_is_masked_but_clear_field_is_kept(tmp_path):
     assert valid.tolist() == [[True, False]]
 
 
-def test_scene_failure_stops_the_pipeline_but_keeps_completed_ard(tmp_path, monkeypatch):
+def test_scene_failure_is_reported_while_completed_ard_is_kept(tmp_path, monkeypatch, caplog):
     from datetime import datetime, timezone
     from types import SimpleNamespace
 
@@ -56,7 +55,11 @@ def test_scene_failure_stops_the_pipeline_but_keeps_completed_ard(tmp_path, monk
     from paraliwatch.catalog import LocalCatalog
     from paraliwatch.config import Settings
 
-    settings = Settings(raw={"paths": {"data": "data"}}, root=tmp_path)
+    settings = Settings(raw={
+        "paths": {"data": "data"},
+        "season": {"start": "2024-10-01", "end": "2024-10-01"},
+        "fusion": {"fire_min_class": 7},
+    }, root=tmp_path)
     cat = LocalCatalog(tmp_path / "catalog")
     for name in ("good", "failed"):
         cat.add("source-s2", pystac.Item(
@@ -71,9 +74,14 @@ def test_scene_failure_stops_the_pipeline_but_keeps_completed_ard(tmp_path, monk
         return {"valid_fraction": 1.0}
 
     monkeypatch.setattr(ard, "build_s2_ard", build)
+    monkeypatch.setattr(ard, "build_fire_stack", lambda items, grid, raw, start, end: (
+        [start], np.zeros((1, 1, 1), np.uint8), np.zeros((1, 1, 1), bool), np.zeros((1, 1, 1), np.float32),
+    ))
+    monkeypatch.setattr(ard, "build_mcd64", lambda *args: np.zeros((1, 1), np.int32))
     settings.raw["aoi"] = {"bbox": [76.1, 30.36, 76.45, 30.69]}
-    with pytest.raises(RuntimeError, match="stopping before fusion"):
-        ard.run(settings, cat, SimpleNamespace(signature="test-grid"), workers=1)
+    result = ard.run(settings, cat, SimpleNamespace(signature="test-grid"), workers=1)
+    assert result["s2_failed"] == 1 and result["s2_built"] == 1
+    assert "simulated network failure" in caplog.text
     saved = LocalCatalog(cat.root)
     assert saved.get("ard-s2", "ard-good") is not None
     assert saved.get("ard-s2", "ard-failed") is None
