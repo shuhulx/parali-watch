@@ -1,7 +1,7 @@
 # AI assistance
 
-I used **Claude Code** for design discussion, implementation, debugging and pipeline runs. I requested **OpenAI Codex** reviews to check the code and evaluation; Codex also implemented the field-voting experiment, which was later disabled, and helped with the final documentation and dashboard polish.
+I used **Claude Code and OpenAI Codex** for implementation, debugging, code review and documentation. Prompts covered the data-to-decision pipeline, accuracy improvements, reproducibility checks and walkthrough preparation.
 
-The prompts focused on completing the data-to-decision pipeline, improving burn detection, checking training/test separation and preparing explanations for the live walkthrough. My inputs included the working reference number 123456, the accuracy goals, requests for independent review and the final submission scope. Code changes and verification were carried out with the assistants.
+My inputs included the working reference number, the submission scope and requests for review. During final review, I questioned whether one failed satellite scene should abort the entire run. This led to restoring partial scene processing with warnings and cached successes; evaluation still requires the imagery needed for its reference dates. I also asked to keep the review narrow and avoid unnecessary model changes. Thresholds, features and training labels were left unchanged during that review.
 
-Claude vision models interpreted the satellite chips used for training and evaluation labels. Those labels are AI photo-interpretation, not field-verified ground truth. The model card records the labelling method, rejected experiments and evaluation limits.
+Claude vision models produced the training and reference annotations. These are AI interpretations, not field-verified labels; the model card records their uncertainty and the evaluation limits.
